@@ -27,7 +27,7 @@ const AppNavigator = createAppContainer(navigator);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black', // Set your global background color here
+    backgroundColor: '#0F3D3E', // Set your global background color here
   },
 });
 

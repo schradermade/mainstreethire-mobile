@@ -12,7 +12,6 @@ const SearchScreen = () => {
         onTermChange={(newTerm) => setTerm(newTerm)}
         onTermSubmit={() => console.log('term submitted')}  
       />
-      <Text>Search Screen</Text>
       <Text>{term}</Text>
     </View>
   )
@@ -20,7 +19,7 @@ const SearchScreen = () => {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: 'black',
+    backgroundColor: '#0F3D3E',
     flex: 1,
   }
 });
