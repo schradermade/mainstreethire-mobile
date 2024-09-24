@@ -18,7 +18,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <AppNavigator />
-      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 
