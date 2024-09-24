@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
-import EvilIcons from '@expo/vector-icons/EvilIcons';
+import Octicons from '@expo/vector-icons/Octicons';
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -19,14 +19,16 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 
   useEffect(() => {
     // Set an interval to change the dynamic part of the placeholder every 2 seconds
-    const intervalId = setInterval(() => {
-      slideInPlaceholder();
-      // Update dynamic placeholder text index
-      setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
-    }, 3500);
-
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, []);
+    if (!term) {  // Only run if term is empty
+      const intervalId = setInterval(() => {
+        slideInPlaceholder();
+        // Update dynamic placeholder text index
+        setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
+      }, 3500);
+  
+      return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    }
+  }, [term]);
 
   useEffect(() => {
     setDynamicPlaceholder(placeholders[placeholderIndex]); // Update dynamic placeholder value
@@ -55,8 +57,8 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   return (
     <View style={[styles.background, isFocused && styles.focusedInput]}>
       {isFocused 
-        ? <EvilIcons name="arrow-left" style={styles.iconStyle} onPress={handleArrowLeftClick} /> 
-        : <EvilIcons name='search' style={styles.iconStyle} />
+        ? <Octicons name="arrow-left" size={24} style={styles.iconStyle} onPress={handleArrowLeftClick} />
+        : <Octicons name="search" size={24} style={styles.iconStyle} />
       }
       <View style={styles.inputWrapper}>
         <TextInput
@@ -74,18 +76,24 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
           onBlur={() => setIsFocused(false)}
         />
         <View style={styles.placeholderWrapper}>
-          <Text style={styles.staticText}>Find </Text>
-          <Animated.View
-            style={[
-              styles.dynamicTextWrapper,
-              {
-                transform: [{ translateY: animatedValue }],
-                opacity: opacityValue,
-              },
-            ]}
-          >
-            <Text style={styles.dynamicText}>{dynamicPlaceholder}</Text>
-          </Animated.View>
+          {/* Only show placeholder if term is empty */}
+          {term === '' && (
+            <>
+              <Text style={styles.staticText}>Find </Text>
+              <Animated.View
+                style={[
+                  styles.dynamicTextWrapper,
+                  {
+                    transform: [{ translateY: animatedValue }],
+                    opacity: opacityValue,
+                  },
+                ]}
+                pointerEvents="none"
+              >
+                <Text style={styles.dynamicText}>{dynamicPlaceholder}</Text>
+              </Animated.View>
+            </>
+          )}
         </View>
       </View>
     </View>
@@ -94,9 +102,11 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: '#1C2513',
+    backgroundColor: '#33494d',
     height: 50,
     borderRadius: 50,
+    borderColor: '#4D5E58',
+    borderWidth: .3,
     marginHorizontal: 15,
     flexDirection: 'row',
     marginTop: 10,
@@ -106,7 +116,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     color: '#FFFFFF',
-    // paddingLeft: 80, // Adjust padding to prevent overlap with placeholder
+    zIndex: 10000
   },
   inputWrapper: {
     flex: 1,
@@ -117,7 +127,6 @@ const styles = StyleSheet.create({
   placeholderWrapper: {
     position: 'absolute',
     flexDirection: 'row', // "Find" and animated text in the same row
-    // left: 40, // Align the placeholder with input text
     alignItems: 'center', // Vertically center the text
   },
   staticText: {
@@ -135,11 +144,11 @@ const styles = StyleSheet.create({
     fontSize: 30,
     alignSelf: 'center',
     marginHorizontal: 15,
-    color: 'white'
+    color: 'black'
   },
   focusedInput: {
-    borderColor: '#FFFFFF',
-    borderWidth: 1,
+    borderColor: 'gray',
+    borderWidth: 1.5,
     borderRadius: 50
   }
 });
