@@ -55,11 +55,13 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   };
 
   return (
-    <View style={[styles.background, isFocused && styles.focusedInput]}>
-      {isFocused 
-        ? <Octicons name="arrow-left" size={24} style={styles.iconStyle} onPress={handleArrowLeftClick} />
-        : <Octicons name="search" size={24} style={styles.iconStyle} />
-      }
+    <View style={[styles.container, isFocused && styles.focusedInput]}>
+      <View style={styles.iconsContainer}>
+        {isFocused 
+          ? <Octicons name="arrow-left" size={24} style={styles.iconStyle} onPress={handleArrowLeftClick} />
+          : <Octicons name="search" size={24} style={styles.iconStyle} />
+        }
+      </View>
       <View style={styles.inputWrapper}>
         <TextInput
           ref={textInputRef}
@@ -101,12 +103,12 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 };
 
 const styles = StyleSheet.create({
-  background: {
+  container: {
     backgroundColor: '#33494d',
     height: 50,
     borderRadius: 50,
-    borderColor: '#4D5E58',
-    borderWidth: .3,
+    borderColor: '#AFB3A8',
+    borderWidth: .2,
     marginHorizontal: 15,
     flexDirection: 'row',
     marginTop: 10,
@@ -140,15 +142,18 @@ const styles = StyleSheet.create({
     color: '#8D9383',
     fontSize: 18,
   },
+  iconsContainer: {
+    width: 61
+  },
   iconStyle: {
     fontSize: 30,
     alignSelf: 'center',
     marginHorizontal: 15,
-    color: 'black'
+    color: '#AFB3A8'
   },
   focusedInput: {
-    borderColor: 'gray',
-    borderWidth: 1.5,
+    borderColor: '#AFB3A8',
+    borderWidth: 1.25,
     borderRadius: 50
   }
 });

@@ -1,18 +1,6 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import SearchScreen from './src/screens/SearchScreen';
 import { SafeAreaView, StyleSheet } from "react-native";
-
-const navigator = createStackNavigator({
-  Search: SearchScreen,
-}, 
-{
-  initialRouteName: 'Search',
-  defaultNavigationOptions: {
-    headerShown: false
-  }
-}
-)
+import TabNavigator from './src/navigation/TabNavigator';
 
 const App = () => {
   return (
@@ -22,7 +10,7 @@ const App = () => {
   )
 }
 
-const AppNavigator = createAppContainer(navigator);
+const AppNavigator = createAppContainer(TabNavigator);
 
 const styles = StyleSheet.create({
   container: {
