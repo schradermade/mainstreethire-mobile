@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet } from "react-native";
+import ImageCarousel from "../components/ImageCarousel";
 
 const SavedScreen = () => {
 
   return (
-    <View style={styles.background}>
-      <Text>Saved Screen</Text>
+    <View style={styles.touchableArea}>
+      <ImageCarousel images={[require('../../assets/sunriver.jpg'), require('../../assets/sunriver2.jpg')]} />
     </View>
   )
 }

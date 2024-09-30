@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
 import Octicons from '@expo/vector-icons/Octicons';
+import { colors, fontSize, spacing } from "../theme/theme";
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -104,20 +105,18 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#33494d',
+    backgroundColor: colors.primaryLightColor,
     height: 50,
-    borderRadius: 50,
-    borderColor: '#AFB3A8',
-    borderWidth: .2,
-    marginHorizontal: 15,
+    borderRadius: 25,
     flexDirection: 'row',
-    marginTop: 10,
     alignItems: 'center', // Align items to center vertically
+    marginVertical: spacing.large,
+    marginHorizontal: spacing.xxlarge,
   },
   inputStyle: {
     flex: 1,
-    fontSize: 18,
-    color: '#FFFFFF',
+    fontSize: fontSize.large,
+    color: colors.offWhiteFont,
     zIndex: 10000
   },
   inputWrapper: {
@@ -132,28 +131,28 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Vertically center the text
   },
   staticText: {
-    color: '#8D9383',
-    fontSize: 18,
+    color: colors.darkFont,
+    fontSize: fontSize.large,
   },
   dynamicTextWrapper: {
     // This wrapper is for the animated text
   },
   dynamicText: {
-    color: '#8D9383',
+    color: colors.darkFont,
     fontSize: 18,
   },
   iconsContainer: {
-    width: 61
+    width: 60
   },
   iconStyle: {
     fontSize: 30,
     alignSelf: 'center',
     marginHorizontal: 15,
-    color: '#AFB3A8'
+    color: colors.offWhiteFont
   },
   focusedInput: {
-    borderColor: '#AFB3A8',
-    borderWidth: 1.25,
+    borderColor: colors.borderColorLight,
+    borderWidth: 1.5,
     borderRadius: 50
   }
 });
