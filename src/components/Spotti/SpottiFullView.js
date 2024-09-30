@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Share } from "react-native";
 import { colors, spacing } from "../../theme/theme";
 import TitleArea from "./TitleArea";
 import ScreenWrapper from "../ScreenWrapper";
