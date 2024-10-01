@@ -1,7 +1,6 @@
 import React from "react";
-import SpottiTile from "./SpottiTile";
+import SpottiTile from './SpottiTile';
 import { FlatList, StyleSheet } from "react-native";
-import ScreenWrapper from "../ScreenWrapper";
 import { colors, spacing } from "../../theme/theme";
 
 const SpottiList = ({ spottis }) => {

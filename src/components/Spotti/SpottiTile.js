@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import ImageCarousel from "../ImageCarousel";
 import { spacing, colors } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
-import SpottiSubStats from "./SpottiSubStats";
 import { imagePathFormat } from "../../utils/imagePathFormat";
+import SpottiSubStats from "./SpottiSubStats";
 
 const SpottiTile = ({spotti}) => {
   const { id, name, description, category, hoursofOperation, rating, tags, bestTimeToVisit, title, pictures } = spotti;
@@ -28,7 +28,7 @@ const SpottiTile = ({spotti}) => {
           category={category} 
           hoursofOperation={hoursofOperation} 
           textColorTheme='dark'
-          starIconColor={colors.darkFont}
+          iconColor={colors.darkFont}
           bestTimeToVisit={bestTimeToVisit}
         />
       </View>

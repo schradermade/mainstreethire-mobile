@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SpottisScreen from "../screens/SpottisScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import NavigateScreen from "../screens/NavigateScreen";
-import SpottiFullView from "../components/Spotti/SpottiFullView";
+import SpottiFullView from "../components/SpottiFullView";
 import SavedScreen from "../screens/SavedScreen";
 import CommunityScreen from "../screens/CommunityScreen";
 
@@ -16,6 +16,20 @@ import { colors } from "../theme/theme";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
+
+const linking = {
+  prefixes: ['hotspotti-mobile://'],
+  config: {
+    screens: {
+      Spottis: {
+        screens: {
+          SpottiScreen: '',
+          SpottiFullView: 'spotti/:id',
+        },
+      },
+    },
+  },
+};
 
 function SpottiStack() {
   return (
@@ -27,8 +41,8 @@ function SpottiStack() {
       />
       <Stack.Screen 
         name="SpottiFullView" 
-        component={SpottiFullView} 
-        options={{ headerShown: false }} // Title for the details view
+        component={SpottiFullView}
+        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   )
@@ -37,11 +51,11 @@ function SpottiStack() {
 function TabsNavigator() {
 
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Tab.Navigator
         initialRouteName="Spottis"
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: ({ focused }) => {
             return (
               <MaterialCommunityIcons 
                 name={BOTTOM_TAB_ICONS[route.name].name}

@@ -1,12 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { colors, fontSize, spacing } from "../../theme/theme";
+import { StyleSheet, Text } from "react-native";
+import { colors, fontSize } from "../../theme/theme";
 
-const SpottiFullDescription = ({description}) => {
+const SpottiDescriptionSection = ({description}) => {
   return (
-    <View>
       <Text style={styles.descriptionText}>{description}</Text>
-    </View>
   )
 }
 
@@ -17,4 +15,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SpottiFullDescription;
+export default SpottiDescriptionSection;
