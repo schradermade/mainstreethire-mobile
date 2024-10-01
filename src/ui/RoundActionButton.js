@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     borderRadius: 25,      
     justifyContent: 'center', 
     alignItems: 'center',
-    shadowColor: colors.darkGray,
+    shadowColor: colors.white,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: .4,  
-    shadowRadius: 5,
+    shadowOpacity: .1,  
+    shadowRadius: 3,
   },
 });
 
