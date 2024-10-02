@@ -9,10 +9,10 @@ const ActionButtonsSection = ({ name, id }) => {
   const navigation = useNavigation();
 
   return (
-    <View style={[styles.actionButtonsContainer]}>
+    <View style={styles.actionButtonsContainer}>
       <RoundActionButton
         iconName={'arrow-left'}
-        iconSize={22} 
+        iconSize={22}
         iconColor={colors.offWhiteFont}
         onIconPress={() => navigation.navigate('SpottiScreen')}
       />
@@ -43,7 +43,7 @@ const ActionButtonsSection = ({ name, id }) => {
 const styles = StyleSheet.create({
   actionButtonsContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   shareVisitedSaveActionButtons: {
     flexDirection: 'row',

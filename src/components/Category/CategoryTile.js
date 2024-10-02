@@ -1,5 +1,5 @@
 import React from "react";
-import { colors, fontSize, spacing } from "../../theme/theme";
+import { borderRadius, colors, fontSize, spacing } from "../../theme/theme";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 45,
     borderWidth: 1.5,
-    borderRadius: 5,
+    borderRadius: borderRadius.small,
     marginRight: spacing.medium,
     paddingHorizontal: spacing.medium,
     marginBottom: spacing.xxxlarge
