@@ -24,19 +24,18 @@ const { spotti: {
 
   return (
     <ScreenWrapper style={styles.container}>
+      {/* Action Buttons Section */}
+      <View style={styles.actionButtonContainer}>
+        <ActionButtonsSection name={name} id={id} />
+      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
+        // style={{paddingBottom: 1000}}
       >
-        {/* Action Buttons Section */}
-        <View style={styles.sectionPadding}>
-          <ActionButtonsSection name={name} id={id} />
-        </View>
         {/* Images Section*/}
-        <View style={styles.sectionPadding}>
           <ImagesSection images={pictures} />
-        </View>
         {/* Title Section */}
-        <View style={styles.sectionPadding}>
+        <View style={styles.sectionContainer}>
           <TitleSection
             title={name}
             rating={rating}
@@ -46,15 +45,15 @@ const { spotti: {
             tags={tags}
           />
         </View>
-        <View style={styles.sectionPadding}>
+        <View style={styles.sectionContainer}>
           <Divider />
         </View>
         {/* Spotti Description Section */}
-        <View style={styles.sectionPadding}>
+        <View style={styles.sectionContainer}>
           <SpottiDescriptionSection description={description} />
         </View>
         {/* Spotti Rating Section*/}
-        <View style={styles.sectionPadding}>
+        <View style={styles.sectionContainer}>
           <SpottiRatingSection rating={rating} />
         </View>
       </ScrollView>
@@ -64,11 +63,20 @@ const { spotti: {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    paddingBottom: 300
   },
-  sectionPadding: {
-    paddingBottom: spacing.xlarge
+  sectionContainer: {
+    paddingTop: spacing.xlarge,
+    paddingHorizontal: spacing.xlarge,
   },
+  actionButtonContainer: {
+    paddingVertical: spacing.large,
+    paddingHorizontal: spacing.large,
+  },
+  dividerContainer: {
+    paddingTop: spacing.xlarge,
+  }
 })
 
 export default SpottiFullView;

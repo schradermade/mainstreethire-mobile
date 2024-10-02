@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { colors } from "../theme/theme";
+import { colors, borderRadius } from "../theme/theme";
 
 const RoundActionButton = ({ onIconPress, iconName, iconColor, iconSize, styling }) => {
   return (
@@ -25,13 +25,13 @@ const styles = StyleSheet.create({
     height: 36,            
     width: 36,             
     backgroundColor: colors.darkGray, 
-    borderRadius: 25,      
+    borderRadius: 18,
     justifyContent: 'center', 
     alignItems: 'center',
-    shadowColor: colors.white,
+    shadowColor: colors.light,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: .1,  
-    shadowRadius: 3,
+    shadowRadius: borderRadius.xsmall,
   },
 });
 

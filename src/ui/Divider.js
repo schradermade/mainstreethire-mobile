@@ -1,16 +1,15 @@
 import React from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { colors } from "../theme/theme";
 
 const Divider = () => {
-  const screenWidth = Dimensions.get('window').width; // Get screen width
 
-  return <View style={[styles.divider, { width: screenWidth }]} />;
+  return <View style={styles.divider} />;
 };
 
 const styles = StyleSheet.create({
   divider: {
-    height: 1,
+    height: .5,
     backgroundColor: colors.borderColorDark || 'black',
   },
 });

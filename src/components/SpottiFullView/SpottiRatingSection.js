@@ -67,7 +67,7 @@ const SpottiRatingSection = ({rating}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: windowWidth,
+    // width: windowWidth,
   },
   ratingContainer: {
     flexDirection: 'row',

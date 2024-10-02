@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { colors, spacing, fontSize } from "../../theme/theme";
+import { colors, spacing, fontSize, borderRadius } from "../../theme/theme";
 
 const TagTile = ({ tag }) => {
   return (
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   container: {
     borderColor: colors.borderColorLight,
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: borderRadius.small,
     justifyContent: 'center',
     alignItems: 'center',
     width: 'auto',

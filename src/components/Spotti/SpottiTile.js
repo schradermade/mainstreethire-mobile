@@ -12,12 +12,15 @@ const SpottiTile = ({spotti}) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity 
+    <TouchableOpacity
       style={styles.container} 
       onPress={() => navigation.navigate('SpottiFullView', { spotti })}
       activeOpacity={1}
     >
-      <ImageCarousel images={imagePathFormat(pictures)} />
+      <ImageCarousel 
+        images={imagePathFormat(pictures)} 
+        applyBorderRadius={true}
+      />
       <View style={styles.infoContainer}>
         <View>
           <Text style={styles.nameText}>{name}</Text>

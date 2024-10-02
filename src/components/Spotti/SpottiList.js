@@ -1,9 +1,9 @@
 import React from "react";
 import SpottiTile from './SpottiTile';
-import { FlatList, StyleSheet } from "react-native";
-import { colors, spacing } from "../../theme/theme";
+import { FlatList, Text, StyleSheet } from "react-native";
+import { colors } from "../../theme/theme";
 
-const SpottiList = ({ spottis }) => {
+const SpottiList = ({ spottis = [] }) => {
 
   return (
       <FlatList 
@@ -12,18 +12,22 @@ const SpottiList = ({ spottis }) => {
         renderItem={({ item }) => {
           return <SpottiTile spotti={item} />;
         }}
-        showsVerticalScrollIndicator={false} 
+        showsVerticalScrollIndicator={true} 
         contentContainerStyle={styles.spottisContainer}
+        scrollEnabled={true}
+        ListEmptyComponent={<Text style={styles.emptyText}>No Spottis Available</Text>}
       />
   )
 }
 
 const styles = StyleSheet.create({
   spottisContainer: {
-    paddingBottom: 225,
+    paddingBottom: 40,
     backgroundColor: colors.primaryColor,
-    marginHorizontal: spacing.xxlarge,
-
+    alignItems: 'center'
+  },
+  emptyText: {
+    color: colors.darkFont
   }
 });
 

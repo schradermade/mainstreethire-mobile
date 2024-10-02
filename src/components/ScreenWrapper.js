@@ -13,8 +13,8 @@ const ScreenWrapper = ({ children }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    paddingVertical: spacing.medium,
-    paddingHorizontal: spacing.xxlarge,
+    // paddingVertical: spacing.medium,
+    // paddingHorizontal: spacing.xxlarge,
     backgroundColor: colors.primaryColor
   }
 })

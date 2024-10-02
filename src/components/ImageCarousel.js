@@ -1,26 +1,48 @@
 import React, { forwardRef } from 'react';
 import { View, Image, StyleSheet, Dimensions } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-import { spacing } from '../theme/theme';
+import { borderRadius, spacing } from '../theme/theme';
 
-const SLIDER_WIDTH = Dimensions.get('window').width - spacing.xxlarge*2;
+const SLIDER_WIDTH = Dimensions.get('window').width;
 
-const ImageCarousel = forwardRef(({ images }, ref) => {
+const ImageCarousel = forwardRef(({ 
+  images, 
+  applyBorderRadius = false, 
+  isFullView = false },
+  ref
+) => {
+  const borderRadiusValue = applyBorderRadius ? borderRadius.large : 0;
+  const widthValue = isFullView ? SLIDER_WIDTH : SLIDER_WIDTH - spacing.xxlarge*2
+
   return (
       <View ref={ref}>
         <Carousel
           data={images}
           renderItem={({ item }) => (
-            <View style={styles.imageWrapper}>
-              <Image source={item} style={styles.image} resizeMode="cover" />
+            <View style={[
+                styles.imageWrapper, 
+                {borderRadius: borderRadiusValue}
+              ]}
+            >
+              <Image 
+                source={item} 
+                style={{
+                  height: widthValue, 
+                  width: widthValue, 
+                  maxHeight: isFullView ? widthValue-50 : widthValue,
+                }} 
+                resizeMode="cover"
+              />
             </View>
           )}
-          width={SLIDER_WIDTH}
-          height={SLIDER_WIDTH}
+          width={widthValue}
+          height={isFullView ? widthValue-50 : widthValue}
           loop={true}
           autoPlay={false}
+          scrollAnimationDuration={1000} 
           panGestureHandlerProps={{
-            activeOffsetX: [-10, 10], // To make the swipes more responsive
+            activeOffsetX: [-10, 10],
+            failOffsetY: [-10, 10],
           }}
         />
       </View>
@@ -29,13 +51,9 @@ const ImageCarousel = forwardRef(({ images }, ref) => {
 
 const styles = StyleSheet.create({
   imageWrapper: {
-    borderRadius: 15,
     overflow: 'hidden',
   },
-  image: {
-    width: SLIDER_WIDTH, // Fill the available width
-    height: SLIDER_WIDTH, // Fill the available height
-  },
+
 });
 
 export default ImageCarousel;

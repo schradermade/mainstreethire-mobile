@@ -4,7 +4,7 @@ import { imagePathFormat } from "../../utils/imagePathFormat";
 
 const ImagesSection = ({ images }) => {
   return (
-    <ImageCarousel images={imagePathFormat(images)} />
+    <ImageCarousel images={imagePathFormat(images)} isFullView />
   )
 }
 
