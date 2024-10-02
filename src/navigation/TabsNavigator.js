@@ -2,7 +2,7 @@ import { Text } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'; // Updated import for native stack
 
 import SpottisScreen from "../screens/SpottisScreen";
 import ProfileScreen from "../screens/ProfileScreen";
@@ -15,7 +15,7 @@ import { BOTTOM_TAB_ICONS } from "../constants";
 import { colors } from "../theme/theme";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 const linking = {
   prefixes: ['hotspotti-mobile://'],
@@ -39,7 +39,7 @@ function SpottiStack() {
         component={SpottisScreen}
         options={{ headerShown: false }}
       />
-      <Stack.Screen 
+      <Stack.Screen
         name="SpottiFullView" 
         component={SpottiFullView}
         options={{ headerShown: false }}

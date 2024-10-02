@@ -3,14 +3,17 @@ import React from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 import TabsNavigator from "./src/navigation/TabsNavigator";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { enableScreens } from 'react-native-screens';
+
+enableScreens();
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <TabsNavigator />
-      </GestureHandlerRootView>
-    </SafeAreaView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
+          <TabsNavigator />
+      </SafeAreaView>
+    </GestureHandlerRootView>
   )
 }
 
