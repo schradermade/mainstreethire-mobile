@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import fetchUser from "../api/user";
 import { Avatar } from 'react-native-elements';
 import ScreenWrapper from "../components/ScreenWrapper";
-import { colors, fontSize, spacing } from "../theme/theme";
+import { colors, fontSize, iconSize, spacing } from "../theme/theme";
 import RoundActionButton from "../ui/RoundActionButton";
 
 const ProfileScreen = () => {
@@ -33,7 +33,7 @@ useEffect(() => {
             onIconPress={() => console.log('clicked cog icon')}
             iconName='cog'
             iconColor={colors.offWhiteFont} 
-            iconSize={fontSize.xlarge}
+            iconSize={iconSize.small}
             // theme='dark'
             // styling={{marginRight: 100}} 
           />
@@ -41,7 +41,7 @@ useEffect(() => {
             onIconPress={() => console.log('clicked dots icon')}
             iconName='dots-horizontal'
             iconColor={colors.offWhiteFont} 
-            iconSize={fontSize.xlarge}
+            iconSize={iconSize.small}
             // theme='dark'
             // styling={{marginRight: 100}} 
 

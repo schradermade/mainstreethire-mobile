@@ -1,7 +1,7 @@
 import React from "react"
 import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet} from "react-native";
-import { colors, spacing } from "../../theme/theme";
+import { colors, iconSize, spacing } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
 import { shareSpotti } from "../../utils/shareSpotti";
 
@@ -12,20 +12,20 @@ const SpottiActionButtons = ({ name, id }) => {
     <View style={styles.goBackButtonContainer}>
       <RoundActionButton
         iconName={'arrow-left'}
-        iconSize={22}
+        iconSize={iconSize.small}
         iconColor={colors.offWhiteFont}
         onIconPress={() => navigation.goBack()}
       />
       <View style={styles.rightSideButtons}>
         <RoundActionButton 
           iconName={'share'} 
-          iconSize={22} 
+          iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => shareSpotti(id, name)}
         />
         <RoundActionButton 
           iconName={'map-marker-check-outline'} 
-          iconSize={22} 
+          iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.navigate('SpottiScreen')}
           styling={styles.button}
@@ -33,7 +33,7 @@ const SpottiActionButtons = ({ name, id }) => {
         />
         <RoundActionButton 
           iconName={'bookmark-outline'} 
-          iconSize={22} 
+          iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.navigate('SpottiScreen')}
           styling={styles.button}

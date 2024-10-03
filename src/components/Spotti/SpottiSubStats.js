@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { colors, spacing } from "../../theme/theme";
+import { colors, iconSize, spacing } from "../../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const SpottiSubStats = ({ rating, category, iconColor, textColorTheme, bestTimeToVisit, isFullSpottiView }) => {
@@ -13,7 +13,7 @@ const SpottiSubStats = ({ rating, category, iconColor, textColorTheme, bestTimeT
               <MaterialCommunityIcons 
                 name="star" 
                 color={iconColor}
-                size={16}
+                size={iconSize.xsmall}
                 style={{paddingRight: spacing.xxsmall}}
               />
               <Text 
@@ -30,7 +30,7 @@ const SpottiSubStats = ({ rating, category, iconColor, textColorTheme, bestTimeT
             <MaterialCommunityIcons 
               name="circle-small" 
               color={colors.darkFont}
-              size={14}
+              size={iconSize.xxsmall}
             />
           </>
         }
@@ -38,7 +38,7 @@ const SpottiSubStats = ({ rating, category, iconColor, textColorTheme, bestTimeT
             <MaterialCommunityIcons 
                 name="food" 
                 color={iconColor}
-                size={16}
+                size={iconSize.xsmall}
                 style={{paddingRight: spacing.xxsmall}}
               />
             <Text 
@@ -53,12 +53,12 @@ const SpottiSubStats = ({ rating, category, iconColor, textColorTheme, bestTimeT
           <MaterialCommunityIcons 
             name="circle-small" 
             color={iconColor} 
-            size={14}
+            size={iconSize.xxsmall}
           />
           <MaterialCommunityIcons 
               name="clock" 
               color={iconColor} 
-              size={14}
+              size={iconSize.xxsmall}
               style={{paddingRight: spacing.xxsmall}}
             /> 
           <Text 

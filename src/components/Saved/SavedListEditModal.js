@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Animated, Modal, Dimensions, TouchableOpacity } from "react-native";
-import { borderRadius, colors, spacing } from "../../theme/theme";
+import { borderRadius, colors, iconSize, spacing } from "../../theme/theme";
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import RoundActionButton from "../../ui/RoundActionButton";
 import EditModalContents from "./EditModalContents";
@@ -80,7 +80,7 @@ const SavedListEditModal = ({ isVisible, setVisible, title }) => {
             <View style={styles.closeButtonWrapper}>
               <RoundActionButton 
                 iconName={'close'} 
-                iconSize={26} 
+                iconSize={iconSize.small} 
                 iconColor={colors.offWhiteFont}
                 onIconPress={closeModal}
               />

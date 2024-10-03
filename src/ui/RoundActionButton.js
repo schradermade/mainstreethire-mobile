@@ -23,13 +23,13 @@ const styles = StyleSheet.create({
   iconWrapper: {
     height: 36,            
     width: 36,             
-    backgroundColor: colors.darkGray, 
+    backgroundColor: colors.primaryButtonColor, 
     borderRadius: 18,
     justifyContent: 'center', 
     alignItems: 'center',
     shadowColor: colors.light,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: .1,  
+    shadowOpacity: .1,
     shadowRadius: borderRadius.xsmall,
   },
 });

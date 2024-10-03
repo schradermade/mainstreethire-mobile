@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet, Text } from "react-native";
-import { colors, fontSize, spacing } from "../../theme/theme";
+import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
 import SavedListEditModal from "./SavedListEditModal";
 
@@ -15,7 +15,7 @@ const SavedListActionButtons = ({ listName }) => {
       <View style={styles.leftSideButtons}>
         <RoundActionButton
           iconName={'arrow-left'}
-          iconSize={26}
+          iconSize={iconSize.small}
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.goBack()}
         />
@@ -32,13 +32,13 @@ const SavedListActionButtons = ({ listName }) => {
       <View style={styles.rightSideButtons}>
         <RoundActionButton 
           iconName={'sort'} 
-          iconSize={24} 
+          iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => console.log('sort pressed')}
         />
         <RoundActionButton 
           iconName={'dots-horizontal'} 
-          iconSize={26} 
+          iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => setModalVisible(true)}
           styling={styles.button}
