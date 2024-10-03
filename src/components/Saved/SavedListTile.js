@@ -9,25 +9,27 @@ const SavedListTile = ({ list }) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity 
-      key={list.title} 
-      onPress={() => navigation.navigate('SavedList', {list})}
-    >
-      <View style={styles.container}>
-        <View style={styles.iconContainer}>
-          <MaterialCommunityIcons name={list.iconName} style={styles.icon} />
+    <>
+      <TouchableOpacity 
+        key={list.title} 
+        onPress={() => navigation.navigate('SavedList', {list})}
+      >
+        <View style={styles.container}>
+          <View style={styles.iconContainer}>
+            <MaterialCommunityIcons name={list.iconName} style={styles.icon} />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.titleText}>{list.title}</Text>
+            <Text style={styles.numTrailsText}>0 Spottis</Text>
+          </View>
         </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.titleText}>{list.title}</Text>
-          <Text style={styles.numTrailsText}>0 Spottis</Text>
-        </View>
-      </View>
+      </TouchableOpacity>
       <CustomBorder 
-        borderSize={1}
-        borderColor={colors.borderColorDark}
-        marginHoriz={spacing.large}
-      />
-    </TouchableOpacity>
+          borderSize={1}
+          borderColor={colors.borderColorDark}
+          marginHoriz={spacing.large}
+        />
+    </>
   )
 }
 

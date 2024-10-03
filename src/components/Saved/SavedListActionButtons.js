@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet, Text } from "react-native";
 import { colors, fontSize, spacing } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
+import SavedListEditModal from "./SavedListEditModal";
 
 const SavedListActionButtons = ({ listName }) => {
   const navigation = useNavigation();
+  const [isModalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -13,7 +15,7 @@ const SavedListActionButtons = ({ listName }) => {
       <View style={styles.leftSideButtons}>
         <RoundActionButton
           iconName={'arrow-left'}
-          iconSize={22}
+          iconSize={26}
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.goBack()}
         />
@@ -30,19 +32,23 @@ const SavedListActionButtons = ({ listName }) => {
       <View style={styles.rightSideButtons}>
         <RoundActionButton 
           iconName={'sort'} 
-          iconSize={22} 
+          iconSize={24} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => console.log('sort pressed')}
         />
         <RoundActionButton 
           iconName={'dots-horizontal'} 
-          iconSize={22} 
+          iconSize={26} 
           iconColor={colors.offWhiteFont}
-          onIconPress={() => console.log('dots pressed')}
+          onIconPress={() => setModalVisible(true)}
           styling={styles.button}
         />
-        {/* Add more buttons here if needed */}
       </View>
+      <SavedListEditModal 
+        isVisible={isModalVisible}
+        setVisible={setModalVisible}
+        title={listName}
+      />
     </View>
   );
 };
@@ -69,15 +75,15 @@ const styles = StyleSheet.create({
     right: 0,  
     justifyContent: 'center',
     alignItems: 'center', 
-    width: 'auto'
+    width: 'auto',
   },
   titleText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.large,
   },
   button: {
-    marginLeft: spacing.large
-  }
+    marginLeft: spacing.large,
+  },
 });
 
 export default SavedListActionButtons;
