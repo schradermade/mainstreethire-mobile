@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
+import { View, TextInput, StyleSheet, Animated, Text, TouchableOpacity } from "react-native";
 import Octicons from '@expo/vector-icons/Octicons';
 import { colors, fontSize, spacing } from "../theme/theme";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -17,6 +18,11 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
     setIsFocused(false);
     textInputRef.current.blur();
   };
+
+  const handleMapIconClick = () => {
+    setIsFocused(true);
+    textInputRef.current.focus();
+  }
 
   useEffect(() => {
     // Set an interval to change the dynamic part of the placeholder every 2 seconds
@@ -59,8 +65,20 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
     <View style={[styles.container, isFocused && styles.focusedInput]}>
       <View style={styles.iconsContainer}>
         {isFocused 
-          ? <Octicons name="arrow-left" size={24} style={styles.iconStyle} onPress={handleArrowLeftClick} />
-          : <Octicons name="search" size={24} style={styles.iconStyle} />
+          ? <TouchableOpacity activeOpacity={0.7} onPress={handleArrowLeftClick}>
+              <MaterialCommunityIcons 
+                  name={'arrow-left'} 
+                  size={24}
+                  style={styles.iconStyle}
+                />
+              </TouchableOpacity> 
+          : <TouchableOpacity activeOpacity={0.7} onPress={handleMapIconClick}>
+              <MaterialCommunityIcons 
+                  name={'map-search'} 
+                  size={24}
+                  style={styles.iconStyle}
+              />
+            </TouchableOpacity>
         }
       </View>
       <View style={styles.inputWrapper}>
@@ -69,10 +87,10 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
           autoCapitalize="none"
           autoCorrect={false}
           style={[styles.inputStyle]}
-          placeholder='' // We are managing placeholder manually with Text component
-          placeholderTextColor='#8D9383'
+          placeholder='' // managing placeholder manually with Text component
+          placeholderTextColor={colors.placeholderText}
           value={term}
-          selectionColor='#FFFFFF' 
+          selectionColor={colors.white} 
           onChangeText={onTermChange}
           onEndEditing={onTermSubmit}
           onFocus={() => setIsFocused(true)}
@@ -139,7 +157,7 @@ const styles = StyleSheet.create({
   },
   dynamicText: {
     color: colors.darkFont,
-    fontSize: 18,
+    fontSize: fontSize.large,
   },
   iconsContainer: {
     width: 60
@@ -158,3 +176,6 @@ const styles = StyleSheet.create({
 });
 
 export default SearchBar;
+
+{/* <Octicons name="arrow-left" size={24} style={styles.iconStyle} onPress={handleArrowLeftClick} /> */}
+{/* <Octicons name="search" size={24} style={styles.iconStyle} /> */}
