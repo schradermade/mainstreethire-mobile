@@ -1,22 +1,22 @@
 import React from "react"
 import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet} from "react-native";
-import { colors } from "../../theme/theme";
+import { colors, spacing } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
 import { shareSpotti } from "../../utils/shareSpotti";
 
-const ActionButtonsSection = ({ name, id }) => {
+const SpottiActionButtons = ({ name, id }) => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.actionButtonsContainer}>
+    <View style={styles.goBackButtonContainer}>
       <RoundActionButton
         iconName={'arrow-left'}
         iconSize={22}
         iconColor={colors.offWhiteFont}
-        onIconPress={() => navigation.navigate('SpottiScreen')}
+        onIconPress={() => navigation.goBack()}
       />
-      <View style={styles.shareVisitedSaveActionButtons}>
+      <View style={styles.rightSideButtons}>
         <RoundActionButton 
           iconName={'share'} 
           iconSize={22} 
@@ -28,12 +28,15 @@ const ActionButtonsSection = ({ name, id }) => {
           iconSize={22} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.navigate('SpottiScreen')}
+          styling={styles.button}
+
         />
         <RoundActionButton 
           iconName={'bookmark-outline'} 
           iconSize={22} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.navigate('SpottiScreen')}
+          styling={styles.button}
         />
       </View>
     </View>
@@ -41,15 +44,18 @@ const ActionButtonsSection = ({ name, id }) => {
 }
 
 const styles = StyleSheet.create({
-  actionButtonsContainer: {
+  goBackButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  shareVisitedSaveActionButtons: {
+  rightSideButtons: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 125
+    // width: 125
+  },
+  button: {
+    marginLeft: spacing.medium
   }
 })
 
-export default ActionButtonsSection;
+export default SpottiActionButtons;

@@ -9,7 +9,7 @@ import RoundActionButton from "../ui/RoundActionButton";
 const ProfileScreen = () => {
 const [user, setUser] = useState();
 const [loading, setLoading] = useState(true);  // To handle loading state
-console.log("USER:", user)
+
 const userApi = async () => {
   try {
     const response = await fetchUser.get();

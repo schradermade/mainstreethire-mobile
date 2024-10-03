@@ -10,6 +10,7 @@ import NavigateScreen from "../screens/NavigateScreen";
 import SpottiFullView from "../components/SpottiFullView";
 import SavedScreen from "../screens/SavedScreen";
 import CommunityScreen from "../screens/CommunityScreen";
+import SavedList from "../components/Saved/SavedList";
 
 import { BOTTOM_TAB_ICONS } from "../constants";
 import { colors } from "../theme/theme";
@@ -41,6 +42,28 @@ function SpottiStack() {
       />
       <Stack.Screen
         name="SpottiFullView" 
+        component={SpottiFullView}
+        options={{ headerShown: false }}
+      />
+    </Stack.Navigator>
+  )
+}
+
+function SavedStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="SavedScreen"
+        component={SavedScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen 
+        name="SavedList"
+        component={SavedList}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen 
+        name="SpottiFullView"
         component={SpottiFullView}
         options={{ headerShown: false }}
       />
@@ -103,7 +126,7 @@ function TabsNavigator() {
         />
         <Tab.Screen
           name='Saved'
-          component={SavedScreen}
+          component={SavedStack}
           options={{ headerShown: false }}
         />
         <Tab.Screen 

@@ -4,7 +4,7 @@ import { colors, spacing } from "../../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const SpottiSubStats = ({ rating, category, iconColor, textColorTheme, bestTimeToVisit, isFullSpottiView }) => {
-  console.log('RATING:', rating);
+
   return (
     <View style={styles.statsContainer}>
         {!isFullSpottiView &&

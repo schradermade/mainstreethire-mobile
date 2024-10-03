@@ -6,10 +6,9 @@ import { colors, borderRadius } from "../theme/theme";
 const RoundActionButton = ({ onIconPress, iconName, iconColor, iconSize, styling }) => {
   return (
     <TouchableOpacity onPress={onIconPress} style={styles.touchable}>
-      <View style={styles.iconWrapper}>
+      <View style={[styles.iconWrapper, styling]}>
         <MaterialCommunityIcons 
           name={iconName} 
-          style={styling} 
           size={iconSize}
           color={iconColor || 'white'}
         />

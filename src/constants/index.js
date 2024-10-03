@@ -59,3 +59,30 @@ export const CATEGORY_LIST = [
     iconName: 'road-variant'
   }
 ];
+
+export const SAVED_LISTS = [
+  {
+    title: 'My Spottis',
+    iconName: 'map-marker-radius'
+  },
+  {
+    title: 'Sunriver',
+    iconName: 'map-marker-radius'
+  },
+  {
+    title: 'Bend',
+    iconName: 'map-marker-radius'
+  },
+  {
+    title: 'Stockholm',
+    iconName: 'map-marker-radius'
+  },
+  {
+    title: 'Santa Monica',
+    iconName: 'map-marker-radius'
+  },
+  {
+    title: 'Tampa',
+    iconName: 'map-marker-radius'
+  }
+]

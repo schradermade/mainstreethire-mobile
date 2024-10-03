@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
 import { spacing } from "../../theme/theme";
 import ScreenWrapper from "../ScreenWrapper";
-import ActionButtonsSection from "./ActionButtonsSection";
+import SpottiActionButtons from "./SpottiActionButtons";
 import TitleSection from "./TitleSection";
 import SpottiDescriptionSection from './SpottiDescriptionSection';
 import Divider from "../../ui/Divider";
@@ -26,7 +26,7 @@ const { spotti: {
     <ScreenWrapper style={styles.container}>
       {/* Action Buttons Section */}
       <View style={styles.actionButtonContainer}>
-        <ActionButtonsSection name={name} id={id} />
+        <SpottiActionButtons name={name} id={id} />
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
