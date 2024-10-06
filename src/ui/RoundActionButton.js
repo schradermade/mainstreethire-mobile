@@ -1,9 +1,16 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { colors, borderRadius } from "../theme/theme";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-const RoundActionButton = ({ onIconPress, iconName, iconColor, iconSize, styling }) => {
+const RoundActionButton = ({ 
+  onIconPress, 
+  iconName, 
+  iconColor, 
+  iconSize, 
+  styling 
+}) => {
   return (
     <TouchableOpacity onPress={onIconPress} style={styles.touchable}>
       <View style={[styles.iconWrapper, styling]}>
@@ -23,14 +30,14 @@ const styles = StyleSheet.create({
   iconWrapper: {
     height: 36,            
     width: 36,             
-    backgroundColor: colors.primaryButtonColor, 
+    // backgroundColor: colors.primaryTest, 
     borderRadius: 18,
     justifyContent: 'center', 
     alignItems: 'center',
-    shadowColor: colors.light,
+    shadowColor: colors.black,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: .1,
-    shadowRadius: borderRadius.xsmall,
+    shadowOpacity: .25,
+    shadowRadius: borderRadius.small,
   },
 });
 
