@@ -12,7 +12,7 @@ const TagTile = ({ tag }) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: colors.borderColorLight,
+    borderColor: colors.borderColorDark,
     borderWidth: 1,
     borderRadius: borderRadius.small,
     justifyContent: 'center',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tagText: {
-    color: colors.offWhiteFont,
+    color: colors.darkFont,
     fontSize: fontSize.small,
   }
 })
