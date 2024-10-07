@@ -34,28 +34,13 @@ const SavedList = ({ route }) => {
         )
       : (
           <>
-            <View style={styles.actionButtons}>
-              <SavedListActionButtons listName={list.title}/>
-            </View>
-            <View style={styles.container}>
-              <SpottiList spottis={spottis} />
-            </View>
+            <SavedListActionButtons listName={list.title}/>
+            <SpottiList spottis={spottis} />
           </>
         )
       }
     </ScreenWrapper>  
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-  },
-
-  actionButtons: {
-    paddingVertical: spacing.large,
-    paddingHorizontal: spacing.large
-  }
-})
 
 export default SavedList;
