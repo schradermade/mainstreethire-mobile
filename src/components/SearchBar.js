@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
-import { colors, fontSize, spacing } from "../theme/theme";
+import { colors, fontSize, iconSize, spacing } from "../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { TouchableOpacity } from "react-native-gesture-handler";
+import RoundActionButton from "../ui/RoundActionButton";
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -115,8 +116,21 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
               </Animated.View>
             </>
           )}
+
         </View>
       </View>
+        {term.length >= 1 && (
+            <RoundActionButton
+              onIconPress={() => onTermChange('')}
+              iconName='close' 
+              iconColor={colors.offWhiteFont}
+              iconSize={iconSize.xsmall}
+              styling={{
+                backgroundColor: colors.darkGray, 
+                marginHorizontal: spacing.medium
+              }}
+            />
+          )}
     </View>
   );
 };
