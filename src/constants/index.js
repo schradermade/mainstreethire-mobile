@@ -35,10 +35,6 @@ export const BOTTOM_TAB_ICONS = {
 
 export const CATEGORY_LIST = [
   {
-    title: 'All',
-    iconName: undefined
-  },
-  {
     title: 'Nearby',
     iconName: 'map-marker-radius'
   },

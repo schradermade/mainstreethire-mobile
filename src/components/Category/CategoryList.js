@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import CategoryTile from "./CategoryTile";
 import { StyleSheet, View } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { CATEGORY_LIST } from "../../constants"; 
+import { spacing } from "../../theme/theme";
 
 const CategoryList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null); 
+  const [scrollX, setScrollX] = useState(0); //
+  const flatListRef = useRef(null);
+
+  const handleScroll = (event) => {
+    const currentOffset = event.nativeEvent.contentOffset.x;
+    setScrollX(currentOffset); 
+  };
+
+  const handleScrollEnd = () => {
+    if (scrollX < -50) {
+      flatListRef.current.scrollToOffset({ offset: 30, animated: true });
+    }
+  };
 
   return (
-    <View style={styles.container}>
       <FlatList
+        ref={flatListRef}
         data={CATEGORY_LIST}
         keyExtractor={(category) => category.title}
         renderItem={({ item }) => {
@@ -23,17 +37,18 @@ const CategoryList = () => {
           );
         }}
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.flatListContent}  // Padding adjusted to allow smooth scrolling
+        contentContainerStyle={styles.flatListContent}
         horizontal={true}
+        onScroll={handleScroll}
+        onScrollEndDrag={handleScrollEnd}
       />
-    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {    
-  },
   flatListContent: {
+    paddingLeft: spacing.xxlarge,
+    paddingBottom: spacing.xlarge
   },
 });
 
