@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { colors, fontSize, spacing } from "../../theme/theme";
+import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import CustomBorder from "../../ui/CustomBorder";
 import * as Haptics from 'expo-haptics';
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     color: colors.darkGray,
-    fontSize: 26
+    fontSize: iconSize.medium
   }
 })
 
