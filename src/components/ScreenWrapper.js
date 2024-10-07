@@ -1,10 +1,10 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { spacing, colors } from "../theme/theme";
+import { colors } from "../theme/theme";
 
-const ScreenWrapper = ({ children }) => {
+const ScreenWrapper = ({ children, style }) => {
   return (
-    <View style={styles.wrapper}>
+    <View style={[styles.wrapper, style]}>
       {children}
     </View>
   )
@@ -12,10 +12,7 @@ const ScreenWrapper = ({ children }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1,
-    // paddingVertical: spacing.medium,
-    // paddingHorizontal: spacing.xxlarge,
-    backgroundColor: colors.primaryColor
+    backgroundColor: colors.primaryTest
   }
 })
 

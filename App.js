@@ -4,6 +4,7 @@ import { SafeAreaView, StyleSheet } from "react-native";
 import TabsNavigator from "./src/navigation/TabsNavigator";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { enableScreens } from 'react-native-screens';
+import { colors } from './src/theme/theme';
 
 enableScreens();
 
@@ -20,7 +21,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0F3D3E', // Set your global background color here
+    backgroundColor: colors.primaryTest, // Set your global background color here
   },
 });
 

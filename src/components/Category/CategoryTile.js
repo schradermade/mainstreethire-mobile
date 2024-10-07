@@ -1,7 +1,8 @@
 import React from "react";
 import { borderRadius, colors, fontSize, spacing } from "../../theme/theme";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const CategoryTile = ({ title, iconName, isSelected, onPress }) => {
   return (

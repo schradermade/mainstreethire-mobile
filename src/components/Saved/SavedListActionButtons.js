@@ -18,6 +18,7 @@ const SavedListActionButtons = ({ listName }) => {
           iconSize={iconSize.small}
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.goBack()}
+          styling={styles.button}
         />
       </View>
 
@@ -35,13 +36,14 @@ const SavedListActionButtons = ({ listName }) => {
           iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => console.log('sort pressed')}
+          styling={[styles.button, {marginLeft: spacing.large}]}
         />
         <RoundActionButton 
           iconName={'dots-horizontal'} 
           iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => setModalVisible(true)}
-          styling={styles.button}
+          styling={[styles.button, {marginLeft: spacing.large}]}
         />
       </View>
       <SavedListEditModal 
@@ -82,7 +84,8 @@ const styles = StyleSheet.create({
     fontSize: fontSize.large,
   },
   button: {
-    marginLeft: spacing.large,
+    backgroundColor: colors.primaryColor
+
   },
 });
 

@@ -1,25 +1,22 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import ImageCarousel from "../ImageCarousel";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { spacing, colors } from "../../theme/theme";
-import { useNavigation } from '@react-navigation/native';
-import { imagePathFormat } from "../../utils/imagePathFormat";
 import SpottiSubStats from "./SpottiSubStats";
+import ImageCarousel from "../ImageCarousel";
 
-const SpottiTile = ({spotti}) => {
-  const { id, name, description, category, hoursofOperation, rating, tags, bestTimeToVisit, title, pictures } = spotti;
-  
-  const navigation = useNavigation();
+const SCREEN_WIDTH = Dimensions.get('window').width;
+
+const SpottiTile = ({ name, pictures, stats, onPress}) => {
 
   return (
     <TouchableOpacity
-      style={styles.container} 
-      onPress={() => navigation.navigate('SpottiFullView', { spotti })}
-      activeOpacity={1}
+    style={styles.container}
+      onPress={onPress}
+      activeOpacity={.75}
     >
       <ImageCarousel 
-        images={imagePathFormat(pictures)} 
-        applyBorderRadius={true}
+        images={pictures} 
       />
       <View style={styles.infoContainer}>
         <View>
@@ -27,31 +24,26 @@ const SpottiTile = ({spotti}) => {
           <Text style={styles.subText}>Portland, Oregon</Text>
         </View>
         <SpottiSubStats
-          rating={rating} 
-          category={category} 
-          hoursofOperation={hoursofOperation} 
+          stats={stats}
           textColorTheme='dark'
           iconColor={colors.darkFont}
-          bestTimeToVisit={bestTimeToVisit}
         />
       </View>
     </TouchableOpacity>
   )
 }
 
+export default React.memo(SpottiTile);
+
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 35
+    width: SCREEN_WIDTH - spacing.xxxxlarge,
+    alignSelf: 'center',
+    marginBottom: spacing.xxxxlarge,
   },
   infoContainer: {
     marginTop: spacing.medium
   },
-  // imageContainer: {
-  //   borderRadius: 15,
-  //   height: 300,
-  //   width: 'fit-content',
-  //   marginBottom: 10
-  // },
   nameText: {
     color: colors.offWhiteFont,
     fontSize: 20
@@ -59,9 +51,4 @@ const styles = StyleSheet.create({
   subText: {
     color: colors.darkFont,
   },
-
-
-
 })
-
-export default SpottiTile;

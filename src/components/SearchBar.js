@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, TextInput, StyleSheet, Animated, Text, TouchableOpacity } from "react-native";
-import Octicons from '@expo/vector-icons/Octicons';
+import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
 import { colors, fontSize, spacing } from "../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -123,7 +123,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.primaryLightColor,
+    backgroundColor: colors.primaryColor,
     height: 50,
     borderRadius: 25,
     flexDirection: 'row',

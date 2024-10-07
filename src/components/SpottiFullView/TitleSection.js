@@ -4,19 +4,24 @@ import SpottiSubStats from "../Spotti/SpottiSubStats";
 import { colors, fontSize, spacing } from "../../theme/theme";
 import TagList from "../Tag/TagList";
 
-const TitleSection = ({ title, rating, category, hoursofOperation, bestTimeToVisit, tags }) => {
+const TitleSection = ({ name, tags, rating, category, bestTimeToVisit, hoursofOperation }) => {
+
   return (
     <View>
       <Text style={styles.titleText}>
-        {title}
+        {name}
       </Text>
       <SpottiSubStats
-        rating={rating} 
-        category={category} 
-        hoursofOperation={hoursofOperation} 
+        stats={
+          {
+            rating, 
+            category, 
+            bestTimeToVisit, 
+            hoursofOperation
+          }
+        }
         iconColor={colors.spottiDark}
         textColorTheme='light'
-        bestTimeToVisit={bestTimeToVisit}
         isFullSpottiView
       />
       <View style={styles.tagsContainer}>
@@ -36,4 +41,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default TitleSection;
+export default React.memo(TitleSection);

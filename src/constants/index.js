@@ -2,10 +2,10 @@ import { colors } from "../theme/theme";
 
 export const BOTTOM_TAB_ICONS = {
   Spottis: {
-    name: 'map-marker-radius',
-    size: 34,
+    name: 'map-marker-circle',
+    size: 36,
     focusedColor: colors.spottiDark,
-    unfocusedColor: colors.spottiLight 
+    unfocusedColor: colors.darkFont 
     },
   Community: {
     name: 'account-supervisor-circle',

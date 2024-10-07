@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { borderRadius, colors, fontSize, spacing } from "../../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import CustomBorder from "../../ui/CustomBorder";
 import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const SavedListTile = ({ list }) => {
   const navigation = useNavigation();
@@ -16,7 +17,7 @@ const SavedListTile = ({ list }) => {
       >
         <View style={styles.container}>
           <View style={styles.iconContainer}>
-            <MaterialCommunityIcons name={list.iconName} style={styles.icon} />
+            <MaterialCommunityIcons name={'map-marker-multiple'} style={styles.icon} />
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.titleText}>{list.title}</Text>

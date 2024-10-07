@@ -3,22 +3,33 @@ import { StyleSheet, Text, View } from "react-native";
 import { colors, fontSize, spacing } from "../../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import CustomBorder from "../../ui/CustomBorder";
+import * as Haptics from 'expo-haptics';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const SavedCreateNewList = () => {
+  const triggerHapticFeedback = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  }
   return (
     <>
       <CustomBorder
         borderSize={1}
         borderColor={colors.borderColorDark}
       />
-      <View style={styles.container}>
+      <TouchableOpacity 
+        style={styles.container}
+        onPress={triggerHapticFeedback}  
+      >
         <View style={styles.iconContainer}>
-          <MaterialCommunityIcons name='map-marker-plus' style={styles.icon} />
+          <MaterialCommunityIcons
+            name='map-marker-plus' 
+            style={styles.icon} 
+          />
         </View>
         <View style={styles.textContainer}>
           <Text style={styles.titleText}>Create new list</Text>
         </View>
-      </View>
+      </TouchableOpacity>
       <CustomBorder
         borderSize={1}
         borderColor={colors.borderColorDark}

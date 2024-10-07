@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
     padding: spacing.small,
     borderRadius: 5,
     color: colors.offWhiteFont,
-    fontSize: fontSize.medium,
-    backgroundColor: colors.primaryLightColor,
+    fontSize: fontSize.large,
+    backgroundColor: colors.primaryColor,
     height: 50
   },
   focusedInput: {

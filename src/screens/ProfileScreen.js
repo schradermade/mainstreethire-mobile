@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import fetchUser from "../api/user";
 import { Avatar } from 'react-native-elements';
 import ScreenWrapper from "../components/ScreenWrapper";
 import { colors, fontSize, iconSize, spacing } from "../theme/theme";
 import RoundActionButton from "../ui/RoundActionButton";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const ProfileScreen = () => {
 const [user, setUser] = useState();

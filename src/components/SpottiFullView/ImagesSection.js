@@ -1,10 +1,13 @@
 import React from "react";
 import ImageCarousel from "../ImageCarousel";
-import { imagePathFormat } from "../../utils/imagePathFormat";
 
 const ImagesSection = ({ images }) => {
+  if (!images || !Array.isArray(images)) {
+    return <></>
+  }
+
   return (
-    <ImageCarousel images={imagePathFormat(images)} isFullView />
+    <ImageCarousel images={images} isFullView />
   )
 }
 

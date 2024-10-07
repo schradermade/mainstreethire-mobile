@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Animated, Modal, Dimensions, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Animated, Modal, Dimensions } from "react-native";
 import { borderRadius, colors, iconSize, spacing } from "../../theme/theme";
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import RoundActionButton from "../../ui/RoundActionButton";
 import EditModalContents from "./EditModalContents";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { height } = Dimensions.get('window');
 
@@ -83,6 +84,7 @@ const SavedListEditModal = ({ isVisible, setVisible, title }) => {
                 iconSize={iconSize.small} 
                 iconColor={colors.offWhiteFont}
                 onIconPress={closeModal}
+                styling={{backgroundColor: colors.primaryButtonColor}}
               />
             </View>
               <EditModalContents listName={title} />
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primaryModalColor, 
   },
   closeButtonWrapper: {
-    alignSelf: 'flex-start', 
+    alignSelf: 'flex-end', 
   },
 });
 

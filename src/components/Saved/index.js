@@ -29,7 +29,7 @@ const SavedSection = () => {
         height: 2.5,
       }}
       style={{
-        backgroundColor: colors.primaryColor,
+        backgroundColor: colors.primaryTest,
         justifyContent: 'center',
         marginLeft: spacing.large,
       }}
