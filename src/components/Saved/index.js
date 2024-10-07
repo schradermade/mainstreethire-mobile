@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Dimensions, Text } from "react-native";
+import { StyleSheet, Dimensions, Text, View } from "react-native";
 import { SceneMap, TabView, TabBar } from "react-native-tab-view";
 import { colors, fontSize, spacing } from "../../theme/theme";
 import SavedLists from "./SavedLists";
@@ -24,17 +24,9 @@ const SavedSection = () => {
   const renderTabBar = (props) => (
     <TabBar
       {...props}
-      indicatorStyle={{
-        backgroundColor: colors.spottiDark,
-        height: 2.5,
-      }}
-      style={{
-        backgroundColor: colors.primaryTest,
-        justifyContent: 'center',
-        marginLeft: spacing.large,
-      }}
+      style={styles.tabBar}
+      indicatorStyle={styles.indicator}
       tabStyle={{
-        width: 'auto',
       }}
       renderLabel={({route, focused}) => (
         <Text style={{
@@ -52,13 +44,13 @@ const SavedSection = () => {
   return (
     <>
       <Text style={styles.savedText}>Saved</Text>
-        <TabView
-          navigationState={{ index, routes }}
-          renderScene={renderScene}
-          onIndexChange={setIndex}
-          initialLayout={{ width: Dimensions.get('window').width }}
-          renderTabBar={renderTabBar}
-        />
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        initialLayout={{ width: Dimensions.get('window').width }}
+        renderTabBar={renderTabBar}
+      />
     </>
   );
 };
@@ -71,6 +63,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.small,
     marginLeft: spacing.large
   },
+  tabBar: {
+    backgroundColor: colors.primaryTest,
+  },
+  indicator: {
+    backgroundColor: colors.spottiDark,
+  }
 });
 
 export default SavedSection;
