@@ -21,14 +21,12 @@ const SavedListActionButtons = ({ listName }) => {
           styling={styles.button}
         />
       </View>
-
       {/* Centered title */}
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>
           {listName}
         </Text>
       </View>
-
       {/* Right-side buttons */}
       <View style={styles.rightSideButtons}>
         <RoundActionButton 
@@ -57,27 +55,25 @@ const SavedListActionButtons = ({ listName }) => {
 
 const styles = StyleSheet.create({
   container: {
+    marginVertical: spacing.large,
+    marginHorizontal: spacing.xxlarge,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     height: 40,
-    position: 'relative',
   },
   leftSideButtons: {
     zIndex: 2,
   },
   rightSideButtons: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
     zIndex: 2,
   },
   titleContainer: {
     position: 'absolute',
     left: 0,
     right: 0,  
-    justifyContent: 'center',
     alignItems: 'center', 
-    width: 'auto',
   },
   titleText: {
     color: colors.offWhiteFont,
@@ -85,7 +81,6 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.primaryColor
-
   },
 });
 
