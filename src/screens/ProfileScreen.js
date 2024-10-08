@@ -39,13 +39,11 @@ useEffect(() => {
             // styling={{marginRight: 100}} 
           />
           <RoundActionButton
-            onIconPress={() => console.log('clicked dots icon')}
             iconName='dots-horizontal'
+            onIconPress={() => console.log('clicked dots icon')}
             iconColor={colors.offWhiteFont} 
             iconSize={iconSize.small}
-            // theme='dark'
-            // styling={{marginRight: 100}} 
-
+            styling={{marginLeft: spacing.large}}
           />
         </View>
         {loading ? (
@@ -74,8 +72,8 @@ useEffect(() => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: spacing.medium,
-    // flex: 1
+    marginVertical: spacing.large,
+    marginHorizontal: spacing.xxlarge,
   },
   userInfoWrapper: {
     marginTop: spacing.medium

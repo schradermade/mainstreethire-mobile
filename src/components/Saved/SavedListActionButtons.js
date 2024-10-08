@@ -38,10 +38,10 @@ const SavedListActionButtons = ({ listName }) => {
         />
         <RoundActionButton 
           iconName={'dots-horizontal'} 
-          iconSize={iconSize.small} 
-          iconColor={colors.offWhiteFont}
           onIconPress={() => setModalVisible(true)}
-          styling={[styles.button, {marginLeft: spacing.large}]}
+          iconColor={colors.offWhiteFont}
+          iconSize={iconSize.small} 
+          styling={{marginLeft: spacing.large}}
         />
       </View>
       <SavedListEditModal 
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 40,
   },
   leftSideButtons: {
     zIndex: 2,
@@ -77,10 +76,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: colors.offWhiteFont,
-    fontSize: fontSize.large,
-  },
-  button: {
-    backgroundColor: colors.primaryColor
+    fontSize: fontSize.xlarge,
   },
 });
 

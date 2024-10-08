@@ -15,7 +15,7 @@ const SpottiActionButtons = ({ name, id }) => {
         iconSize={iconSize.small}
         iconColor={colors.offWhiteFont}
         onIconPress={() => navigation.goBack()}
-        styling={{backgroundColor: colors.primaryButtonColor}}
+        // styling={{backgroundColor: colors.primaryButtonColor}}
       />
       <View style={styles.rightSideButtons}>
         <RoundActionButton 
@@ -23,21 +23,20 @@ const SpottiActionButtons = ({ name, id }) => {
           iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => shareSpotti(id, name)}
-          styling={styles.button}
         />
         <RoundActionButton 
           iconName={'map-marker-check-outline'} 
           iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.navigate('SpottiScreen')}
-          styling={[styles.button, {marginLeft: spacing.medium}]}
+          styling={styles.actionButton}
         />
         <RoundActionButton 
           iconName={'bookmark-outline'} 
           iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.navigate('SpottiScreen')}
-          styling={[styles.button, {marginLeft: spacing.medium}]}
+          styling={styles.actionButton}
         />
       </View>
     </View>
@@ -53,8 +52,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  button: {
-    backgroundColor: colors.primaryButtonColor
+  actionButton: {
+    marginLeft: spacing.large  
   }
 })
 
