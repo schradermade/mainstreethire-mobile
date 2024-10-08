@@ -17,7 +17,7 @@ const PaginationDots = ({ images, currentIndex }) => {
     animations.forEach((animation, index) => {
       Animated.timing(animation, {
         toValue: currentIndex === index ? 1 : 0, // 1 for active, 0 for inactive
-        duration: 50, // No delay for smoothness
+        duration: 25, // No delay for smoothness
         useNativeDriver: false, // We need this to be false since we are animating style properties
       }).start();
     });
