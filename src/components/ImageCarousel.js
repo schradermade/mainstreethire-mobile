@@ -1,7 +1,7 @@
 import React, { forwardRef, useState, useCallback } from 'react';
-import { View, Image, Dimensions } from 'react-native';
+import { View, Image, Dimensions, StyleSheet } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-import { borderRadius, spacing } from '../theme/theme';
+import { borderRadius, spacing, colors } from '../theme/theme';
 import { imagePathFormat } from '../utils/imagePathFormat';
 import PaginationDots from '../ui/PaginationDots';
 
@@ -16,7 +16,6 @@ const ImageCarousel = forwardRef(({
 ) => {
   const widthValue = isFullView ? SLIDER_WIDTH : SLIDER_WIDTH - spacing.xxlarge * 2;
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [swipeProgress, setSwipeProgress] = useState(0); // To track swipe progress
 
   // Memoize the renderItem function to prevent re-creating it on every render
   const renderItem = useCallback(({ item }) => (
@@ -39,8 +38,6 @@ const ImageCarousel = forwardRef(({
     if (halfwayPoint !== currentIndex) {
       setCurrentIndex(halfwayPoint); // Update the index when progress reaches halfway
     }
-
-    setSwipeProgress(progress); // Track swipe progress for smoother experience
   }, [currentIndex]);
 
   // Use onSnapToItem for final index update
@@ -49,7 +46,7 @@ const ImageCarousel = forwardRef(({
   }, []);
 
   return (
-    <View ref={ref}>
+    <View ref={ref} style={styles.container}>
       <Carousel
         data={imagePathFormat(images)}
         onSnapToItem={handleSnapToItem} // Final snap index
@@ -76,5 +73,14 @@ const ImageCarousel = forwardRef(({
     </View>
   );
 });
+
+const styles = StyleSheet.create({
+  container: {
+    shadowColor: colors.black,
+    shadowOffset: { width: -1.5, height: 1 },
+    shadowOpacity: .3,
+    shadowRadius: borderRadius.small,
+  }
+})
 
 export default React.memo(ImageCarousel);
