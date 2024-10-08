@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.medium,
     marginRight: spacing.medium,
     paddingHorizontal: spacing.medium,
-    marginBottom: spacing.xxxlarge
+    marginBottom: spacing.large
   },
   titleText: {
     color: colors.offWhiteFont,
