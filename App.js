@@ -21,7 +21,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.primaryTest, // Set your global background color here
+    backgroundColor: colors.primaryColor,
   },
 });
 
