@@ -1,20 +1,23 @@
 export const colors = {
-  offWhiteFont: '#f3f4f2',
-  darkFont: '#8D9383',
-  primaryColor: '#0F3D3E',
-  primaryModalColor: '#061818',
+  spottiDark: '#bc8811',
+  spottiLight: '#d6b770',
+  primaryColor: '#0a2929',
   primaryLightColor: '#275051',
-  primaryButtonColor: '#092425',
+  secondaryColor: '#0F3D3E',
+  primaryModalColor: '#061818',
+  primaryButtonColor: '#0F3D3E',
+  borderColorDark: '#61645d',
+  borderColorLight: '#AFB3A8',
+  placeholderText: '#8D9383',
   black: '#000000',
   white: '#FFFFFF',
+  offWhiteFont: '#f3f4f2',
+  darkFont: '#8D9383',
+  shadowEffectGray: '#b7b7b7',
+  shadowEffectBlack: '#000000',
   lightGray: '#b7b7b7',
   mediumGray: '#575757',
   darkGray: '#272727',
-  borderColorDark: '#61645d',
-  borderColorLight: '#AFB3A8',
-  spottiDark: '#bc8811',
-  spottiLight: '#d6b770',
-  placeholderText: '#8D9383',
 } as const;
 
 export const fontSize = {
@@ -42,7 +45,7 @@ export const spacing = {
 export const borderRadius = {
   xsmall: 2,
   small: 4,
-  medium: 10,
+  medium: 8,
   large: 12
 } as const;
 
@@ -55,4 +58,5 @@ export const iconSize = {
   xsmall: 16,
   small: 24,
   medium: 26,
+  large: 36,
 } as const
