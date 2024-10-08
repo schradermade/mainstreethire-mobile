@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xlarge,
   },
   actionButtonContainer: {
-    paddingVertical: spacing.large,
-    paddingHorizontal: spacing.large,
+    marginVertical: spacing.large,
+    marginHorizontal: spacing.xxlarge,
   },
 })
 
