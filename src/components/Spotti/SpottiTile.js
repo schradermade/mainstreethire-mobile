@@ -1,19 +1,17 @@
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { spacing, colors } from "../../theme/theme";
 import SpottiSubStats from "./SpottiSubStats";
 import ImageCarousel from "../ImageCarousel";
-
-const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const SpottiTile = ({ name, pictures, stats, onPress}) => {
 
   return (
     <TouchableOpacity
-    style={styles.container}
+      style={styles.container}
       onPress={onPress}
-      activeOpacity={.75}
+      activeOpacity={1}
     >
       <ImageCarousel 
         images={pictures} 
@@ -37,9 +35,7 @@ export default React.memo(SpottiTile);
 
 const styles = StyleSheet.create({
   container: {
-    width: SCREEN_WIDTH - spacing.xxxxlarge,
-    alignSelf: 'center',
-    marginBottom: spacing.xxxxlarge,
+    width: '100%',
   },
   infoContainer: {
     marginTop: spacing.medium
