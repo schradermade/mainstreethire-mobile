@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Dimensions, Text, View } from "react-native";
+import { StyleSheet, Dimensions, Text } from "react-native";
 import { SceneMap, TabView, TabBar } from "react-native-tab-view";
 import { colors, fontSize, spacing } from "../../theme/theme";
 import SavedLists from "./SavedLists";
@@ -26,8 +26,6 @@ const SavedSection = () => {
       {...props}
       style={styles.tabBar}
       indicatorStyle={styles.indicator}
-      tabStyle={{
-      }}
       renderLabel={({route, focused}) => (
         <Text style={{
           color: focused ? colors.offWhiteFont : colors.darkFont,
