@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import CategoryTile from "./CategoryTile";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { CATEGORY_LIST } from "../../constants"; 
 import { spacing } from "../../theme/theme";
@@ -33,6 +33,7 @@ const CategoryList = () => {
               iconName={item.iconName}
               isSelected={item.title === selectedCategory}
               onPress={() => setSelectedCategory(item.title)}  
+              styling={{marginRight: spacing.medium}}
             />
           );
         }}
@@ -48,7 +49,7 @@ const CategoryList = () => {
 const styles = StyleSheet.create({
   flatListContent: {
     paddingLeft: spacing.xxlarge,
-    paddingBottom: spacing.xlarge
+    paddingBottom: spacing.xxxlarge
   },
 });
 
