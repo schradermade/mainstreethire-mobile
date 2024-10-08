@@ -77,7 +77,7 @@ const ImageCarousel = forwardRef(({
 const styles = StyleSheet.create({
   container: {
     shadowColor: colors.black,
-    shadowOffset: { width: -1.5, height: 1 },
+    shadowOffset: { width: -.75, height: .75 },
     shadowOpacity: .3,
     shadowRadius: borderRadius.small,
   }
