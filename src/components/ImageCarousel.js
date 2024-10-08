@@ -61,8 +61,8 @@ const ImageCarousel = forwardRef(({
         autoPlay={false}
         scrollAnimationDuration={200}
         panGestureHandlerProps={{
-          activeOffsetX: [-5, 5],
-          failOffsetY: [-10, 10],
+          activeOffsetX: [-3, 3],
+          failOffsetY: [-12, 12],
         }}
         style={{
           borderRadius: isFullView ? 0 : borderRadius.large, 
