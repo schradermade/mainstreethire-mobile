@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
+import { colors, fontSize, iconSize, spacing, borderRadius } from "../../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import CustomBorder from "../../ui/CustomBorder";
 import * as Haptics from 'expo-haptics';
@@ -42,7 +42,7 @@ const SavedCreateNewList = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 80
+    padding: spacing.large
   },
   titleText: {
     color: colors.offWhiteFont,
@@ -54,11 +54,14 @@ const styles = StyleSheet.create({
   iconContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    margin: spacing.large,
+    marginRight: spacing.medium,
+    padding: spacing.large,
     backgroundColor: colors.offWhiteFont,
-    borderRadius: 25,
-    width: 50,
-    height: 50,
+    borderRadius: 50,
+    shadowColor: colors.lightGray,
+    shadowOffset: { width: -.5, height: .5 },
+    shadowOpacity: .4,
+    shadowRadius: borderRadius.xsmall,
   },
   icon: {
     color: colors.darkGray,
