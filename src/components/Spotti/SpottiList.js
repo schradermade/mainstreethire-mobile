@@ -40,6 +40,8 @@ const SpottiList = ({ spottis = [] }) => {
 
 const styles = StyleSheet.create({
   flatListContent: {
+    paddingTop: spacing.xsmall,
+    paddingBottom: spacing.xxxxlarge,
     alignItems: 'center'
   },
   spottiTile: {
