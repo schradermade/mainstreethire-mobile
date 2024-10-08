@@ -17,7 +17,7 @@ const PaginationDots = ({ images, currentIndex }) => {
     animations.forEach((animation, index) => {
       Animated.timing(animation, {
         toValue: currentIndex === index ? 1 : 0, // 1 for active, 0 for inactive
-        duration: 25, // No delay for smoothness
+        duration: 0, // No delay for smoothness
         useNativeDriver: false, // We need this to be false since we are animating style properties
       }).start();
     });
@@ -30,7 +30,7 @@ const PaginationDots = ({ images, currentIndex }) => {
 
     Animated.timing(translateX, {
       toValue: -slideToIndex * dotWidth, // Move dots to the left/right
-      duration: 150, // Adjust the duration for smooth sliding
+      duration: 125, // Adjust the duration for smooth sliding
       useNativeDriver: true, // Use native driver for better performance
     }).start();
   }, [currentIndex]);
@@ -111,12 +111,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     overflow: 'hidden', // Hide dots that slide outside the visible range
     width: '100%', // Set the container to be the width of the screen
+    pointerEvents: 'none', 
   },
   dotWrapperContainer: {
     width: dotWidth * 3, // Limit to 4 dots visible at a time
     overflow: 'hidden', // Ensure that extra dots don't show
     height: dotActiveSize,
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   dotWrapper: {
     flexDirection: 'row',
