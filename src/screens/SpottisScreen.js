@@ -31,7 +31,7 @@ const SpottiScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.primaryTest,
+    backgroundColor: colors.primaryColor,
   }
 })
 

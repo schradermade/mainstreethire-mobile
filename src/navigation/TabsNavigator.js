@@ -93,7 +93,7 @@ function TabsNavigator() {
             )
           },
           tabBarStyle: {
-            backgroundColor: colors.primaryTest,
+            backgroundColor: colors.primaryColor,
             height: 55,
             borderTopColor: colors.borderColorDark,
           },

@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     marginLeft: spacing.large
   },
   tabBar: {
-    backgroundColor: colors.primaryTest,
+    backgroundColor: colors.primaryColor,
   },
   indicator: {
     backgroundColor: colors.spottiDark,

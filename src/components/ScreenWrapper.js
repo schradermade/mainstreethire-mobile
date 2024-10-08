@@ -13,7 +13,7 @@ const ScreenWrapper = ({ children, style }) => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: colors.primaryTest
+    backgroundColor: colors.primaryColor
   }
 })
 

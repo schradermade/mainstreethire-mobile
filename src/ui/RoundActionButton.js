@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     borderRadius: iconSize.large / 2,
     justifyContent: 'center', 
     alignItems: 'center',
-    shadowColor: colors.black,
+    shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: .25,
     shadowRadius: borderRadius.small,
