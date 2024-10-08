@@ -1,18 +1,19 @@
 import React from "react";
 import SpottiTile from './SpottiTile';
-import { FlatList, Text, StyleSheet } from "react-native";
-import { colors } from "../../theme/theme";
+import { FlatList, Text, StyleSheet, View } from "react-native";
+import { colors, spacing } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
 
 const SpottiList = ({ spottis = [] }) => {
   const navigation = useNavigation();
-  
+
   return (
-      <FlatList
-        data={spottis}
-        keyExtractor={(spotti) => `${spotti.id}-${spotti.name}`}
-        renderItem={({ item }) => {
-          return (
+    <FlatList
+      data={spottis}
+      keyExtractor={(spotti) => `${spotti.id}-${spotti.name}`}
+      renderItem={({ item }) => {
+        return (
+          <View style={styles.spottiTile}>
             <SpottiTile
               onPress={() => navigation.navigate('SpottiFullView', { item })}
               name={item.name}
@@ -24,19 +25,30 @@ const SpottiList = ({ spottis = [] }) => {
                 hoursofOperation: item.hoursofOperation
               }}
             />
-          )
-        }}
-        showsVerticalScrollIndicator={true} 
-        scrollEnabled={true}
-        ListEmptyComponent={<Text style={styles.emptyText}>No Spottis Available</Text>}
-      />
-  )
-}
+          </View>
+        );
+      }}
+      showsVerticalScrollIndicator={true} 
+      scrollEnabled={true}
+      ListEmptyComponent={
+        <Text style={styles.emptyText}>No Spottis Available</Text>
+      }
+      contentContainerStyle={styles.flatListContent}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
+  flatListContent: {
+    alignItems: 'center'
+  },
+  spottiTile: {
+    marginBottom: spacing.xxxxlarge
+  },
   emptyText: {
-    color: colors.darkFont
-  }
+    alignSelf: 'center',
+    color: colors.darkFont,
+  },
 });
 
 export default React.memo(SpottiList);
