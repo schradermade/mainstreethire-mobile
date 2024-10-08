@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import MapScreen from "../components/Mapbox";
 
 const NavigateScreen = () => {
 
   return (
     <View style={styles.background}>
-      <Text>Navigate Screen</Text>
+      <MapScreen />
     </View>
   )
 }
