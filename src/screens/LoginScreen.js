@@ -4,7 +4,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import Button from "../ui/Button";
 import LEGAL_DISCLAIMER from "../utils/legalDisclaimer";
-import { BOTTOM_TAB_ICONS, HOTSPOTTI_NAME } from "../constants";
+import { BOTTOM_TAB_ICONS, HOTSPOTTI_NAME, HOTSPOTTI_SLOGAN } from "../constants";
 import { colors, fontSize, iconSize, spacing } from "../theme/theme";
 
 const LoginScreen = ({ onLogin }) => {
@@ -33,7 +33,7 @@ const LoginScreen = ({ onLogin }) => {
           {innerIcon()}
           {HOTSPOTTI_NAME[1]}
         </Text>
-        <Text style={styles.iconSubText}>Be the local.</Text>
+        <Text style={styles.iconSubText}>{HOTSPOTTI_SLOGAN}</Text>
       </View>
       <Button
         onPress={handleLogin}
