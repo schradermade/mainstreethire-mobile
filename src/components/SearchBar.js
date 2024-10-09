@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont
   },
   focusedInput: {
-    borderColor: colors.borderColorLight,
+    borderColor: colors.spottiDark,
     borderWidth: 1.5,
     borderRadius: 50
   }
