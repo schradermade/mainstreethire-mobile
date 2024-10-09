@@ -1,5 +1,5 @@
 export const colors = {
-  spottiDark: '#bc8811',
+  spottiDark: '#ff9f1c',
   spottiLight: '#d6b770',
   primaryColor: '#0a2929',
   primaryLightColor: '#275051',
@@ -59,4 +59,6 @@ export const iconSize = {
   small: 24,
   medium: 26,
   large: 36,
+  xlarge: 48,
+  xxlarge: 60
 } as const
