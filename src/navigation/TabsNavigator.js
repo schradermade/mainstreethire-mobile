@@ -1,4 +1,5 @@
-import { Text } from "react-native";
+import React, { Suspense, useState } from 'react';
+import { Text, ActivityIndicator } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,6 +12,7 @@ import SpottiFullView from "../components/SpottiFullView";
 import SavedScreen from "../screens/SavedScreen";
 import CommunityScreen from "../screens/CommunityScreen";
 import SavedList from "../components/Saved/SavedList";
+import LoginScreen from '../screens/LoginScreen';
 
 import { BOTTOM_TAB_ICONS } from "../constants";
 import { colors } from "../theme/theme";
@@ -34,51 +36,60 @@ const linking = {
 
 function SpottiStack() {
   return (
-    <Stack.Navigator lazy={true}>
-      <Stack.Screen
-        name="SpottiScreen"
-        component={SpottisScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="SpottiFullView" 
-        component={SpottiFullView}
-        options={{ headerShown: false }}
-      />
-    </Stack.Navigator>
+    <Suspense fallback={<ActivityIndicator size='large' color='#0000ff' />}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="SpottiScreen"
+          component={SpottisScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SpottiFullView" 
+          component={SpottiFullView}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </Suspense>
   )
 }
 
 function SavedStack() {
   return (
-    <Stack.Navigator lazy={true}>
-      <Stack.Screen
-        name="SavedScreen"
-        component={SavedScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen 
-        name="SavedList"
-        component={SavedList}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen 
-        name="SpottiFullView"
-        component={SpottiFullView}
-        options={{ headerShown: false }}
-      />
-    </Stack.Navigator>
+    <Suspense fallback={<ActivityIndicator size='large' color='#0000ff' />}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="SavedScreen"
+          component={SavedScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="SavedList"
+          component={SavedList}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen 
+          name="SpottiFullView"
+          component={SpottiFullView}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </Suspense>
   )
 }
 
 function TabsNavigator() {
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+if (!isLoggedIn) {
+  return <LoginScreen onLogin={setIsLoggedIn} />;
+}
 
   return (
     <NavigationContainer linking={linking}>
       <Tab.Navigator
         initialRouteName="Spottis"
-        lazy={true}
         screenOptions={({ route }) => ({
+          lazy: true,
           tabBarIcon: ({ focused }) => {
             return (
               <MaterialCommunityIcons 
