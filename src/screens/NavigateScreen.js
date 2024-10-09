@@ -6,7 +6,7 @@ const NavigateScreen = () => {
 
   return (
     <View style={styles.background}>
-      <MapScreen />
+      {/* <MapScreen /> */}
     </View>
   )
 }
