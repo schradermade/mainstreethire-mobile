@@ -2,7 +2,7 @@ import { colors } from "../theme/theme";
 
 export const BOTTOM_TAB_ICONS = {
   Spottis: {
-    name: 'map-marker-circle',
+    name: 'map-marker-radius',
     size: 36,
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont 
@@ -149,13 +149,6 @@ export const CATEGORY_LIST = [
     iconName: 'basketball'
   },
 ]; 
-// , entertainment
-// curtains
-// bookshelf
-// binoculars
-// beer
-// beach
-// basketball
 
 export const SAVED_LISTS = [
   {
@@ -183,3 +176,18 @@ export const SAVED_LISTS = [
     iconName: 'map-marker-radius'
   }
 ]
+
+export const HOTSPOTTI_NAME = ['HotSp', 'tti']
+export const HOTSPOTTI_SLOGAN = ['Be the local.']
+
+// 1. Be the local
+// 2. Explore local
+// 3. Explore like a local
+// 4. Go like local
+// 5. Go local.
+// 6. Roam like a local
+// 7. Wander like a local
+// 8. Adventure like a local
+// 9. Experience like a local
+// 11. Travel like a local
+// 12. Travel local
