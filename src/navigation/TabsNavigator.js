@@ -34,7 +34,7 @@ const linking = {
 
 function SpottiStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator lazy={true}>
       <Stack.Screen
         name="SpottiScreen"
         component={SpottisScreen}
@@ -51,7 +51,7 @@ function SpottiStack() {
 
 function SavedStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator lazy={true}>
       <Stack.Screen
         name="SavedScreen"
         component={SavedScreen}
@@ -77,6 +77,7 @@ function TabsNavigator() {
     <NavigationContainer linking={linking}>
       <Tab.Navigator
         initialRouteName="Spottis"
+        lazy={true}
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused }) => {
             return (
