@@ -142,7 +142,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     flexDirection: 'row',
     alignItems: 'center', // Align items to center vertically
-    marginVertical: spacing.large,
+    marginTop: spacing.small,
+    marginBottom: spacing.large,
     marginHorizontal: spacing.xxlarge,
   },
   inputStyle: {
