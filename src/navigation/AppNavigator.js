@@ -12,7 +12,10 @@ import SpottiFullView from "../components/SpottiFullView";
 import SavedScreen from "../screens/SavedScreen";
 import CommunityScreen from "../screens/CommunityScreen";
 import SavedList from "../components/Saved/SavedList";
-import LoginScreen from '../screens/LoginScreen';
+import WelcomeSection from '../components/WelcomeSection';
+import EmailView from '../components/WelcomeSection/EmailView';
+import PasswordView from '../components/WelcomeSection/PasswordView';
+import UsersNameView from '../components/WelcomeSection/UsersNameView';
 
 import { BOTTOM_TAB_ICONS } from "../constants";
 import { colors } from "../theme/theme";
@@ -33,6 +36,116 @@ const linking = {
     },
   },
 };
+
+function AppNavigator() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <NavigationContainer linking={linking}>
+      {isLoggedIn ? <TabsNavigator /> : <WelcomeStack />}
+    </NavigationContainer>
+  )
+}
+
+function TabsNavigator() {
+
+  return (
+      <Tab.Navigator
+        initialRouteName="Spottis"
+        screenOptions={({ route }) => ({
+          lazy: true,
+          tabBarIcon: ({ focused }) => {
+            return (
+              <MaterialCommunityIcons 
+                name={BOTTOM_TAB_ICONS[route.name].name}
+                size={BOTTOM_TAB_ICONS[route.name].size}
+                color={focused ?
+                  BOTTOM_TAB_ICONS[route.name].focusedColor 
+                  : BOTTOM_TAB_ICONS[route.name].unfocusedColor}
+                style={route.name === 'Spottis' ? 
+                  {}
+                  : {marginTop: 6}}
+              />
+            )
+          },
+          tabBarStyle: {
+            backgroundColor: colors.primaryColor,
+            borderTopColor: colors.borderColorDark,
+          },
+          tabBarLabel: ({ focused }) => {
+            return (
+              <Text style={{ 
+                color: focused ? 
+                  BOTTOM_TAB_ICONS[route.name].focusedColor 
+                  : BOTTOM_TAB_ICONS[route.name].unfocusedColor, fontSize: 11 }}>
+                {route.name}
+              </Text>
+            );
+          },
+        })}
+      >
+        <Tab.Screen
+          name='Community'
+          component={CommunityScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name='Navigate'
+          component={NavigateScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen 
+          name='Spottis' 
+          component={SpottiStack} 
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name='Saved'
+          component={SavedStack}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen 
+          name='Profile' 
+          component={ProfileScreen} 
+          options={{ headerShown: false }}
+        />
+      </Tab.Navigator>
+  )
+}
+
+function WelcomeStack() {
+  return (
+    <Suspense fallback={ <ActivityIndicator size='large' color='#0000ff' /> }>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="WelcomeSection"
+          component={WelcomeSection}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="EmailView"
+          component={EmailView}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PasswordView"
+          component={PasswordView}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="UsersNameView"
+          component={UsersNameView}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TabsNavigator"
+          component={TabsNavigator}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </Suspense>
+  )
+}
 
 function SpottiStack() {
   return (
@@ -77,78 +190,4 @@ function SavedStack() {
   )
 }
 
-function TabsNavigator() {
-const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-if (!isLoggedIn) {
-  return <LoginScreen onLogin={setIsLoggedIn} />;
-}
-
-  return (
-    <NavigationContainer linking={linking}>
-      <Tab.Navigator
-        initialRouteName="Spottis"
-        screenOptions={({ route }) => ({
-          lazy: true,
-          tabBarIcon: ({ focused }) => {
-            return (
-              <MaterialCommunityIcons 
-                name={BOTTOM_TAB_ICONS[route.name].name}
-                size={BOTTOM_TAB_ICONS[route.name].size}
-                color={focused ?
-                  BOTTOM_TAB_ICONS[route.name].focusedColor 
-                  : BOTTOM_TAB_ICONS[route.name].unfocusedColor}
-                style={route.name === 'Spottis' ? 
-                  {} 
-                  : {marginBottom: -16}}
-              />
-            )
-          },
-          tabBarStyle: {
-            backgroundColor: colors.primaryColor,
-            height: 55,
-            borderTopColor: colors.borderColorDark,
-          },
-          tabBarLabel: ({ focused }) => {
-            return (
-              <Text style={{ 
-                color: focused ? 
-                  BOTTOM_TAB_ICONS[route.name].focusedColor 
-                  : BOTTOM_TAB_ICONS[route.name].unfocusedColor, fontSize: 11 }}>
-                {route.name}
-              </Text>
-            );
-          },
-        })}
-      >
-        <Tab.Screen
-          name='Community'
-          component={CommunityScreen}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name='Navigate'
-          component={NavigateScreen}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen 
-          name='Spottis' 
-          component={SpottiStack} 
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name='Saved'
-          component={SavedStack}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen 
-          name='Profile' 
-          component={ProfileScreen} 
-          options={{ headerShown: false }}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
-  )
-}
-
-export default TabsNavigator;
+export default AppNavigator;
