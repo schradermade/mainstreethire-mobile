@@ -55,11 +55,12 @@ const SavedListActionButtons = ({ listName }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: spacing.large,
-    marginHorizontal: spacing.xxlarge,
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
+    paddingHorizontal: spacing.xlarge,
+    marginTop: spacing.small,
+    marginBottom: spacing.medium,
+    alignItems: 'center',
   },
   leftSideButtons: {
     zIndex: 2,
