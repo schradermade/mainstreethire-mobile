@@ -119,18 +119,18 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 
         </View>
       </View>
-        {term.length >= 1 && (
-            <RoundActionButton
-              onIconPress={() => onTermChange('')}
-              iconName='close' 
-              iconColor={colors.offWhiteFont}
-              iconSize={iconSize.xsmall}
-              styling={{
-                backgroundColor: colors.darkGray, 
-                marginHorizontal: spacing.medium
-              }}
-            />
-          )}
+      {term.length >= 1 && (
+          <RoundActionButton
+            onIconPress={() => onTermChange('')}
+            iconName='close' 
+            iconColor={colors.offWhiteFont}
+            iconSize={iconSize.xsmall}
+            styling={{
+              backgroundColor: colors.darkGray, 
+              marginHorizontal: spacing.medium
+            }}
+          />
+        )}
     </View>
   );
 };
