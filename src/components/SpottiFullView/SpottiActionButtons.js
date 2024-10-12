@@ -3,13 +3,13 @@ import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet} from "react-native";
 import { colors, iconSize, spacing } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
-import { shareSpotti } from "../../utils/shareSpotti";
+import { shareSpottiLink } from "../../utils/shareSpottiLink";
 
 const SpottiActionButtons = ({ name, id }) => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.goBackButtonContainer}>
+    <View style={styles.container}>
       <RoundActionButton
         iconName={'arrow-left'}
         iconSize={iconSize.small}
@@ -22,7 +22,7 @@ const SpottiActionButtons = ({ name, id }) => {
           iconName={'share'} 
           iconSize={iconSize.small} 
           iconColor={colors.offWhiteFont}
-          onIconPress={() => shareSpotti(id, name)}
+          onIconPress={() => shareSpottiLink(id, name)}
         />
         <RoundActionButton 
           iconName={'map-marker-check-outline'} 
@@ -44,9 +44,12 @@ const SpottiActionButtons = ({ name, id }) => {
 }
 
 const styles = StyleSheet.create({
-  goBackButtonContainer: {
+  container: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: spacing.xlarge,
+    marginTop: spacing.small,
+    marginBottom: spacing.medium,
   },
   rightSideButtons: {
     flexDirection: 'row',
