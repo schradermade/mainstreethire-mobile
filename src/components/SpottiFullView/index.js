@@ -25,39 +25,32 @@ const SpottiFullView = ({ route }) => {
 
   return (
     <ScreenWrapper>
-        {/* Action Buttons Section */}
-        <View style={styles.actionButtonContainer}>
-          <SpottiActionButtons name={name} id={id} />
+      <SpottiActionButtons name={name} id={id} />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 150}}
+      >
+        <ImagesSection images={pictures} />
+        <View style={styles.sectionContainer}>
+          <TitleSection
+            name={name}
+            rating={rating}
+            category={category}
+            hoursofOperation={hoursofOperation}
+            bestTimeToVisit={bestTimeToVisit}
+            tags={tags}
+          />
         </View>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          // style={{paddingBottom: 1000}}
-        >
-          {/* Images Section*/}
-            <ImagesSection images={pictures} />
-          {/* Title Section */}
-          <View style={styles.sectionContainer}>
-            <TitleSection
-              name={name}
-              rating={rating}
-              category={category}
-              hoursofOperation={hoursofOperation}
-              bestTimeToVisit={bestTimeToVisit}
-              tags={tags}
-            />
-          </View>
-          <View style={styles.sectionContainer}>
-            <Divider />
-          </View>
-          {/* Spotti Description Section */}
-          <View style={styles.sectionContainer}>
-            <SpottiDescriptionSection description={description} />
-          </View>
-          {/* Spotti Rating Section*/}
-          <View style={[styles.sectionContainer, { paddingBottom: 150 }]}>
-            <SpottiRatingSection rating={rating} />
-          </View>
-        </ScrollView>
+        <View style={styles.sectionContainer}>
+          <Divider />
+        </View>
+        <View style={styles.sectionContainer}>
+          <SpottiDescriptionSection description={description} />
+        </View>
+        <View style={styles.sectionContainer}>
+          <SpottiRatingSection rating={rating} />
+        </View>
+      </ScrollView>
     </ScreenWrapper>
   )
 }
@@ -66,10 +59,6 @@ const styles = StyleSheet.create({
   sectionContainer: {
     paddingTop: spacing.xlarge,
     paddingHorizontal: spacing.xlarge,
-  },
-  actionButtonContainer: {
-    marginVertical: spacing.large,
-    marginHorizontal: spacing.xxlarge,
   },
 })
 
