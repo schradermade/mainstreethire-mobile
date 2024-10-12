@@ -2,9 +2,9 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { colors } from "../theme/theme";
 
-const ScreenWrapper = ({ children, style }) => {
+const ScreenWrapper = ({ children, screenStyles }) => {
   return (
-    <View style={[styles.wrapper, style]}>
+    <View style={[styles.wrapper, screenStyles]}>
       {children}
     </View>
   )
