@@ -55,7 +55,7 @@ const EmailSignup = () => {
             styling={{paddingHorizontal: spacing.small}}
           />
           <Button
-            onPress={() => {}}
+            onPress={() => navigation.navigate('PasswordView')}
             buttonText={'Continue'}
             btnStyles={{marginTop: spacing.xxxxlarge}}
           />
