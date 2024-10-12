@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SpottiSection/SearchBar";
 import spotti from "../api/spotti";
-import CategoryList from "../components/Category/CategoryList";
+import CategoryList from "../components/SpottiSection/Category/CategoryList";
 import SpottiList from "../components/Spotti/SpottiList";
 import { colors } from "../theme/theme";
 

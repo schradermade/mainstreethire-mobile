@@ -1,6 +1,6 @@
 import { Share } from 'react-native';
 
-export const shareSpotti = async (id, name) => {
+export const shareSpottiLink = async (id, name) => {
   try {
     const link = `hotspotti-mobile://spotti/${id}`;  // Generate the deep link
     await Share.share({

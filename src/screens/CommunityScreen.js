@@ -1,20 +1,14 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { Text } from "react-native";
+import ScreenWrapper from "../components/ScreenWrapper";
 
 const CommunityScreen = () => {
 
   return (
-    <View style={styles.background}>
-      <Text>Profile Screen</Text>
-    </View>
+    <ScreenWrapper>
+      <Text>Community Screen</Text>
+    </ScreenWrapper>
   )
 }
-
-const styles = StyleSheet.create({
-  background: {
-    backgroundColor: '#0F3D3E',
-    flex: 1,
-  }
-});
 
 export default CommunityScreen;

@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import SpottiSubStats from "../Spotti/SpottiSubStats";
-import { colors, fontSize, spacing } from "../../theme/theme";
-import TagList from "../Tag/TagList";
+import SpottiMiniDetails from "../../Spotti/SpottiMiniDetails";
+import { colors, fontSize, spacing } from "../../../theme/theme";
+import TagList from "../../Tag/TagList";
 
 const TitleSection = ({ name, tags, rating, category, bestTimeToVisit, hoursofOperation }) => {
 
@@ -11,7 +11,7 @@ const TitleSection = ({ name, tags, rating, category, bestTimeToVisit, hoursofOp
       <Text style={styles.titleText}>
         {name}
       </Text>
-      <SpottiSubStats
+      <SpottiMiniDetails
         stats={
           {
             rating, 

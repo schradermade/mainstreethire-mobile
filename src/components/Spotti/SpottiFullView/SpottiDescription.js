@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { colors, fontSize } from "../../theme/theme";
+import { colors, fontSize } from "../../../theme/theme";
 
 const SpottiDescriptionSection = ({description}) => {
   return (

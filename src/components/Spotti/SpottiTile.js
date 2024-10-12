@@ -2,7 +2,7 @@ import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { View, Text, StyleSheet } from "react-native";
 import { spacing, colors } from "../../theme/theme";
-import SpottiSubStats from "./SpottiSubStats";
+import SpottiMiniDetails from "./SpottiMiniDetails";
 import ImageCarousel from "../ImageCarousel";
 
 const SpottiTile = ({ name, pictures, stats, onPress}) => {
@@ -21,7 +21,7 @@ const SpottiTile = ({ name, pictures, stats, onPress}) => {
           <Text style={styles.nameText}>{name}</Text>
           <Text style={styles.subText}>Portland, Oregon</Text>
         </View>
-        <SpottiSubStats
+        <SpottiMiniDetails
           stats={stats}
           textColorTheme='dark'
           iconColor={colors.darkFont}

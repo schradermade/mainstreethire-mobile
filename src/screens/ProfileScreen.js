@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import fetchUser from "../api/user";
-import { Avatar } from 'react-native-elements';
 import ScreenWrapper from "../components/ScreenWrapper";
-import { colors, fontSize, iconSize, spacing } from "../theme/theme";
-import RoundActionButton from "../ui/RoundActionButton";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { spacing } from "../theme/theme";
+import ProfileActionButtons from "../components/ProfileSection/ProfileActionButtons";
+import UserProfileSummary from "../components/ProfileSection/UserProfileSummary";
 
 const ProfileScreen = () => {
 const [user, setUser] = useState();
@@ -29,41 +28,10 @@ useEffect(() => {
   return (
     <ScreenWrapper>
       <View style={styles.container}>
-        <View style={styles.editButtonsContainer}>
-          <RoundActionButton
-            onIconPress={() => console.log('clicked cog icon')}
-            iconName='cog'
-            iconColor={colors.offWhiteFont} 
-            iconSize={iconSize.small}
-            // theme='dark'
-            // styling={{marginRight: 100}} 
-          />
-          <RoundActionButton
-            iconName='dots-horizontal'
-            onIconPress={() => console.log('clicked dots icon')}
-            iconColor={colors.offWhiteFont} 
-            iconSize={iconSize.small}
-            styling={{marginLeft: spacing.large}}
-          />
-        </View>
-        {loading ? (
+        <ProfileActionButtons />
+        {loading ? 
           <Text>Loading...</Text> 
-        )
-        : (
-            <>
-              <Avatar
-                rounded
-                size="xlarge"
-                source={require('../../assets/christian-headshot.png') }  // Replace with your image URL
-                title={user.firstName} // If the image doesn't load, initials will be displayed
-                containerStyle={{ backgroundColor: '#ccc' }}  // Placeholder color
-              />
-              <View style={styles.userInfoWrapper}>
-                <Text style={styles.userNameFont}>{user.firstName} {user.lastName}</Text>
-                <Text style={styles.cityStateFont}>Portland, Oregon</Text>
-              </View>
-            </>
-          )
+          : <UserProfileSummary />
         }
       </View>
     </ScreenWrapper>
@@ -74,21 +42,6 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: spacing.large,
     marginHorizontal: spacing.xxlarge,
-  },
-  userInfoWrapper: {
-    marginTop: spacing.medium
-  },
-  userNameFont: {
-    color: colors.offWhiteFont,
-    fontSize: fontSize.xlarge
-  },
-  cityStateFont: {
-    color: colors.darkFont,
-    fontSize: fontSize.medium
-  },
-  editButtonsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
   },
 });
 

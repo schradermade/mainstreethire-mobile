@@ -5,14 +5,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; // Updated import for native stack
 
-import SpottisScreen from "../screens/SpottisScreen";
-import ProfileScreen from "../screens/ProfileScreen";
-import NavigateScreen from "../screens/NavigateScreen";
-import SpottiFullView from "../components/SpottiFullView";
-import SavedScreen from "../screens/SavedScreen";
+// Screens
 import CommunityScreen from "../screens/CommunityScreen";
-import SavedList from "../components/Saved/SavedList";
-import WelcomeSection from '../components/WelcomeSection';
+import NavigateScreen from "../screens/NavigateScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import SavedScreen from "../screens/SavedScreen";
+import SpottisScreen from "../screens/SpottisScreen";
+import WelcomeScreen from '../screens/WelcomeScreen';
+
+import SpottiFullView from '../components/Spotti/SpottiFullView';
+import SavedList from "../components/SavedSection/SavedList";
 import EmailView from '../components/WelcomeSection/EmailView';
 import PasswordView from '../components/WelcomeSection/PasswordView';
 import UsersNameView from '../components/WelcomeSection/UsersNameView';
@@ -118,8 +120,8 @@ function WelcomeStack() {
     <Suspense fallback={ <ActivityIndicator size='large' color='#0000ff' /> }>
       <Stack.Navigator>
         <Stack.Screen 
-          name="WelcomeSection"
-          component={WelcomeSection}
+          name="WelcomeScreen"
+          component={WelcomeScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen

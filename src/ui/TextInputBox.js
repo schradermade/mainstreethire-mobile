@@ -11,6 +11,7 @@ const TextInputBox = ({
   alwaysFocused = false,
   labelText,
   styling,
+  isPassword = false
 }) => {
   const inputRef = useRef(null);
 
@@ -27,6 +28,7 @@ const TextInputBox = ({
       <Text style={styles.label}>{labelText}</Text>
       <TextInput
         ref={inputRef}
+        secureTextEntry={isPassword}  
         style={[
           styles.inputText,
           isFocused && styles.focusedInput,

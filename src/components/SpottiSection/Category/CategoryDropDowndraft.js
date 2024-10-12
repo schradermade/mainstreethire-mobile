@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Animated, Modal, Dimensions, FlatList } from "react-native";
-import { borderRadius, colors, iconSize, spacing } from "../../theme/theme";
+import { borderRadius, colors, iconSize, spacing } from "../../../theme/theme";
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
-import RoundActionButton from "../../ui/RoundActionButton";
+import RoundActionButton from "../../../ui/RoundActionButton";
 import CategoryTile from "./CategoryTile";
-import { CATEGORY_LIST } from "../../constants"; 
+import { CATEGORY_LIST } from "../../../constants"; 
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { height } = Dimensions.get('window');

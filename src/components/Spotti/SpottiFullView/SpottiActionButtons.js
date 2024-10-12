@@ -1,9 +1,9 @@
 import React from "react"
-import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet} from "react-native";
-import { colors, iconSize, spacing } from "../../theme/theme";
 import { useNavigation } from '@react-navigation/native';
-import { shareSpottiLink } from "../../utils/shareSpottiLink";
+import RoundActionButton from "../../../ui/RoundActionButton";
+import { colors, iconSize, spacing } from "../../../theme/theme";
+import { shareSpottiLink } from "../../../utils/shareSpottiLink";
 
 const SpottiActionButtons = ({ name, id }) => {
   const navigation = useNavigation();

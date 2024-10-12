@@ -1,7 +1,7 @@
 import React from "react";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { colors, fontSize, spacing } from "../../theme/theme";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
+import { colors, fontSize, spacing } from "../../../theme/theme";
 
 const windowWidth = Dimensions.get('window').width - 48;
 

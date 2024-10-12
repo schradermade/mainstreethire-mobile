@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
-import { colors, fontSize, iconSize, spacing } from "../theme/theme";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { TouchableOpacity } from "react-native-gesture-handler";
-import RoundActionButton from "../ui/RoundActionButton";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
+import RoundActionButton from "../../ui/RoundActionButton";
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);

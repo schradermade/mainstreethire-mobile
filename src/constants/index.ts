@@ -3,7 +3,7 @@ import { colors } from "../theme/theme";
 export const BOTTOM_TAB_ICONS = {
   Spottis: {
     name: 'map-marker-radius',
-    size: 36,
+    size: 32,
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont 
     },

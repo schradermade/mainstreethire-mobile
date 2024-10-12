@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import CategoryTile from "./CategoryTile";
 import { StyleSheet } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { CATEGORY_LIST } from "../../constants"; 
-import { spacing } from "../../theme/theme";
+import { CATEGORY_LIST } from "../../../constants"; 
+import { spacing } from "../../../theme/theme";
 
 const CategoryList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null); 

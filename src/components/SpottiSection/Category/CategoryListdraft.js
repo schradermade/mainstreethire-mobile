@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import CategoryTile from "./CategoryTile";
 import { StyleSheet, View, Animated } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import { CATEGORY_LIST } from "../../constants"; 
-import { spacing, colors, borderRadius } from "../../theme/theme";
+import { CATEGORY_LIST } from "../../../constants"; 
+import { spacing, colors, borderRadius } from "../../../theme/theme";
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 const CategoryList = () => {

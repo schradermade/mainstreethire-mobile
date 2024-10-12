@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, View, ScrollView } from "react-native";
-import { spacing } from "../../theme/theme";
-import ScreenWrapper from "../ScreenWrapper";
+import { spacing } from "../../../theme/theme";
+import ScreenWrapper from "../../ScreenWrapper";
 import SpottiActionButtons from "./SpottiActionButtons";
-import TitleSection from "./TitleSection";
-import SpottiDescriptionSection from './SpottiDescriptionSection';
-import Divider from "../../ui/Divider";
-import SpottiRatingSection from "./SpottiRatingSection";
-import ImagesSection from "./ImagesSection";
+import SpottiOverview from "./SpottiOverview";
+import SpottiDescription from './SpottiDescription';
+import Divider from "../../../ui/Divider";
+import SpottiRating from './SpottiRating';
+import ImageCarousel from "../../ImageCarousel";
 
 const SpottiFullView = ({ route }) => {
   const spotti = route.params.item || {};
@@ -30,9 +30,9 @@ const SpottiFullView = ({ route }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingBottom: 150}}
       >
-        <ImagesSection images={pictures} />
+        <ImageCarousel images={pictures} isFullView />
         <View style={styles.sectionContainer}>
-          <TitleSection
+          <SpottiOverview
             name={name}
             rating={rating}
             category={category}
@@ -45,10 +45,10 @@ const SpottiFullView = ({ route }) => {
           <Divider />
         </View>
         <View style={styles.sectionContainer}>
-          <SpottiDescriptionSection description={description} />
+          <SpottiDescription description={description} />
         </View>
         <View style={styles.sectionContainer}>
-          <SpottiRatingSection rating={rating} />
+          <SpottiRating rating={rating} />
         </View>
       </ScrollView>
     </ScreenWrapper>

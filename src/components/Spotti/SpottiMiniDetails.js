@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { colors, iconSize, spacing } from "../../theme/theme";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
-const SpottiSubStats = ({ stats, iconColor, textColorTheme, isFullSpottiView }) => {
+const SpottiMiniDetails = ({ stats, iconColor, textColorTheme, isFullSpottiView }) => {
   const { rating, category, bestTimeToVisit, hoursofOperation } = stats;
 
   return (
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default React.memo(SpottiSubStats);
+export default React.memo(SpottiMiniDetails);

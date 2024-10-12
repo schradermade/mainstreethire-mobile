@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { colors, fontSize, spacing } from "../../theme/theme";
+import { Text } from "react-native";
 import fetchSpottis from '../../api/spotti';
 import SpottiList from "../Spotti/SpottiList";
 import ScreenWrapper from "../ScreenWrapper";
-import ActionButtonsSection from "../SpottiFullView/SpottiActionButtons";
 import SavedListActionButtons from "./SavedListActionButtons";
 
 const SavedList = ({ route }) => {

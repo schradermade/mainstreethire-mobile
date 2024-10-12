@@ -1,5 +1,5 @@
 import React from "react";
-import { borderRadius, colors, fontSize, iconSize, spacing } from "../../theme/theme";
+import { borderRadius, colors, fontSize, iconSize, spacing } from "../../../theme/theme";
 import { StyleSheet, Text, View } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { TouchableOpacity } from "react-native-gesture-handler";
