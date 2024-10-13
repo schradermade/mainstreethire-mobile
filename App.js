@@ -32,7 +32,7 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <SafeAreaView style={styles.container} edges={["top"]}>
+        <SafeAreaView style={styles.container} edges={[]}>
           <AppNavigator />
         </SafeAreaView>
       </GestureHandlerRootView>
