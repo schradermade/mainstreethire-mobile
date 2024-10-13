@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, Dimensions, Text } from "react-native";
 import { SceneMap, TabView, TabBar } from "react-native-tab-view";
-import { colors, fontSize, spacing } from "../theme/theme";
+import { colors, fontSize, spacing, fonts } from "../theme/theme";
 import SavedLists from "../components/SavedSection/SavedLists";
 import Downloads from "../components/SavedSection/Downloads";
 import ScreenWrapper from "../components/ScreenWrapper";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const ListsRoute = () => <SavedLists />;
 const DownloadsRoute = () => <Downloads />;
@@ -15,6 +16,7 @@ const renderScene = SceneMap({
 });
 
 const SavedScreen = () => {
+  const insets = useSafeAreaInsets();
   const [index, setIndex] = useState(0);
   const [routes] = useState([
     { key: "lists", title: "Lists" },
@@ -43,8 +45,8 @@ const SavedScreen = () => {
   );
 
   return (
-    <ScreenWrapper>
-      <Text style={styles.savedText}>Saved</Text>
+    <ScreenWrapper screenStyles={{ paddingTop: insets.top }}>
+      <Text style={styles.savedText}>Spotti Lists</Text>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
@@ -59,10 +61,11 @@ const SavedScreen = () => {
 const styles = StyleSheet.create({
   savedText: {
     color: colors.offWhiteFont,
-    fontSize: fontSize.xxxlarge,
+    fontSize: fontSize.xxlarge,
     marginTop: spacing.xxxxlarge,
     marginBottom: spacing.small,
     marginLeft: spacing.large,
+    fontFamily: fonts.semiBold,
   },
   tabBar: {
     backgroundColor: colors.primaryColor,

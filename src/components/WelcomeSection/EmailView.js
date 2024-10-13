@@ -25,6 +25,7 @@ const EmailSignup = () => {
   return (
     <ScreenWrapper
       screenStyles={{
+        paddingTop: insets.top,
         paddingHorizontal: spacing.xlarge,
       }}
     >
@@ -39,7 +40,7 @@ const EmailSignup = () => {
         <RoundActionButton
           onIconPress={() => navigation.goBack()}
           iconName="arrow-left"
-          iconSize={iconSize.large}
+          iconSize={iconSize.medium}
           styling={{ alignItems: "flex-start" }}
         />
         <View style={styles.iconAndTextContainer}>

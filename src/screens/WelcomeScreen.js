@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
-import { spacing, iconSize, fonts } from "../theme/theme";
+import { spacing, iconSize } from "../theme/theme";
 import { HotSpottiIconAndSlogan } from "../ui/HotSpottiIconAndSlogan";
 import ScreenWrapper from "../components/ScreenWrapper";
 import Button from "../ui/Button";
@@ -16,6 +16,7 @@ const WelcomeScreen = () => {
   return (
     <ScreenWrapper
       screenStyles={{
+        paddingTop: insets.top,
         paddingBottom: insets.bottom,
         paddingHorizontal: spacing.xlarge,
       }}

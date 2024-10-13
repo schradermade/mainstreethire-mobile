@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
 import SearchBar from "../components/SpottiSection/SearchBar";
 import spotti from "../api/spotti";
 import CategoryList from "../components/SpottiSection/Category/CategoryList";
 import SpottiList from "../components/Spotti/SpottiList";
-import { colors } from "../theme/theme";
+import ScreenWrapper from "../components/ScreenWrapper";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const SpottiScreen = () => {
   const [term, setTerm] = useState("");
   const [spottis, setSpottis] = useState([]);
+  const insets = useSafeAreaInsets();
 
   const spottiApi = async () => {
     const response = await spotti.get();
@@ -16,7 +17,11 @@ const SpottiScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScreenWrapper
+      screenStyles={{
+        paddingTop: insets.top,
+      }}
+    >
       <SearchBar
         term={term}
         onTermChange={(newTerm) => setTerm(newTerm)}
@@ -24,15 +29,8 @@ const SpottiScreen = () => {
       />
       <CategoryList />
       <SpottiList spottis={spottis} />
-    </View>
+    </ScreenWrapper>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.primaryColor,
-  },
-});
 
 export default SpottiScreen;

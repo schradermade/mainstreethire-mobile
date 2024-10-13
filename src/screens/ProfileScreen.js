@@ -5,8 +5,10 @@ import ScreenWrapper from "../components/ScreenWrapper";
 import { spacing } from "../theme/theme";
 import ProfileActionButtons from "../components/ProfileSection/ProfileActionButtons";
 import UserProfileSummary from "../components/ProfileSection/UserProfileSummary";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const ProfileScreen = () => {
+  const insets = useSafeAreaInsets();
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true); // To handle loading state
 
@@ -26,7 +28,7 @@ const ProfileScreen = () => {
   }, []);
 
   return (
-    <ScreenWrapper>
+    <ScreenWrapper screenStyles={{ paddingTop: insets.top }}>
       <View style={styles.container}>
         <ProfileActionButtons />
         {loading ? <Text>Loading...</Text> : <UserProfileSummary />}
