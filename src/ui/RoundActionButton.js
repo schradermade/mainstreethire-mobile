@@ -12,7 +12,7 @@ const RoundActionButton = ({
   styling,
 }) => {
   return (
-    <TouchableOpacity onPress={onIconPress}>
+    <TouchableOpacity onPress={onIconPress} activeOpacity={0.75}>
       <View style={[styles.iconWrapper, styling]}>
         <MaterialCommunityIcons
           name={iconName}
@@ -26,7 +26,7 @@ const RoundActionButton = ({
 
 const styles = StyleSheet.create({
   iconWrapper: {
-    padding: 5,
+    padding: 4,
     borderRadius: iconSize.large / 2,
     justifyContent: "center",
     alignItems: "center",
