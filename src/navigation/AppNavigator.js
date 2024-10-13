@@ -3,7 +3,7 @@ import { Text, ActivityIndicator } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack"; // Updated import for native stack
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Screens
 import CommunityScreen from "../screens/CommunityScreen";
@@ -13,15 +13,18 @@ import SavedScreen from "../screens/SavedScreen";
 import SpottisScreen from "../screens/SpottisScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 
+// Components
 import SpottiFullView from "../components/Spotti/SpottiFullView";
 import SavedList from "../components/SavedSection/SavedList";
 import EmailView from "../components/WelcomeSection/EmailView";
 import PasswordView from "../components/WelcomeSection/PasswordView";
 import UsersNameView from "../components/WelcomeSection/UsersNameView";
 
+// Constants
 import { BOTTOM_TAB_ICONS } from "../constants";
-import { colors } from "../theme/theme";
+import { colors, fonts } from "../theme/theme";
 
+// Tab and Stack Navigators
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -44,7 +47,28 @@ function AppNavigator() {
 
   return (
     <NavigationContainer linking={linking}>
-      {isLoggedIn ? <TabsNavigator /> : <WelcomeStack />}
+      <Stack.Navigator>
+        {/* Main navigation flow */}
+        {isLoggedIn ? (
+          <Stack.Screen
+            name="Tabs"
+            component={TabsNavigator}
+            options={{ headerShown: false }}
+          />
+        ) : (
+          <Stack.Screen
+            name="WelcomeStack"
+            component={WelcomeStack}
+            options={{ headerShown: false }}
+          />
+        )}
+        {/* SpottiFullStack - This stack is outside the TabNavigator */}
+        <Stack.Screen
+          name="SpottiFullStack"
+          component={SpottiFullStack}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
@@ -55,38 +79,34 @@ function TabsNavigator() {
       initialRouteName="Spottis"
       screenOptions={({ route }) => ({
         lazy: true,
-        tabBarIcon: ({ focused }) => {
-          return (
-            <MaterialCommunityIcons
-              name={BOTTOM_TAB_ICONS[route.name].name}
-              size={BOTTOM_TAB_ICONS[route.name].size}
-              color={
-                focused
-                  ? BOTTOM_TAB_ICONS[route.name].focusedColor
-                  : BOTTOM_TAB_ICONS[route.name].unfocusedColor
-              }
-              style={route.name === "Spottis" ? {} : { marginTop: 6 }}
-            />
-          );
-        },
+        tabBarIcon: ({ focused }) => (
+          <MaterialCommunityIcons
+            name={BOTTOM_TAB_ICONS[route.name].name}
+            size={BOTTOM_TAB_ICONS[route.name].size}
+            color={
+              focused
+                ? BOTTOM_TAB_ICONS[route.name].focusedColor
+                : BOTTOM_TAB_ICONS[route.name].unfocusedColor
+            }
+          />
+        ),
         tabBarStyle: {
           backgroundColor: colors.primaryColor,
           borderTopColor: colors.borderColorDark,
         },
-        tabBarLabel: ({ focused }) => {
-          return (
-            <Text
-              style={{
-                color: focused
-                  ? BOTTOM_TAB_ICONS[route.name].focusedColor
-                  : BOTTOM_TAB_ICONS[route.name].unfocusedColor,
-                fontSize: 11,
-              }}
-            >
-              {route.name}
-            </Text>
-          );
-        },
+        tabBarLabel: ({ focused }) => (
+          <Text
+            style={{
+              color: focused
+                ? BOTTOM_TAB_ICONS[route.name].focusedColor
+                : BOTTOM_TAB_ICONS[route.name].unfocusedColor,
+              fontSize: 11,
+              fontFamily: fonts.semiBold,
+            }}
+          >
+            {route.name}
+          </Text>
+        ),
       })}
     >
       <Tab.Screen
@@ -152,6 +172,7 @@ function WelcomeStack() {
   );
 }
 
+// SpottiStack stays within the TabsNavigator
 function SpottiStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
@@ -161,6 +182,16 @@ function SpottiStack() {
           component={SpottisScreen}
           options={{ headerShown: false }}
         />
+      </Stack.Navigator>
+    </Suspense>
+  );
+}
+
+// SpottiFullStack - This stack handles deeper navigation without the tab bar
+function SpottiFullStack() {
+  return (
+    <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
+      <Stack.Navigator>
         <Stack.Screen
           name="SpottiFullView"
           component={SpottiFullView}

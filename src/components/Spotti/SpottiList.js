@@ -7,6 +7,14 @@ import { useNavigation } from "@react-navigation/native";
 const SpottiList = ({ spottis = [] }) => {
   const navigation = useNavigation();
 
+  const handleTilePress = (spotti) => {
+    // Navigate to the SpottiFullStack and pass the clicked spotti item
+    navigation.navigate("SpottiFullStack", {
+      screen: "SpottiFullView",
+      params: { item: spotti },
+    });
+  };
+
   return (
     <FlatList
       data={spottis}
@@ -15,7 +23,7 @@ const SpottiList = ({ spottis = [] }) => {
         return (
           <View style={styles.spottiTile}>
             <SpottiTile
-              onPress={() => navigation.navigate("SpottiFullView", { item })}
+              onPress={() => handleTilePress(item)}
               name={item.name}
               pictures={item.pictures}
               stats={{
