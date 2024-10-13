@@ -11,30 +11,31 @@ const SpottiActionButtons = ({ name, id }) => {
   return (
     <View style={styles.container}>
       <RoundActionButton
-        iconName={"arrow-left"}
+        iconName={"chevron-left"}
         iconSize={iconSize.small}
-        iconColor={colors.offWhiteFont}
+        iconColor={colors.mediumGray}
         onIconPress={() => navigation.goBack()}
-        // styling={{backgroundColor: colors.primaryButtonColor}}
+        styling={{ backgroundColor: colors.offWhiteFont }}
       />
       <View style={styles.rightSideButtons}>
         <RoundActionButton
-          iconName={"share"}
+          iconName={"share-outline"}
           iconSize={iconSize.small}
-          iconColor={colors.offWhiteFont}
+          iconColor={colors.mediumGray}
           onIconPress={() => shareSpottiLink(id, name)}
+          styling={{ backgroundColor: colors.offWhiteFont }}
         />
         <RoundActionButton
           iconName={"map-marker-check-outline"}
           iconSize={iconSize.small}
-          iconColor={colors.offWhiteFont}
+          iconColor={colors.mediumGray}
           onIconPress={() => navigation.navigate("SpottiScreen")}
           styling={styles.actionButton}
         />
         <RoundActionButton
           iconName={"bookmark-outline"}
           iconSize={iconSize.small}
-          iconColor={colors.offWhiteFont}
+          iconColor={colors.mediumGray}
           onIconPress={() => navigation.navigate("SpottiScreen")}
           styling={styles.actionButton}
         />
@@ -48,8 +49,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: spacing.xlarge,
-    marginTop: spacing.small,
-    marginBottom: spacing.medium,
   },
   rightSideButtons: {
     flexDirection: "row",
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     marginLeft: spacing.large,
+    backgroundColor: colors.offWhiteFont,
   },
 });
 
