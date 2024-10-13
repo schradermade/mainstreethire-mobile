@@ -5,6 +5,7 @@ import {
   fontSize,
   iconSize,
   spacing,
+  fonts,
 } from "../../../theme/theme";
 import { StyleSheet, Text, View } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
   titleText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.medium,
+    fontFamily: fonts.regular,
   },
   icon: {
     color: colors.offWhiteFont,

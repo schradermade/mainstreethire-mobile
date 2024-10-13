@@ -6,6 +6,7 @@ import {
   fontSize,
   iconSize,
   spacing,
+  fonts,
 } from "../../theme/theme";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import CustomBorder from "../../ui/CustomBorder";
@@ -52,9 +53,11 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.large,
     paddingBottom: spacing.xsmall,
+    fontFamily: fonts.regular,
   },
   numSpottisText: {
     color: colors.darkFont,
+    fontFamily: fonts.regular,
   },
   iconContainer: {
     padding: spacing.medium,

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
+import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import RoundActionButton from "../../ui/RoundActionButton";
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
@@ -169,6 +169,7 @@ const styles = StyleSheet.create({
   staticText: {
     color: colors.darkFont,
     fontSize: fontSize.large,
+    fontFamily: fonts.regular,
   },
   dynamicTextWrapper: {
     // This wrapper is for the animated text
@@ -176,6 +177,7 @@ const styles = StyleSheet.create({
   dynamicText: {
     color: colors.darkFont,
     fontSize: fontSize.large,
+    fontFamily: fonts.bold,
   },
   iconsContainer: {
     width: 60,

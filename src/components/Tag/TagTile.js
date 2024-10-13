@@ -1,6 +1,12 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { colors, spacing, fontSize, borderRadius } from "../../theme/theme";
+import {
+  colors,
+  spacing,
+  fontSize,
+  borderRadius,
+  fonts,
+} from "../../theme/theme";
 
 const TagTile = ({ tag }) => {
   return (
@@ -29,6 +35,7 @@ const styles = StyleSheet.create({
   tagText: {
     color: colors.darkFont,
     fontSize: fontSize.small,
+    fontFamily: fonts.semiBold,
   },
 });
 

@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.xxxlarge,
     textAlign: "center",
-    fontFamily: fonts.bold,
+    fontFamily: fonts.semiBold,
   },
   iconSubText: {
     fontSize: fontSize.large,
     color: colors.darkFont,
     marginTop: spacing.small,
-    fontFamily: fonts.bold,
+    fontFamily: fonts.semiBold,
   },
   innerIcon: {
     color: colors.spottiDark,

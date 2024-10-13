@@ -6,6 +6,7 @@ import {
   iconSize,
   spacing,
   borderRadius,
+  fonts,
 } from "../../theme/theme";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import CustomBorder from "../../ui/CustomBorder";
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
   titleText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.large,
+    fontFamily: fonts.regular,
   },
   textContainer: {
     justifyContent: "center",

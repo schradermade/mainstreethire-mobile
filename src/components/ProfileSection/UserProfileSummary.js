@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar } from "react-native-elements";
 import { View, Text, StyleSheet } from "react-native";
-import { spacing, colors, fontSize } from "../../theme/theme";
+import { spacing, colors, fontSize, fonts } from "../../theme/theme";
 
 const UserProfileSummary = () => {
   return (
@@ -30,10 +30,12 @@ const styles = StyleSheet.create({
   userNameFont: {
     color: colors.offWhiteFont,
     fontSize: fontSize.xlarge,
+    fontFamily: fonts.regular,
   },
   cityStateFont: {
     color: colors.darkFont,
     fontSize: fontSize.medium,
+    fontFamily: fonts.regular,
   },
 });
 

@@ -7,6 +7,7 @@ import {
   borderWidth,
   borderRadius,
   iconSize,
+  fonts,
 } from "../theme/theme";
 import RoundActionButton from "./RoundActionButton";
 
@@ -86,6 +87,7 @@ const styles = StyleSheet.create({
     marginLeft: 1,
     marginBottom: 5,
     fontSize: fontSize.medium,
+    fontFamily: fonts.regular,
   },
 });
 

@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 
 import { useKeyboardHeight } from "../../hooks/useKeyboardHeight";
-import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
+import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import ScreenWrapper from "../ScreenWrapper";
 import TextInputBox from "../../ui/TextInputBox";
 import RoundActionButton from "../../ui/RoundActionButton";
@@ -33,6 +33,7 @@ const UsersNameView = () => {
   return (
     <ScreenWrapper
       screenStyles={{
+        paddingTop: insets.top,
         paddingHorizontal: spacing.xlarge,
       }}
     >
@@ -47,7 +48,7 @@ const UsersNameView = () => {
         <RoundActionButton
           onIconPress={() => navigation.goBack()}
           iconName="arrow-left"
-          iconSize={iconSize.large}
+          iconSize={iconSize.medium}
           styling={{ alignItems: "flex-start" }}
         />
         <View style={styles.iconAndTextContainer}>
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.xxlarge,
     paddingTop: spacing.medium,
+    fontFamily: fonts.regular,
   },
 });
 

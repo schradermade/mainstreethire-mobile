@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { View, Text, StyleSheet } from "react-native";
-import { spacing, colors } from "../../theme/theme";
+import { spacing, colors, fonts } from "../../theme/theme";
 import SpottiMiniDetails from "./SpottiMiniDetails";
 import ImageCarousel from "../ImageCarousel";
 
@@ -40,8 +40,10 @@ const styles = StyleSheet.create({
   nameText: {
     color: colors.offWhiteFont,
     fontSize: 20,
+    fontFamily: fonts.semiBold,
   },
   subText: {
     color: colors.darkFont,
+    fontFamily: fonts.regular,
   },
 });

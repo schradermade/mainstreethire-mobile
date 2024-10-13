@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SpottiMiniDetails from "../../Spotti/SpottiMiniDetails";
-import { colors, fontSize, spacing } from "../../../theme/theme";
+import { colors, fontSize, spacing, fonts } from "../../../theme/theme";
 import TagList from "../../Tag/TagList";
 
 const TitleSection = ({
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: fontSize.xxlarge,
     color: colors.offWhiteFont,
+    fontFamily: fonts.semiBold,
   },
   tagsContainer: {
     paddingTop: spacing.medium,

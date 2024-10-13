@@ -1,7 +1,7 @@
 import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { colors, fontSize, spacing } from "../../../theme/theme";
+import { colors, fontSize, spacing, fonts } from "../../../theme/theme";
 
 const windowWidth = Dimensions.get("window").width - 48;
 
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: windowWidth * 0.17,
     width: "100%",
+    fontFamily: fonts.regular,
   },
   starsContainer: {
     flexDirection: "row",
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     color: colors.darkFont,
+    fontFamily: fonts.regular,
   },
   subTextWrapper: {
     alignItems: "flex-end",

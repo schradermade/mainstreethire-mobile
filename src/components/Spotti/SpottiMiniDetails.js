@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
-import { colors, iconSize, spacing } from "../../theme/theme";
+import { colors, iconSize, spacing, fonts } from "../../theme/theme";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 const SpottiMiniDetails = ({
@@ -9,7 +9,7 @@ const SpottiMiniDetails = ({
   textColorTheme,
   isFullSpottiView,
 }) => {
-  const { rating, category, bestTimeToVisit, hoursofOperation } = stats;
+  const { rating, category, bestTimeToVisit } = stats;
 
   return (
     <View style={styles.statsContainer}>
@@ -28,6 +28,7 @@ const SpottiMiniDetails = ({
                   textColorTheme === "dark"
                     ? colors.darkFont
                     : colors.offWhiteFont,
+                fontFamily: fonts.semiBold,
               }}
             >
               {rating}
@@ -51,6 +52,7 @@ const SpottiMiniDetails = ({
           style={{
             color:
               textColorTheme === "dark" ? colors.darkFont : colors.offWhiteFont,
+            fontFamily: fonts.semiBold,
           }}
         >
           {category}
@@ -71,6 +73,7 @@ const SpottiMiniDetails = ({
         style={{
           color:
             textColorTheme === "dark" ? colors.darkFont : colors.offWhiteFont,
+          fontFamily: fonts.semiBold,
         }}
       >
         {bestTimeToVisit}
@@ -88,9 +91,6 @@ const styles = StyleSheet.create({
   statContainer: {
     flexDirection: "row",
     alignItems: "center",
-  },
-  subText: {
-    color: colors.darkFont,
   },
 });
 

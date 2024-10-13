@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     color: colors.darkFont,
     textAlign: "center",
     lineHeight: fontSize.medium,
-    fontFamily: fonts.semiBold,
-    fontSize: fontSize.large,
+    fontFamily: fonts.regular,
+    fontSize: fontSize.xlarge,
   },
 });
 

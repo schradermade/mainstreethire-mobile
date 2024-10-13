@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet, Text } from "react-native";
-import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
+import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import { useNavigation } from "@react-navigation/native";
 import SavedListEditModal from "./SavedListEditModal";
 
@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   titleText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.xlarge,
+    fontFamily: fonts.semiBold,
   },
 });
 

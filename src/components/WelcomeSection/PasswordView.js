@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import { useKeyboardHeight } from "../../hooks/useKeyboardHeight";
-import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
+import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import ScreenWrapper from "../ScreenWrapper";
 import TextInputBox from "../../ui/TextInputBox";
 import RoundActionButton from "../../ui/RoundActionButton";
@@ -12,8 +12,8 @@ import Button from "../../ui/Button";
 const PasswordView = () => {
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
-
   const insets = useSafeAreaInsets();
+
   const screenHeight = Dimensions.get("window").height;
   const keyboardHeight = useKeyboardHeight();
   const calculatedHeight = Math.min(
@@ -24,6 +24,7 @@ const PasswordView = () => {
   return (
     <ScreenWrapper
       screenStyles={{
+        paddingTop: insets.top,
         paddingHorizontal: spacing.xlarge,
       }}
     >
@@ -38,7 +39,7 @@ const PasswordView = () => {
         <RoundActionButton
           onIconPress={() => navigation.goBack()}
           iconName="arrow-left"
-          iconSize={iconSize.large}
+          iconSize={iconSize.medium}
           styling={{ alignItems: "flex-start" }}
         />
         <View style={styles.iconAndTextContainer}>
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.xxlarge,
     paddingTop: spacing.medium,
+    fontFamily: fonts.regular,
   },
 });
 
