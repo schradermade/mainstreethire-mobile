@@ -8,15 +8,7 @@ import PaginationDots from "../ui/PaginationDots";
 const SLIDER_WIDTH = Dimensions.get("window").width;
 
 const ImageCarousel = forwardRef(
-  (
-    {
-      images,
-      isFullView = false,
-      onSwipeStart, // Add swipe start prop
-      onSwipeEnd,
-    }, // Add swipe end prop
-    ref
-  ) => {
+  ({ images, isFullView = false, onSwipeStart, onSwipeEnd }, ref) => {
     const widthValue = isFullView
       ? SLIDER_WIDTH
       : SLIDER_WIDTH - spacing.xxlarge * 2;
@@ -56,6 +48,9 @@ const ImageCarousel = forwardRef(
     const handleSnapToItem = useCallback((index) => {
       setCurrentIndex(index); // Ensure final snap update after swipe completes
     }, []);
+
+    const name = "";
+    const id = "";
 
     return (
       <View ref={ref} style={styles.container}>
