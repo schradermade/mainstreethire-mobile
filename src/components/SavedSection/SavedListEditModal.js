@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Animated, Modal, Dimensions } from "react-native";
 import { borderRadius, colors, iconSize, spacing } from "../../theme/theme";
-import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import { PanGestureHandler, State } from "react-native-gesture-handler";
 import RoundActionButton from "../../ui/RoundActionButton";
 import EditModalContents from "./EditModalContents";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-const { height } = Dimensions.get('window');
+const { height } = Dimensions.get("window");
 const MIN_TRANSLATE_Y = 100; // Modal should not go above this (100px below the top)
 
 const SavedListEditModal = ({ isVisible, setVisible, title }) => {
@@ -49,7 +49,8 @@ const SavedListEditModal = ({ isVisible, setVisible, title }) => {
   const onHandlerStateChange = ({ nativeEvent }) => {
     if (nativeEvent.state === State.END) {
       const dragThreshold = 100; // Distance needed to trigger closing
-      const newTranslateY = nativeEvent.translationY + nativeEvent.velocityY * 0.1; // Factor in velocity
+      const newTranslateY =
+        nativeEvent.translationY + nativeEvent.velocityY * 0.1; // Factor in velocity
 
       if (newTranslateY > dragThreshold) {
         closeModal(); // Close modal if pulled down enough
@@ -84,21 +85,23 @@ const SavedListEditModal = ({ isVisible, setVisible, title }) => {
             style={[
               styles.modalContainer,
               {
-                transform: [{
-                  translateY: translateY.interpolate({
-                    inputRange: [MIN_TRANSLATE_Y, height],
-                    outputRange: [MIN_TRANSLATE_Y, height],
-                    extrapolate: 'clamp' // Prevent modal from going above 100px
-                  })
-                }]
-              }
+                transform: [
+                  {
+                    translateY: translateY.interpolate({
+                      inputRange: [MIN_TRANSLATE_Y, height],
+                      outputRange: [MIN_TRANSLATE_Y, height],
+                      extrapolate: "clamp", // Prevent modal from going above 100px
+                    }),
+                  },
+                ],
+              },
             ]}
           >
             <View style={styles.modalHandle} />
             <View style={styles.closeButtonWrapper}>
-              <RoundActionButton 
-                iconName={'close'} 
-                iconSize={iconSize.small} 
+              <RoundActionButton
+                iconName={"close"}
+                iconSize={iconSize.small}
                 iconColor={colors.offWhiteFont}
                 onIconPress={closeModal}
               />
@@ -109,30 +112,30 @@ const SavedListEditModal = ({ isVisible, setVisible, title }) => {
       </View>
     </Modal>
   );
-}
+};
 
 const styles = StyleSheet.create({
   modalBackground: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
   },
   modalContainer: {
     height: height - 30,
     borderTopLeftRadius: borderRadius.large,
     borderTopRightRadius: borderRadius.large,
     padding: spacing.large,
-    backgroundColor: colors.primaryModalColor, 
+    backgroundColor: colors.primaryModalColor,
   },
   closeButtonWrapper: {
-    alignSelf: 'flex-end', 
+    alignSelf: "flex-end",
   },
   modalHandle: {
-    height: 5, 
-    width: 30, 
+    height: 5,
+    width: 30,
     borderRadius: 25,
     backgroundColor: colors.borderColorDark,
-    alignSelf: 'center'
-  }
+    alignSelf: "center",
+  },
 });
 
 export default SavedListEditModal;

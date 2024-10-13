@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet, Text } from "react-native";
 import { colors, fontSize, iconSize, spacing } from "../../theme/theme";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 import SavedListEditModal from "./SavedListEditModal";
 
 const SavedListActionButtons = ({ listName }) => {
@@ -14,7 +14,7 @@ const SavedListActionButtons = ({ listName }) => {
       {/* Left-side buttons */}
       <View style={styles.leftSideButtons}>
         <RoundActionButton
-          iconName={'arrow-left'}
+          iconName={"arrow-left"}
           iconSize={iconSize.small}
           iconColor={colors.offWhiteFont}
           onIconPress={() => navigation.goBack()}
@@ -23,28 +23,26 @@ const SavedListActionButtons = ({ listName }) => {
       </View>
       {/* Centered title */}
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>
-          {listName}
-        </Text>
+        <Text style={styles.titleText}>{listName}</Text>
       </View>
       {/* Right-side buttons */}
       <View style={styles.rightSideButtons}>
-        <RoundActionButton 
-          iconName={'sort'} 
-          iconSize={iconSize.small} 
+        <RoundActionButton
+          iconName={"sort"}
+          iconSize={iconSize.small}
           iconColor={colors.offWhiteFont}
-          onIconPress={() => console.log('sort pressed')}
-          styling={[styles.button, {marginLeft: spacing.large}]}
+          onIconPress={() => console.log("sort pressed")}
+          styling={[styles.button, { marginLeft: spacing.large }]}
         />
-        <RoundActionButton 
-          iconName={'dots-horizontal'} 
+        <RoundActionButton
+          iconName={"dots-horizontal"}
           onIconPress={() => setModalVisible(true)}
           iconColor={colors.offWhiteFont}
-          iconSize={iconSize.small} 
-          styling={{marginLeft: spacing.large}}
+          iconSize={iconSize.small}
+          styling={{ marginLeft: spacing.large }}
         />
       </View>
-      <SavedListEditModal 
+      <SavedListEditModal
         isVisible={isModalVisible}
         setVisible={setModalVisible}
         title={listName}
@@ -55,25 +53,25 @@ const SavedListActionButtons = ({ listName }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     paddingHorizontal: spacing.xlarge,
     marginTop: spacing.small,
     marginBottom: spacing.medium,
-    alignItems: 'center',
+    alignItems: "center",
   },
   leftSideButtons: {
     zIndex: 2,
   },
   rightSideButtons: {
-    flexDirection: 'row',
+    flexDirection: "row",
     zIndex: 2,
   },
   titleContainer: {
-    position: 'absolute',
+    position: "absolute",
     left: 0,
-    right: 0,  
-    alignItems: 'center', 
+    right: 0,
+    alignItems: "center",
   },
   titleText: {
     color: colors.offWhiteFont,

@@ -4,41 +4,43 @@ import SpottiMiniDetails from "../../Spotti/SpottiMiniDetails";
 import { colors, fontSize, spacing } from "../../../theme/theme";
 import TagList from "../../Tag/TagList";
 
-const TitleSection = ({ name, tags, rating, category, bestTimeToVisit, hoursofOperation }) => {
-
+const TitleSection = ({
+  name,
+  tags,
+  rating,
+  category,
+  bestTimeToVisit,
+  hoursofOperation,
+}) => {
   return (
     <View>
-      <Text style={styles.titleText}>
-        {name}
-      </Text>
+      <Text style={styles.titleText}>{name}</Text>
       <SpottiMiniDetails
-        stats={
-          {
-            rating, 
-            category, 
-            bestTimeToVisit, 
-            hoursofOperation
-          }
-        }
+        stats={{
+          rating,
+          category,
+          bestTimeToVisit,
+          hoursofOperation,
+        }}
         iconColor={colors.spottiDark}
-        textColorTheme='light'
+        textColorTheme="light"
         isFullSpottiView
       />
       <View style={styles.tagsContainer}>
         <TagList tags={tags} />
       </View>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   titleText: {
     fontSize: fontSize.xxlarge,
-    color: colors.offWhiteFont
+    color: colors.offWhiteFont,
   },
   tagsContainer: {
     paddingTop: spacing.medium,
-  }
-})
+  },
+});
 
 export default React.memo(TitleSection);

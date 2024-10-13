@@ -1,17 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
 import { TextInput, StyleSheet, Text, View } from "react-native";
-import { colors, spacing, fontSize, borderWidth, borderRadius, iconSize } from "../theme/theme";
+import {
+  colors,
+  spacing,
+  fontSize,
+  borderWidth,
+  borderRadius,
+  iconSize,
+} from "../theme/theme";
 import RoundActionButton from "./RoundActionButton";
 
-const TextInputBox = ({ 
-  value, 
-  onChangeText, 
+const TextInputBox = ({
+  value,
+  onChangeText,
   placeholder,
   returnKey,
   alwaysFocused = false,
   labelText,
   styling,
-  isPassword = false
+  isPassword = false,
 }) => {
   const inputRef = useRef(null);
 
@@ -28,11 +35,8 @@ const TextInputBox = ({
       <Text style={styles.label}>{labelText}</Text>
       <TextInput
         ref={inputRef}
-        secureTextEntry={isPassword}  
-        style={[
-          styles.inputText,
-          isFocused && styles.focusedInput,
-        ]}
+        secureTextEntry={isPassword}
+        style={[styles.inputText, isFocused && styles.focusedInput]}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
@@ -44,23 +48,23 @@ const TextInputBox = ({
       {value.length >= 1 && (
         <View style={styles.closeButtonWrapper}>
           <RoundActionButton
-            onIconPress={() => onChangeText('')}
-            iconName='close' 
+            onIconPress={() => onChangeText("")}
+            iconName="close"
             iconColor={colors.offWhiteFont}
             iconSize={iconSize.xsmall}
             styling={{
-              backgroundColor: colors.darkGray, 
+              backgroundColor: colors.darkGray,
             }}
           />
         </View>
       )}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   closeButtonWrapper: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 12,
     right: 18,
   },
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.large,
     backgroundColor: colors.secondaryColor,
-    height: 50
+    height: 50,
   },
   focusedInput: {
     borderColor: colors.borderColorLight,
@@ -81,8 +85,8 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     marginLeft: 1,
     marginBottom: 5,
-    fontSize: fontSize.medium
-  }
+    fontSize: fontSize.medium,
+  },
 });
 
 export default TextInputBox;

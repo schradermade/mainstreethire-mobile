@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { borderWidth, colors, fontSize, spacing } from "../../theme/theme";
 
 const EditModalContents = ({ listName }) => {
@@ -9,37 +16,36 @@ const EditModalContents = ({ listName }) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={[styles.container]}>
-          <Text style={styles.editListText}>Edit list</Text>
-          <Text style={styles.listNameText}>List name</Text>
-          <TextInput 
-            style={[styles.inputText, isFocused && styles.focusedInput]}
-            value={newListName}
-            onChangeText={setNewListName}
-            placeholder={listName}
-            placeholderTextColor={colors.placeholderText}
-            returnKeyType="done"
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-          />
+        <Text style={styles.editListText}>Edit list</Text>
+        <Text style={styles.listNameText}>List name</Text>
+        <TextInput
+          style={[styles.inputText, isFocused && styles.focusedInput]}
+          value={newListName}
+          onChangeText={setNewListName}
+          placeholder={listName}
+          placeholderTextColor={colors.placeholderText}
+          returnKeyType="done"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+        />
       </View>
     </TouchableWithoutFeedback>
-
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   editListText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.xxlarge,
-    marginTop: spacing.xxxxlarge
+    marginTop: spacing.xxxxlarge,
   },
   listNameText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.medium,
-    marginTop: spacing.xxxlarge
+    marginTop: spacing.xxxlarge,
   },
   inputText: {
     marginTop: spacing.medium,
@@ -48,12 +54,12 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.large,
     backgroundColor: colors.secondaryColor,
-    height: 50
+    height: 50,
   },
   focusedInput: {
     borderColor: colors.borderColorLight,
     borderWidth: borderWidth.medium,
-  }
+  },
 });
 
 export default EditModalContents;

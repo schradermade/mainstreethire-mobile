@@ -1,8 +1,8 @@
 import React from "react";
-import SpottiTile from './SpottiTile';
+import SpottiTile from "./SpottiTile";
 import { FlatList, Text, StyleSheet, View } from "react-native";
 import { colors, spacing } from "../../theme/theme";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 
 const SpottiList = ({ spottis = [] }) => {
   const navigation = useNavigation();
@@ -15,20 +15,20 @@ const SpottiList = ({ spottis = [] }) => {
         return (
           <View style={styles.spottiTile}>
             <SpottiTile
-              onPress={() => navigation.navigate('SpottiFullView', { item })}
+              onPress={() => navigation.navigate("SpottiFullView", { item })}
               name={item.name}
               pictures={item.pictures}
               stats={{
                 rating: item.rating,
                 category: item.category,
                 bestTimeToVisit: item.bestTimeToVisit,
-                hoursofOperation: item.hoursofOperation
+                hoursofOperation: item.hoursofOperation,
               }}
             />
           </View>
         );
       }}
-      showsVerticalScrollIndicator={true} 
+      showsVerticalScrollIndicator={true}
       scrollEnabled={true}
       ListEmptyComponent={
         <Text style={styles.emptyText}>No Spottis Available</Text>
@@ -42,13 +42,13 @@ const styles = StyleSheet.create({
   flatListContent: {
     paddingTop: spacing.xsmall,
     paddingBottom: spacing.xxxxlarge,
-    alignItems: 'center'
+    alignItems: "center",
   },
   spottiTile: {
-    marginBottom: spacing.xxxxlarge
+    marginBottom: spacing.xxxxlarge,
   },
   emptyText: {
-    alignSelf: 'center',
+    alignSelf: "center",
     color: colors.darkFont,
   },
 });

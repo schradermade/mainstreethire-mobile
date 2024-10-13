@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Keyboard } from 'react-native';
+import { useEffect, useState } from "react";
+import { Keyboard } from "react-native";
 
 export const useKeyboardHeight = () => {
   const [keyboardHeight, setKeyboardHeight] = useState(0);

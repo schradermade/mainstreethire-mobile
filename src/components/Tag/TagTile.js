@@ -7,29 +7,29 @@ const TagTile = ({ tag }) => {
     <View style={styles.container}>
       <Text style={styles.tagText}>{tag}</Text>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     borderColor: colors.borderColorDark,
     borderWidth: 1,
     borderRadius: borderRadius.small,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 'auto',
+    justifyContent: "center",
+    alignItems: "center",
+    width: "auto",
     paddingVertical: spacing.xsmall,
     paddingHorizontal: spacing.small,
     marginRight: spacing.small,
     marginBottom: spacing.small,
-    alignSelf: 'flex-start',
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: "flex-start",
+    justifyContent: "center",
+    alignItems: "center",
   },
   tagText: {
     color: colors.darkFont,
     fontSize: fontSize.small,
-  }
-})
+  },
+});
 
 export default TagTile;

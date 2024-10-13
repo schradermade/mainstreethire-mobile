@@ -5,7 +5,6 @@ import SavedCreateNewList from "./SavedCreateNewList";
 import { ScrollView, StyleSheet } from "react-native";
 
 const SavedLists = () => {
-
   return (
     <>
       <SavedCreateNewList />
@@ -13,20 +12,18 @@ const SavedLists = () => {
         showsVerticalScrollIndicator={true}
         contentContainerStyle={styles.scrollViewContent}
       >
-        {
-          SAVED_LISTS.map((list, index) => (
-            <SavedListTile key={index} list={list} />
-          ))
-        }
+        {SAVED_LISTS.map((list, index) => (
+          <SavedListTile key={index} list={list} />
+        ))}
       </ScrollView>
     </>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   scrollViewContent: {
-    paddingBottom: 150
-  }
-})
+    paddingBottom: 150,
+  },
+});
 
 export default SavedLists;

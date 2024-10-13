@@ -2,183 +2,183 @@ import { colors } from "../theme/theme";
 
 export const BOTTOM_TAB_ICONS = {
   Spottis: {
-    name: 'map-marker-radius',
+    name: "map-marker-radius",
     size: 32,
     focusedColor: colors.spottiDark,
-    unfocusedColor: colors.darkFont 
-    },
+    unfocusedColor: colors.darkFont,
+  },
   Community: {
-    name: 'account-supervisor-circle',
+    name: "account-supervisor-circle",
     size: 24,
     focusedColor: colors.offWhiteFont,
-    unfocusedColor: colors.darkFont
+    unfocusedColor: colors.darkFont,
   },
   Navigate: {
-    name: 'map-search',
+    name: "map-search",
     size: 24,
     focusedColor: colors.offWhiteFont,
-    unfocusedColor: colors.darkFont
+    unfocusedColor: colors.darkFont,
   },
   Saved: {
-    name: 'bookmark',
+    name: "bookmark",
     size: 24,
     focusedColor: colors.offWhiteFont,
-    unfocusedColor: colors.darkFont
+    unfocusedColor: colors.darkFont,
   },
   Profile: {
-    name: 'account',
+    name: "account",
     size: 24,
     focusedColor: colors.offWhiteFont,
-    unfocusedColor: colors.darkFont
-  }
+    unfocusedColor: colors.darkFont,
+  },
 };
 
 export enum Category {
-  Nearby = 'Nearby',
-  Landmarks = 'Landmarks',
-  Historical = 'Historical',
-  Parks = 'Parks',
-  FamousStreets = 'Famous Streets',
-  Museums = 'Museums',
-  NaturalWonders = 'Natural Wonders',
-  Beaches = 'Beaches',
-  Entertainment = 'Entertainment',
-  Shopping = 'Shopping',
-  Dining = 'Dining',
-  Dessert = 'Dessert',
-  ScenicViews = 'Scenic Views',
-  Churches = 'Churches',
-  Monuments = 'Monuments',
-  NightLife = 'Night Life',
-  Aquariums = 'Aquariums',
-  GolfCourses = 'Golf Courses',
-  Zoos = 'Zoos',
-  Theaters = 'Theaters',
-  CoffeeShops = 'Coffee Shops',
-  SportsArenas = 'Sports Arenas'
+  Nearby = "Nearby",
+  Landmarks = "Landmarks",
+  Historical = "Historical",
+  Parks = "Parks",
+  FamousStreets = "Famous Streets",
+  Museums = "Museums",
+  NaturalWonders = "Natural Wonders",
+  Beaches = "Beaches",
+  Entertainment = "Entertainment",
+  Shopping = "Shopping",
+  Dining = "Dining",
+  Dessert = "Dessert",
+  ScenicViews = "Scenic Views",
+  Churches = "Churches",
+  Monuments = "Monuments",
+  NightLife = "Night Life",
+  Aquariums = "Aquariums",
+  GolfCourses = "Golf Courses",
+  Zoos = "Zoos",
+  Theaters = "Theaters",
+  CoffeeShops = "Coffee Shops",
+  SportsArenas = "Sports Arenas",
 }
 
 export const CATEGORY_LIST = [
   {
     title: Category.Nearby,
-    iconName: 'map-marker-radius'
+    iconName: "map-marker-radius",
   },
   {
     title: Category.Landmarks,
-    iconName: 'bridge'
+    iconName: "bridge",
   },
   {
     title: Category.Historical,
-    iconName: 'castle'
+    iconName: "castle",
   },
   {
     title: Category.Parks,
-    iconName: 'pine-tree'
+    iconName: "pine-tree",
   },
   {
     title: Category.FamousStreets,
-    iconName: 'road-variant'
+    iconName: "road-variant",
   },
   {
     title: Category.Museums,
-    iconName: 'bank'
+    iconName: "bank",
   },
   {
     title: Category.NaturalWonders,
-    iconName: 'terrain'
+    iconName: "terrain",
   },
   {
     title: Category.Beaches,
-    iconName: 'island'
+    iconName: "island",
   },
   {
     title: Category.Entertainment,
-    iconName: 'party-popper'
+    iconName: "party-popper",
     // drama-masks
   },
   {
     title: Category.Shopping,
-    iconName: 'shopping'
+    iconName: "shopping",
   },
   {
     title: Category.Dining,
-    iconName: 'noodles'
+    iconName: "noodles",
   },
   {
     title: Category.Dessert,
-    iconName: 'ice-cream'
+    iconName: "ice-cream",
   },
   {
     title: Category.ScenicViews,
-    iconName: 'image'
+    iconName: "image",
   },
   {
     title: Category.Churches,
-    iconName: 'church'
+    iconName: "church",
   },
   {
     title: Category.Monuments,
-    iconName: 'eiffel-tower'
+    iconName: "eiffel-tower",
   },
   {
     title: Category.NightLife,
-    iconName: 'glass-wine'
+    iconName: "glass-wine",
   },
   {
     title: Category.Aquariums,
-    iconName: 'dolphin'
+    iconName: "dolphin",
   },
   {
     title: Category.GolfCourses,
-    iconName: 'golf'
+    iconName: "golf",
   },
   {
     title: Category.Zoos,
-    iconName: 'elephant'
+    iconName: "elephant",
   },
   {
     title: Category.Theaters,
-    iconName: 'curtains'
+    iconName: "curtains",
   },
   {
     title: Category.CoffeeShops,
-    iconName: 'coffee'
+    iconName: "coffee",
   },
   {
     title: Category.SportsArenas,
-    iconName: 'basketball'
+    iconName: "basketball",
   },
-]; 
+];
 
 export const SAVED_LISTS = [
   {
-    title: 'My Spottis',
-    iconName: 'map-marker-radius'
+    title: "My Spottis",
+    iconName: "map-marker-radius",
   },
   {
-    title: 'Sunriver',
-    iconName: 'map-marker-radius'
+    title: "Sunriver",
+    iconName: "map-marker-radius",
   },
   {
-    title: 'Bend',
-    iconName: 'map-marker-radius'
+    title: "Bend",
+    iconName: "map-marker-radius",
   },
   {
-    title: 'Stockholm',
-    iconName: 'map-marker-radius'
+    title: "Stockholm",
+    iconName: "map-marker-radius",
   },
   {
-    title: 'Santa Monica',
-    iconName: 'map-marker-radius'
+    title: "Santa Monica",
+    iconName: "map-marker-radius",
   },
   {
-    title: 'Tampa',
-    iconName: 'map-marker-radius'
-  }
-]
+    title: "Tampa",
+    iconName: "map-marker-radius",
+  },
+];
 
-export const HOTSPOTTI_NAME = ['HotSp', 'tti']
-export const HOTSPOTTI_SLOGAN = ['Be the local.']
+export const HOTSPOTTI_NAME = ["HotSp", "tti"];
+export const HOTSPOTTI_SLOGAN = ["Be the local."];
 
 // 1. Be the local
 // 2. Explore local

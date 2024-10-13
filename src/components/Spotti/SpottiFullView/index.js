@@ -4,23 +4,23 @@ import { spacing } from "../../../theme/theme";
 import ScreenWrapper from "../../ScreenWrapper";
 import SpottiActionButtons from "./SpottiActionButtons";
 import SpottiOverview from "./SpottiOverview";
-import SpottiDescription from './SpottiDescription';
+import SpottiDescription from "./SpottiDescription";
 import Divider from "../../../ui/Divider";
-import SpottiRating from './SpottiRating';
+import SpottiRating from "./SpottiRating";
 import ImageCarousel from "../../ImageCarousel";
 
 const SpottiFullView = ({ route }) => {
   const spotti = route.params.item || {};
-  const { 
-    id, 
+  const {
+    id,
     name,
     category,
     hoursofOperation,
     bestTimeToVisit,
     tags,
-    rating, 
-    description, 
-    pictures = [] 
+    rating,
+    description,
+    pictures = [],
   } = spotti;
 
   return (
@@ -28,7 +28,7 @@ const SpottiFullView = ({ route }) => {
       <SpottiActionButtons name={name} id={id} />
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 150}}
+        contentContainerStyle={{ paddingBottom: 150 }}
       >
         <ImageCarousel images={pictures} isFullView />
         <View style={styles.sectionContainer}>
@@ -52,14 +52,14 @@ const SpottiFullView = ({ route }) => {
         </View>
       </ScrollView>
     </ScreenWrapper>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   sectionContainer: {
     paddingTop: spacing.xlarge,
     paddingHorizontal: spacing.xlarge,
   },
-})
+});
 
 export default React.memo(SpottiFullView);

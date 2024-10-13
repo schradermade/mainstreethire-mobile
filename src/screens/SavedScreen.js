@@ -11,14 +11,14 @@ const DownloadsRoute = () => <Downloads />;
 
 const renderScene = SceneMap({
   lists: ListsRoute,
-  downloads: DownloadsRoute
+  downloads: DownloadsRoute,
 });
 
 const SavedScreen = () => {
   const [index, setIndex] = useState(0);
   const [routes] = useState([
-    { key: 'lists', title: 'Lists'},
-    { key: 'downloads', title: 'Downloads' },
+    { key: "lists", title: "Lists" },
+    { key: "downloads", title: "Downloads" },
   ]);
 
   // Customize TabBar
@@ -27,13 +27,15 @@ const SavedScreen = () => {
       {...props}
       style={styles.tabBar}
       indicatorStyle={styles.indicator}
-      renderLabel={({route, focused}) => (
-        <Text style={{
-          color: focused ? colors.offWhiteFont : colors.darkFont,
-          fontSize: fontSize.large,
-          margin: -10,
-          paddingRight: spacing.xxxlarge,
-        }}>
+      renderLabel={({ route, focused }) => (
+        <Text
+          style={{
+            color: focused ? colors.offWhiteFont : colors.darkFont,
+            fontSize: fontSize.large,
+            margin: -10,
+            paddingRight: spacing.xxxlarge,
+          }}
+        >
           {route.title}
         </Text>
       )}
@@ -47,7 +49,7 @@ const SavedScreen = () => {
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}
-        initialLayout={{ width: Dimensions.get('window').width }}
+        initialLayout={{ width: Dimensions.get("window").width }}
         renderTabBar={renderTabBar}
       />
     </ScreenWrapper>
@@ -60,14 +62,14 @@ const styles = StyleSheet.create({
     fontSize: fontSize.xxxlarge,
     marginTop: spacing.xxxxlarge,
     marginBottom: spacing.small,
-    marginLeft: spacing.large
+    marginLeft: spacing.large,
   },
   tabBar: {
     backgroundColor: colors.primaryColor,
   },
   indicator: {
     backgroundColor: colors.spottiDark,
-  }
+  },
 });
 
 export default SavedScreen;
