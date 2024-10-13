@@ -56,7 +56,7 @@ export const borderWidth = {
 export const iconSize = {
   xxsmall: 14,
   xsmall: 16,
-  small: 24,
+  small: 22,
   medium: 26,
   large: 36,
   xlarge: 48,
