@@ -25,7 +25,9 @@ const SpottiFullView = ({ route }) => {
 
   return (
     <ScreenWrapper>
-      <SpottiActionButtons name={name} id={id} />
+      <View style={styles.actionButtonsContainer}>
+        <SpottiActionButtons />
+      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 150 }}
@@ -56,6 +58,13 @@ const SpottiFullView = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
+  actionButtonsContainer: {
+    position: "absolute",
+    top: 50,
+    left: 10,
+    right: 10,
+    zIndex: 1,
+  },
   sectionContainer: {
     paddingTop: spacing.xlarge,
     paddingHorizontal: spacing.xlarge,
