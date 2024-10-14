@@ -13,31 +13,31 @@ const SpottiActionButtons = ({ name, id }) => {
       <RoundActionButton
         iconName={"chevron-left"}
         iconSize={iconSize.small}
-        iconColor={colors.mediumGray}
+        iconColor={colors.buttonActionIconColor}
         onIconPress={() => navigation.goBack()}
-        styling={{ backgroundColor: colors.offWhiteFont }}
+        styling={[styles.actionButton]}
       />
       <View style={styles.rightSideButtons}>
         <RoundActionButton
           iconName={"share-outline"}
           iconSize={iconSize.small}
-          iconColor={colors.mediumGray}
+          iconColor={colors.buttonActionIconColor}
           onIconPress={() => shareSpottiLink(id, name)}
-          styling={{ backgroundColor: colors.offWhiteFont }}
+          styling={[styles.actionButton]}
         />
         <RoundActionButton
           iconName={"map-marker-check-outline"}
           iconSize={iconSize.small}
-          iconColor={colors.mediumGray}
+          iconColor={colors.buttonActionIconColor}
           onIconPress={() => navigation.navigate("SpottiScreen")}
-          styling={styles.actionButton}
+          styling={[styles.actionButton, { marginLeft: spacing.large }]}
         />
         <RoundActionButton
           iconName={"bookmark-outline"}
           iconSize={iconSize.small}
-          iconColor={colors.mediumGray}
+          iconColor={colors.buttonActionIconColor}
           onIconPress={() => navigation.navigate("SpottiScreen")}
-          styling={styles.actionButton}
+          styling={[styles.actionButton, { marginLeft: spacing.large }]}
         />
       </View>
     </View>
@@ -48,15 +48,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: spacing.xlarge,
+    paddingHorizontal: spacing.small,
   },
   rightSideButtons: {
     flexDirection: "row",
     justifyContent: "space-between",
   },
   actionButton: {
-    marginLeft: spacing.large,
-    backgroundColor: colors.offWhiteFont,
+    backgroundColor: colors.buttonActionBackgroundColor,
   },
 });
 
