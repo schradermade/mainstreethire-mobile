@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import fetchSpottis from "../../api/spotti";
 import SpottiList from "../Spotti/SpottiList";
 import ScreenWrapper from "../ScreenWrapper";
@@ -31,7 +31,9 @@ const SavedList = ({ route }) => {
         <Text>Loading...</Text>
       ) : (
         <>
-          <SavedListActionButtons listName={list.title} />
+          <View style={styles.actionButtonsContainer}>
+            <SavedListActionButtons listName={list.title} />
+          </View>
           <SpottiList spottis={spottis} />
         </>
       )}
@@ -39,4 +41,13 @@ const SavedList = ({ route }) => {
   );
 };
 
+const styles = StyleSheet.create({
+  actionButtonsContainer: {
+    position: "absolute",
+    top: 50,
+    left: 10,
+    right: 10,
+    zIndex: 1,
+  },
+});
 export default SavedList;
