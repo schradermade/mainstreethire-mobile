@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { colors, borderRadius, iconSize, shadowRadius } from "../theme/theme";
+import { colors, iconSize, shadowRadius } from "../theme/theme";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const RoundActionButton = ({
