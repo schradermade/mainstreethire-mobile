@@ -6,7 +6,11 @@ import { colors, fontSize, fonts, shadowRadius } from "../theme/theme";
 const Button = ({ onPress, buttonText, btnStyles }) => {
   return (
     <View style={[styles.container, btnStyles]}>
-      <TouchableOpacity style={styles.button} onPress={onPress}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={onPress}
+        activeOpacity={0.9}
+      >
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
     </View>
