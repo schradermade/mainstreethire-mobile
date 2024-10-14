@@ -5,7 +5,8 @@ export const colors = {
   primaryLightColor: "#275051",
   secondaryColor: "#0F3D3E",
   primaryModalColor: "#061818",
-  primaryButtonColor: "#0F3D3E",
+  buttonActionIconColor: "#2a2c27",
+  buttonActionBackgroundColor: "#eaece9",
   borderColorDark: "#61645d",
   borderColorLight: "#AFB3A8",
   placeholderText: "#8D9383",
@@ -48,6 +49,13 @@ export const borderRadius = {
   medium: 8,
   large: 12,
 } as const;
+
+export const shadowRadius = {
+  xsmall: 2,
+  small: 4,
+  medium: 6,
+  large: 8,
+};
 
 export const borderWidth = {
   medium: 1.5,

@@ -5,8 +5,8 @@ import {
   fontSize,
   iconSize,
   spacing,
-  borderRadius,
   fonts,
+  shadowRadius,
 } from "../../theme/theme";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import CustomBorder from "../../ui/CustomBorder";
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: -1, height: 1 },
     shadowOpacity: 0.35,
-    shadowRadius: borderRadius.small,
+    shadowRadius: shadowRadius.small,
   },
   icon: {
     color: colors.darkGray,
