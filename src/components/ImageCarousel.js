@@ -1,7 +1,7 @@
 import React, { forwardRef, useState, useCallback } from "react";
 import { View, Image, Dimensions, StyleSheet } from "react-native";
 import Carousel from "react-native-reanimated-carousel";
-import { borderRadius, spacing, colors } from "../theme/theme";
+import { borderRadius, spacing, colors, shadowRadius } from "../theme/theme";
 import { imagePathFormat } from "../utils/imagePathFormat";
 import PaginationDots from "../ui/PaginationDots";
 
@@ -60,7 +60,7 @@ const ImageCarousel = forwardRef(
           onProgressChange={handleProgressChange} // Track progress for snappy mid-point updates
           renderItem={renderItem}
           width={widthValue}
-          height={widthValue}
+          height={widthValue * 0.85}
           loop={false}
           autoPlay={false}
           scrollAnimationDuration={200}
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: -0.75, height: 0.75 },
     shadowOpacity: 0.3,
-    shadowRadius: borderRadius.small,
+    shadowRadius: shadowRadius.small,
   },
 });
 
