@@ -26,7 +26,7 @@ const CategoryTile = ({ title, iconName, isSelected, onPress, styling }) => {
           <MaterialCommunityIcons
             name={iconName}
             style={styles.icon}
-            size={iconSize.medium}
+            size={iconSize.small}
           />
         )}
         <Text style={styles.titleText}>{title}</Text>
@@ -40,22 +40,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.borderColorDark,
     borderRadius: borderRadius.medium,
-    height: 40,
+    height: 35,
     justifyContent: "center",
   },
   contentContainer: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: spacing.small,
+    paddingHorizontal: spacing.xsmall,
   },
   titleText: {
     color: colors.offWhiteFont,
-    fontSize: fontSize.medium,
+    fontSize: fontSize.small,
     fontFamily: fonts.regular,
   },
   icon: {
     color: colors.offWhiteFont,
-    marginRight: spacing.small,
+    marginRight: spacing.xsmall,
   },
 });
 

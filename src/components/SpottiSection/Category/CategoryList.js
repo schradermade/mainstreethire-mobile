@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { CATEGORY_LIST } from "../../../constants";
 import CategoryTile from "./CategoryTile";
-import { spacing } from "../../../theme/theme";
+import { spacing, colors } from "../../../theme/theme";
 import * as Haptics from "expo-haptics";
 
 const { width: windowWidth } = Dimensions.get("window");
@@ -99,7 +99,9 @@ const CategoryList = () => {
 const styles = StyleSheet.create({
   flatListContent: {
     paddingLeft: spacing.xxlarge,
-    paddingBottom: spacing.xxxlarge,
+    paddingBottom: spacing.xlarge,
+    borderBottomColor: colors.borderColorDark,
+    borderBottomWidth: 0.25,
   },
 });
 
