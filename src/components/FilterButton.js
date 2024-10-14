@@ -4,10 +4,18 @@ import { ICONS } from "../constants";
 import { iconSize, spacing, colors, shadowRadius } from "../theme/theme";
 import { StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import * as Haptics from "expo-haptics";
 
 const FilterButton = () => {
+  const handleFilterPress = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  };
   return (
-    <TouchableOpacity activeOpacity={0.5} style={styles.filterIconWrapper}>
+    <TouchableOpacity
+      activeOpacity={0.5}
+      style={styles.filterIconWrapper}
+      onPress={handleFilterPress}
+    >
       {/* Inner shadow overlay */}
       <View style={styles.innerShadowOverlay} />
       <MaterialCommunityIcons
