@@ -1,6 +1,7 @@
 import { colors } from "../theme/theme";
 
 export enum ICONS {
+  filter = "filter-variant",
   close = "close",
   share = "share-outline",
   spottiLogo = "map-marker-radius",
@@ -35,6 +36,12 @@ export enum ICONS {
   coffee = "coffee",
   basketball = "basketball",
 }
+// Material Icons
+// hive
+// nightlife
+
+// Material Community Icons
+// filter-variant
 
 export const BOTTOM_TAB_ICONS = {
   Spottis: {
