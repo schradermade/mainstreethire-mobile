@@ -6,11 +6,9 @@ import {
   fontSize,
   borderWidth,
   borderRadius,
-  iconSize,
   fonts,
 } from "../theme/theme";
-import RoundActionButton from "./RoundActionButton";
-import { ICONS } from "../constants";
+import CancelButton from "./CancelButton";
 
 const TextInputBox = ({
   value,
@@ -49,15 +47,7 @@ const TextInputBox = ({
       />
       {value.length >= 1 && (
         <View style={styles.closeButtonWrapper}>
-          <RoundActionButton
-            onIconPress={() => onChangeText("")}
-            iconName={ICONS.close}
-            iconColor={colors.offWhiteFont}
-            iconSize={iconSize.xsmall}
-            styling={{
-              backgroundColor: colors.darkGray,
-            }}
-          />
+          <CancelButton onPress={() => onChangeText("")} />
         </View>
       )}
     </View>
