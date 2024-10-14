@@ -2,9 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
+import {
+  colors,
+  fontSize,
+  iconSize,
+  spacing,
+  fonts,
+  iconColor,
+} from "../../theme/theme";
 import RoundActionButton from "../../ui/RoundActionButton";
 import { ICONS } from "../../constants";
+import FilterButton from "../FilterButton";
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -27,155 +35,156 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   };
 
   useEffect(() => {
-    // Set an interval to change the dynamic part of the placeholder every 2 seconds
     if (!term) {
-      // Only run if term is empty
       const intervalId = setInterval(() => {
         slideInPlaceholder();
-        // Update dynamic placeholder text index
         setPlaceholderIndex(
           (prevIndex) => (prevIndex + 1) % placeholders.length
         );
       }, 3500);
 
-      return () => clearInterval(intervalId); // Cleanup interval on component unmount
+      return () => clearInterval(intervalId);
     }
   }, [term]);
 
   useEffect(() => {
-    setDynamicPlaceholder(placeholders[placeholderIndex]); // Update dynamic placeholder value
+    setDynamicPlaceholder(placeholders[placeholderIndex]);
   }, [placeholderIndex]);
 
   const slideInPlaceholder = () => {
-    // Reset animation values
-    animatedValue.setValue(50); // Start the text from below the view
-    opacityValue.setValue(0); // Make text initially invisible
+    animatedValue.setValue(50);
+    opacityValue.setValue(0);
 
-    // Create the slide-in animation
     Animated.timing(animatedValue, {
-      toValue: 0, // Slide to the original position
-      duration: 1000, // Animation duration (1.0 seconds)
+      toValue: 0,
+      duration: 1000,
       useNativeDriver: true,
     }).start();
 
-    // Fade in the opacity
     Animated.timing(opacityValue, {
-      toValue: 1, // Fully visible
-      duration: 1000, // Match the slide animation duration
+      toValue: 1,
+      duration: 1000,
       useNativeDriver: true,
     }).start();
   };
 
   return (
-    <View style={[styles.container, isFocused && styles.focusedInput]}>
-      <View style={styles.iconsContainer}>
-        {isFocused ? (
-          <TouchableOpacity activeOpacity={0.7} onPress={handleArrowLeftClick}>
-            <MaterialCommunityIcons
-              name={"arrow-left"}
-              size={24}
-              style={styles.iconStyle}
-            />
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity activeOpacity={0.7} onPress={handleMapIconClick}>
-            <MaterialCommunityIcons
-              name={"map-search"}
-              size={24}
-              style={styles.iconStyle}
-            />
-          </TouchableOpacity>
-        )}
-      </View>
-      <View style={styles.inputWrapper}>
-        <TextInput
-          ref={textInputRef}
-          autoCapitalize="none"
-          autoCorrect={false}
-          style={[styles.inputStyle]}
-          placeholder="" // managing placeholder manually with Text component
-          placeholderTextColor={colors.placeholderText}
-          value={term}
-          selectionColor={colors.white}
-          onChangeText={onTermChange}
-          onEndEditing={onTermSubmit}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
-        />
-        <View style={styles.placeholderWrapper}>
-          {/* Only show placeholder if term is empty */}
-          {term === "" && (
-            <>
-              <Text style={styles.staticText}>Find </Text>
-              <Animated.View
-                style={[
-                  styles.dynamicTextWrapper,
-                  {
-                    transform: [{ translateY: animatedValue }],
-                    opacity: opacityValue,
-                  },
-                ]}
-                pointerEvents="none"
-              >
-                <Text style={styles.dynamicText}>{dynamicPlaceholder}</Text>
-              </Animated.View>
-            </>
+    <View style={styles.wrapper}>
+      <View style={[styles.container, isFocused && styles.focusedInput]}>
+        <View style={styles.iconsContainer}>
+          {isFocused ? (
+            <TouchableOpacity
+              activeOpacity={0.7}
+              onPress={handleArrowLeftClick}
+            >
+              <MaterialCommunityIcons
+                name={"arrow-left"}
+                size={24}
+                style={styles.iconStyle}
+              />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity activeOpacity={0.7} onPress={handleMapIconClick}>
+              <MaterialCommunityIcons
+                name={"map-search"}
+                size={24}
+                style={styles.iconStyle}
+              />
+            </TouchableOpacity>
           )}
         </View>
+        <View style={styles.inputWrapper}>
+          <TextInput
+            ref={textInputRef}
+            autoCapitalize="none"
+            autoCorrect={false}
+            style={[styles.inputStyle]}
+            placeholder="" // managing placeholder manually with Text component
+            placeholderTextColor={colors.placeholderText}
+            value={term}
+            selectionColor={colors.white}
+            onChangeText={onTermChange}
+            onEndEditing={onTermSubmit}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+          />
+          <View style={styles.placeholderWrapper}>
+            {term === "" && (
+              <>
+                <Text style={styles.staticText}>Find </Text>
+                <Animated.View
+                  style={[
+                    styles.dynamicTextWrapper,
+                    {
+                      transform: [{ translateY: animatedValue }],
+                      opacity: opacityValue,
+                    },
+                  ]}
+                  pointerEvents="none"
+                >
+                  <Text style={styles.dynamicText}>{dynamicPlaceholder}</Text>
+                </Animated.View>
+              </>
+            )}
+          </View>
+        </View>
+        {term.length >= 1 && (
+          <RoundActionButton
+            onIconPress={() => onTermChange("")}
+            iconName={ICONS.close}
+            iconColor={colors.darkFont}
+            iconSize={iconSize.xsmall}
+            styling={{
+              borderWidth: 1.25,
+              borderColor: colors.darkFont,
+              marginHorizontal: spacing.medium,
+            }}
+          />
+        )}
       </View>
-      {term.length >= 1 && (
-        <RoundActionButton
-          onIconPress={() => onTermChange("")}
-          iconName={ICONS.close}
-          iconColor={colors.darkFont}
-          iconSize={iconSize.xsmall}
-          styling={{
-            borderWidth: 1.25,
-            borderColor: colors.darkFont,
-            marginHorizontal: spacing.medium,
-          }}
-        />
-      )}
+      <FilterButton />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: "row", // Ensure the SearchBar and filter icon are side by side
+    alignItems: "center", // Vertically align items
+    marginHorizontal: spacing.xxlarge,
+    marginTop: spacing.small,
+    marginBottom: spacing.medium,
+  },
   container: {
     backgroundColor: colors.secondaryColor,
     height: 50,
     borderRadius: 25,
     flexDirection: "row",
-    alignItems: "center", // Align items to center vertically
-    marginTop: spacing.small,
-    marginBottom: spacing.large,
-    marginHorizontal: spacing.xxlarge,
+    alignItems: "center",
+    flex: 1, // Take up available space
   },
   inputStyle: {
     flex: 1,
     fontSize: fontSize.large,
     color: colors.offWhiteFont,
-    zIndex: 10000,
   },
   inputWrapper: {
     flex: 1,
-    position: "relative", // To overlay the Text components over the TextInput
+    position: "relative",
     justifyContent: "center",
-    overflow: "hidden", // Ensure the animated text doesn't overflow outside the box
+    overflow: "hidden",
   },
   placeholderWrapper: {
     position: "absolute",
-    flexDirection: "row", // "Find" and animated text in the same row
-    alignItems: "center", // Vertically center the text
+    flexDirection: "row",
+    alignItems: "center",
   },
   staticText: {
     color: colors.darkFont,
     fontSize: fontSize.large,
     fontFamily: fonts.regular,
   },
-  dynamicTextWrapper: {
-    // This wrapper is for the animated text
-  },
+  dynamicTextWrapper: {},
   dynamicText: {
     color: colors.darkFont,
     fontSize: fontSize.large,
@@ -198,10 +207,3 @@ const styles = StyleSheet.create({
 });
 
 export default SearchBar;
-
-{
-  /* <Octicons name="arrow-left" size={24} style={styles.iconStyle} onPress={handleArrowLeftClick} /> */
-}
-{
-  /* <Octicons name="search" size={24} style={styles.iconStyle} /> */
-}
