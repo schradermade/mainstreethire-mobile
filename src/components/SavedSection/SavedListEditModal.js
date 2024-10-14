@@ -5,6 +5,7 @@ import { PanGestureHandler, State } from "react-native-gesture-handler";
 import RoundActionButton from "../../ui/RoundActionButton";
 import EditModalContents from "./EditModalContents";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { ICONS } from "../../constants";
 
 const { height } = Dimensions.get("window");
 const MIN_TRANSLATE_Y = 100; // Modal should not go above this (100px below the top)
@@ -100,7 +101,7 @@ const SavedListEditModal = ({ isVisible, setVisible, title }) => {
             <View style={styles.modalHandle} />
             <View style={styles.closeButtonWrapper}>
               <RoundActionButton
-                iconName={"close"}
+                iconName={ICONS.close}
                 iconSize={iconSize.small}
                 iconColor={colors.offWhiteFont}
                 onIconPress={closeModal}

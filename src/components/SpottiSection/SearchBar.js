@@ -4,6 +4,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import RoundActionButton from "../../ui/RoundActionButton";
+import { ICONS } from "../../constants";
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -125,7 +126,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
       {term.length >= 1 && (
         <RoundActionButton
           onIconPress={() => onTermChange("")}
-          iconName="close"
+          iconName={ICONS.close}
           iconColor={colors.offWhiteFont}
           iconSize={iconSize.xsmall}
           styling={{

@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import RoundActionButton from "../../../ui/RoundActionButton";
 import { colors, iconSize, spacing } from "../../../theme/theme";
 import { shareSpottiLink } from "../../../utils/shareSpottiLink";
+import { ICONS } from "../../../constants";
 
 const SpottiActionButtons = ({ name, id }) => {
   const navigation = useNavigation();
@@ -11,7 +12,7 @@ const SpottiActionButtons = ({ name, id }) => {
   return (
     <View style={styles.container}>
       <RoundActionButton
-        iconName={"chevron-left"}
+        iconName={ICONS.arrowLeft}
         iconSize={iconSize.small}
         iconColor={colors.buttonActionIconColor}
         onIconPress={() => navigation.goBack()}
@@ -19,21 +20,21 @@ const SpottiActionButtons = ({ name, id }) => {
       />
       <View style={styles.rightSideButtons}>
         <RoundActionButton
-          iconName={"share-outline"}
+          iconName={ICONS.share}
           iconSize={iconSize.small}
           iconColor={colors.buttonActionIconColor}
           onIconPress={() => shareSpottiLink(id, name)}
           styling={[styles.actionButton]}
         />
         <RoundActionButton
-          iconName={"map-marker-check-outline"}
+          iconName={ICONS.visitedLocation}
           iconSize={iconSize.small}
           iconColor={colors.buttonActionIconColor}
           onIconPress={() => navigation.navigate("SpottiScreen")}
           styling={[styles.actionButton, { marginLeft: spacing.large }]}
         />
         <RoundActionButton
-          iconName={"bookmark-outline"}
+          iconName={ICONS.save}
           iconSize={iconSize.small}
           iconColor={colors.buttonActionIconColor}
           onIconPress={() => navigation.navigate("SpottiScreen")}

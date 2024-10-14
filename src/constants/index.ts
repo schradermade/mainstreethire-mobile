@@ -1,32 +1,68 @@
 import { colors } from "../theme/theme";
 
+export enum ICONS {
+  close = "close",
+  share = "share-outline",
+  spottiLogo = "map-marker-radius",
+  community = "account-group-outline",
+  navigate = "map-search",
+  save = "bookmark-outline",
+  profile = "account-outline",
+  arrowLeft = "chevron-left",
+  visitedLocation = "map-marker-check-outline",
+  settings = "cog",
+  dots = "dots-horizontal",
+  sort = "sort",
+  landmarks = "bridge",
+  historical = "castle",
+  parks = "pine-tree",
+  famousStreets = "road-variant",
+  museums = "bank",
+  naturalWonders = "terrain",
+  beaches = "island",
+  entertainment = "party-popper",
+  shopping = "shopping",
+  dining = "noodles",
+  dessert = "ice-cream",
+  scenicViews = "image",
+  church = "church",
+  monument = "eiffel-tower",
+  nightLife = "glass-wine",
+  aquarium = "dolphin",
+  golf = "golf",
+  zoo = "elephant",
+  theater = "curtains",
+  coffee = "coffee",
+  basketball = "basketball",
+}
+
 export const BOTTOM_TAB_ICONS = {
   Spottis: {
-    name: "map-marker-radius",
+    name: ICONS.spottiLogo,
     size: 32,
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
   Community: {
-    name: "account-supervisor-circle",
+    name: ICONS.community,
     size: 24,
     focusedColor: colors.offWhiteFont,
     unfocusedColor: colors.darkFont,
   },
   Navigate: {
-    name: "map-search",
+    name: ICONS.navigate,
     size: 24,
     focusedColor: colors.offWhiteFont,
     unfocusedColor: colors.darkFont,
   },
   Saved: {
-    name: "bookmark",
+    name: ICONS.save,
     size: 24,
     focusedColor: colors.offWhiteFont,
     unfocusedColor: colors.darkFont,
   },
   Profile: {
-    name: "account",
+    name: ICONS.profile,
     size: 24,
     focusedColor: colors.offWhiteFont,
     unfocusedColor: colors.darkFont,
@@ -61,119 +97,119 @@ export enum Category {
 export const CATEGORY_LIST = [
   {
     title: Category.Nearby,
-    iconName: "map-marker-radius",
+    iconName: ICONS.spottiLogo,
   },
   {
     title: Category.Landmarks,
-    iconName: "bridge",
+    iconName: ICONS.landmarks,
   },
   {
     title: Category.Historical,
-    iconName: "castle",
+    iconName: ICONS.historical,
   },
   {
     title: Category.Parks,
-    iconName: "pine-tree",
+    iconName: ICONS.parks,
   },
   {
     title: Category.FamousStreets,
-    iconName: "road-variant",
+    iconName: ICONS.famousStreets,
   },
   {
     title: Category.Museums,
-    iconName: "bank",
+    iconName: ICONS.museums,
   },
   {
     title: Category.NaturalWonders,
-    iconName: "terrain",
+    iconName: ICONS.naturalWonders,
   },
   {
     title: Category.Beaches,
-    iconName: "island",
+    iconName: ICONS.beaches,
   },
   {
     title: Category.Entertainment,
-    iconName: "party-popper",
+    iconName: ICONS.entertainment,
     // drama-masks
   },
   {
     title: Category.Shopping,
-    iconName: "shopping",
+    iconName: ICONS.shopping,
   },
   {
     title: Category.Dining,
-    iconName: "noodles",
+    iconName: ICONS.dining,
   },
   {
     title: Category.Dessert,
-    iconName: "ice-cream",
+    iconName: ICONS.dessert,
   },
   {
     title: Category.ScenicViews,
-    iconName: "image",
+    iconName: ICONS.scenicViews,
   },
   {
     title: Category.Churches,
-    iconName: "church",
+    iconName: ICONS.church,
   },
   {
     title: Category.Monuments,
-    iconName: "eiffel-tower",
+    iconName: ICONS.monument,
   },
   {
     title: Category.NightLife,
-    iconName: "glass-wine",
+    iconName: ICONS.nightLife,
   },
   {
     title: Category.Aquariums,
-    iconName: "dolphin",
+    iconName: ICONS.aquarium,
   },
   {
     title: Category.GolfCourses,
-    iconName: "golf",
+    iconName: ICONS.golf,
   },
   {
     title: Category.Zoos,
-    iconName: "elephant",
+    iconName: ICONS.zoo,
   },
   {
     title: Category.Theaters,
-    iconName: "curtains",
+    iconName: ICONS.theater,
   },
   {
     title: Category.CoffeeShops,
-    iconName: "coffee",
+    iconName: ICONS.coffee,
   },
   {
     title: Category.SportsArenas,
-    iconName: "basketball",
+    iconName: ICONS.basketball,
   },
 ];
 
 export const SAVED_LISTS = [
   {
     title: "My Spottis",
-    iconName: "map-marker-radius",
+    iconName: ICONS.spottiLogo,
   },
   {
     title: "Sunriver",
-    iconName: "map-marker-radius",
+    iconName: ICONS.spottiLogo,
   },
   {
     title: "Bend",
-    iconName: "map-marker-radius",
+    iconName: ICONS.spottiLogo,
   },
   {
     title: "Stockholm",
-    iconName: "map-marker-radius",
+    iconName: ICONS.spottiLogo,
   },
   {
     title: "Santa Monica",
-    iconName: "map-marker-radius",
+    iconName: ICONS.spottiLogo,
   },
   {
     title: "Tampa",
-    iconName: "map-marker-radius",
+    iconName: ICONS.spottiLogo,
   },
 ];
 

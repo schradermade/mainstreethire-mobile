@@ -9,6 +9,7 @@ import ScreenWrapper from "../ScreenWrapper";
 import TextInputBox from "../../ui/TextInputBox";
 import RoundActionButton from "../../ui/RoundActionButton";
 import Button from "../../ui/Button";
+import { ICONS } from "../../constants";
 
 const UsersNameView = () => {
   const navigation = useNavigation();
@@ -47,7 +48,7 @@ const UsersNameView = () => {
       >
         <RoundActionButton
           onIconPress={() => navigation.goBack()}
-          iconName="arrow-left"
+          iconName={ICONS.arrowLeft}
           iconSize={iconSize.medium}
           styling={{ alignItems: "flex-start" }}
         />

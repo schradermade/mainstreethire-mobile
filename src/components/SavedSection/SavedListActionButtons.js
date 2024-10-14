@@ -4,6 +4,7 @@ import { View, StyleSheet, Text } from "react-native";
 import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import { useNavigation } from "@react-navigation/native";
 import SavedListEditModal from "./SavedListEditModal";
+import { ICONS } from "../../constants";
 
 const SavedListActionButtons = ({ listName }) => {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ const SavedListActionButtons = ({ listName }) => {
       {/* Left-side buttons */}
       <View style={styles.leftSideButtons}>
         <RoundActionButton
-          iconName={"chevron-left"}
+          iconName={ICONS.arrowLeft}
           iconSize={iconSize.small}
           iconColor={colors.buttonActionIconColor}
           styling={styles.actionButton}
@@ -28,14 +29,14 @@ const SavedListActionButtons = ({ listName }) => {
       {/* Right-side buttons */}
       <View style={styles.rightSideButtons}>
         <RoundActionButton
-          iconName={"sort"}
+          iconName={ICONS.sort}
           iconSize={iconSize.small}
           iconColor={colors.buttonActionIconColor}
           onIconPress={() => console.log("sort pressed")}
           styling={styles.actionButton}
         />
         <RoundActionButton
-          iconName={"dots-horizontal"}
+          iconName={ICONS.dots}
           onIconPress={() => setModalVisible(true)}
           iconColor={colors.buttonActionIconColor}
           iconSize={iconSize.small}

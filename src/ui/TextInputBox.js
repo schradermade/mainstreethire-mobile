@@ -10,6 +10,7 @@ import {
   fonts,
 } from "../theme/theme";
 import RoundActionButton from "./RoundActionButton";
+import { ICONS } from "../constants";
 
 const TextInputBox = ({
   value,
@@ -50,7 +51,7 @@ const TextInputBox = ({
         <View style={styles.closeButtonWrapper}>
           <RoundActionButton
             onIconPress={() => onChangeText("")}
-            iconName="close"
+            iconName={ICONS.close}
             iconColor={colors.offWhiteFont}
             iconSize={iconSize.xsmall}
             styling={{

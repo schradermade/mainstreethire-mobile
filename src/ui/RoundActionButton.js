@@ -26,14 +26,16 @@ const RoundActionButton = ({
 
 const styles = StyleSheet.create({
   iconWrapper: {
-    padding: 4,
+    padding: 3,
     borderRadius: iconSize.large / 2,
+    borderWidth: 0.25,
+    borderColor: colors.buttonActionIconColor,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: shadowRadius.small,
+    shadowOpacity: 0.25,
+    shadowRadius: shadowRadius.xsmall,
   },
 });
 
