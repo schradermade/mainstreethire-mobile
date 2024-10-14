@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { colors, fontSize, fonts } from "../theme/theme";
+import { colors, fontSize, fonts, shadowRadius } from "../theme/theme";
 
 const Button = ({ onPress, buttonText, btnStyles }) => {
   return (
@@ -23,6 +23,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.offWhiteFont,
     justifyContent: "center",
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: colors.buttonActionIconColor,
+    shadowColor: "white",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.35,
+    shadowRadius: shadowRadius.xsmall,
   },
   buttonText: {
     fontSize: fontSize.large,
