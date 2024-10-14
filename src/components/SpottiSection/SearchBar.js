@@ -127,10 +127,11 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
         <RoundActionButton
           onIconPress={() => onTermChange("")}
           iconName={ICONS.close}
-          iconColor={colors.offWhiteFont}
+          iconColor={colors.darkFont}
           iconSize={iconSize.xsmall}
           styling={{
-            backgroundColor: colors.darkGray,
+            borderWidth: 1.25,
+            borderColor: colors.darkFont,
             marginHorizontal: spacing.medium,
           }}
         />
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
   },
   focusedInput: {
     borderColor: colors.spottiDark,
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderRadius: 50,
   },
 });
