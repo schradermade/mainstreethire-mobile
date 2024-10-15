@@ -8,10 +8,10 @@ import PaginationDots from "../ui/PaginationDots";
 const SLIDER_WIDTH = Dimensions.get("window").width;
 
 const ImageCarousel = forwardRef(
-  ({ images, isFullView = false, onSwipeStart, onSwipeEnd }, ref) => {
-    const widthValue = isFullView
-      ? SLIDER_WIDTH
-      : SLIDER_WIDTH - spacing.xxlarge * 2;
+  ({ images, width, isFullView = false, onSwipeStart, onSwipeEnd }, ref) => {
+    const widthValue =
+      width || (isFullView ? SLIDER_WIDTH : SLIDER_WIDTH - spacing.xxlarge * 2);
+
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Memoize the renderItem function to prevent re-creating it on every render
@@ -59,8 +59,8 @@ const ImageCarousel = forwardRef(
           onSnapToItem={handleSnapToItem} // Final snap index
           onProgressChange={handleProgressChange} // Track progress for snappy mid-point updates
           renderItem={renderItem}
-          width={widthValue}
           height={widthValue * 0.85}
+          width={widthValue}
           loop={false}
           autoPlay={false}
           scrollAnimationDuration={200}
