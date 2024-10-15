@@ -1,3 +1,5 @@
 export const imagePathFormat = (images) => {
-  return images.map((url) => ({ uri: url }));
+  return images.map((image) =>
+    typeof image === "string" ? { uri: image } : image
+  );
 };
