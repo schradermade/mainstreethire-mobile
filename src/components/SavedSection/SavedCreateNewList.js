@@ -32,9 +32,9 @@ const SavedCreateNewList = () => {
         </View>
       </TouchableOpacity>
       <CustomBorder
-        borderSize={1}
+        borderSize={0.25}
         borderColor={colors.borderColorDark}
-        marginHoriz={spacing.large}
+        marginHoriz={spacing.large - 4}
       />
     </>
   );
