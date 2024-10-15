@@ -1,6 +1,10 @@
 import { colors } from "../theme/theme";
 
 export enum ICONS {
+  userGroup = "supervised-user-circle",
+  categoryList = "clipboard-multiple",
+  travelLocations = "map-marker-distance",
+  travelDates = "calendar-range-outline",
   filter = "filter-variant",
   close = "close",
   share = "share-outline",
@@ -195,15 +199,11 @@ export const CATEGORY_LIST = [
 
 export const SAVED_LISTS = [
   {
-    title: "My Spottis",
+    title: "Europe 2025",
     iconName: ICONS.spottiLogo,
   },
   {
-    title: "Sunriver",
-    iconName: ICONS.spottiLogo,
-  },
-  {
-    title: "Bend",
+    title: "Sunriver Oct18",
     iconName: ICONS.spottiLogo,
   },
   {
