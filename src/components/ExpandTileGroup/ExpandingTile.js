@@ -33,20 +33,20 @@ const ExpandingTile = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.primaryColor,
+    backgroundColor: colors.primaryLightColor,
     borderRadius: borderRadius.xlarge,
-    borderColor: colors.primaryLightColor,
+    borderColor: colors.mediumGray,
     borderWidth: 0.17,
     marginVertical: spacing.small,
-    shadowColor: colors.primaryLightColor,
+    shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.25,
     shadowRadius: shadowRadius.xsmall,
   },
   expandedContainer: {
     paddingHorizontal: spacing.large,
     overflow: "hidden",
-    height: "60%",
+    height: "78%",
   },
   notExpandedContainer: {},
   closeButtonWrapper: {

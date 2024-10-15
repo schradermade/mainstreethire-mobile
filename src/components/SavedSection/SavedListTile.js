@@ -41,7 +41,7 @@ const SavedListTile = ({ list }) => {
 
             <Text style={styles.titleSubText}>0 Spottis</Text>
           </View>
-          <View style={styles.lineItemContainer}>
+          <View style={styles.lineItemsContainer}>
             <View style={styles.lineItem}>
               <MaterialCommunityIcons
                 name={ICONS.travelDates}
@@ -86,12 +86,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     padding: spacing.small,
-    backgroundColor: colors.primaryModalColor,
-    borderRadius: borderRadius.large,
-    borderWidth: 0.2,
-    borderColor: colors.mediumGray,
     margin: spacing.medium,
-    shadowColor: colors.spottiDark,
+    shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.25,
     shadowRadius: shadowRadius.xsmall,
@@ -100,9 +96,10 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   cardInfoContainer: {
-    paddingLeft: spacing.small,
+    flex: 1,
+    paddingLeft: spacing.medium,
   },
-  lineItemContainer: {
+  lineItemsContainer: {
     flex: 1,
     justifyContent: "flex-end",
   },

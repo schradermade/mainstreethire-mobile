@@ -29,7 +29,7 @@ const FilterButton = () => {
 
 const styles = StyleSheet.create({
   filterIconWrapper: {
-    backgroundColor: colors.secondaryColor,
+    backgroundColor: colors.primaryLightColor,
     borderRadius: 50,
     borderWidth: 0.17,
     borderColor: colors.spottiDark,
