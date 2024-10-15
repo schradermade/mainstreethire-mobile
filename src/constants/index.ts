@@ -2,7 +2,7 @@ import { colors } from "../theme/theme";
 
 export enum ICONS {
   userGroup = "supervised-user-circle",
-  categoryList = "clipboard-multiple",
+  categoryList = "clipboard-multiple-outline",
   travelLocations = "map-marker-distance",
   travelDates = "calendar-range-outline",
   filter = "filter-variant",
