@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   cardInfoContainer: {
-    paddingLeft: spacing.medium,
+    paddingLeft: spacing.small,
   },
   lineItemContainer: {
     flex: 1,
