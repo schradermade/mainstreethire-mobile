@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { spacing } from "../../theme/theme";
-import Divider from "../../ui/Divider";
 
 const ExpandTileGroup = ({ children }) => {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -24,7 +23,7 @@ const ExpandTileGroup = ({ children }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: spacing.small,
+    marginVertical: spacing.small,
   },
 });
 export default ExpandTileGroup;

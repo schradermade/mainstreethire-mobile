@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   expandedContainer: {
     paddingHorizontal: spacing.large,
     overflow: "hidden",
-    height: "78%",
+    height: "77%",
   },
   notExpandedContainer: {},
   closeButtonWrapper: {

@@ -38,10 +38,10 @@ const styles = StyleSheet.create({
   welcomeMessageContainer: {
     flex: 1,
     alignItems: "center",
-    marginTop: spacing.xxxxlarge,
+    marginTop: spacing.xxxxxlarge,
   },
   continueEmailButton: {
-    paddingBottom: spacing.xxxxlarge,
+    paddingBottom: spacing.xxxxxlarge,
   },
 });
 

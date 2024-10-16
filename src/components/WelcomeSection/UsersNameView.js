@@ -78,7 +78,7 @@ const UsersNameView = () => {
           <Button
             onPress={() => navigation.navigate("TabsNavigator")}
             buttonText={"Continue"}
-            btnStyles={{ marginTop: spacing.xxxxlarge }}
+            btnStyles={{ marginTop: spacing.xxxxxlarge }}
           />
         </View>
       </View>

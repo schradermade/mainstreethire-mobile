@@ -60,7 +60,7 @@ const EmailSignup = () => {
           <Button
             onPress={() => navigation.navigate("PasswordView")}
             buttonText={"Continue"}
-            btnStyles={{ marginTop: spacing.xxxxlarge }}
+            btnStyles={{ marginTop: spacing.xxxxxlarge }}
           />
         </View>
       </View>

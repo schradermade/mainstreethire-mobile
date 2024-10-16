@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   editListText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.xxlarge,
-    marginTop: spacing.xxxxlarge,
+    marginTop: spacing.xxxxxlarge,
   },
   listNameText: {
     color: colors.offWhiteFont,

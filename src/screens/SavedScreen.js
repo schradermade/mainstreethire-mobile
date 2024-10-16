@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   savedText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.xxlarge,
-    marginTop: spacing.xxxxlarge,
+    marginTop: spacing.xxxxxlarge,
     marginBottom: spacing.small,
     marginLeft: spacing.large,
     fontFamily: fonts.semiBold,

@@ -59,7 +59,7 @@ const PasswordView = () => {
           <Button
             onPress={() => navigation.navigate("UsersNameView")}
             buttonText={"Continue"}
-            btnStyles={{ marginTop: spacing.xxxxlarge }}
+            btnStyles={{ marginTop: spacing.xxxxxlarge }}
           />
         </View>
       </View>

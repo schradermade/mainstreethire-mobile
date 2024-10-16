@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.medium,
   },
   container: {
-    backgroundColor: colors.secondaryColor,
+    backgroundColor: colors.primaryLightColor,
     height: 50,
     borderRadius: 25,
     flexDirection: "row",
