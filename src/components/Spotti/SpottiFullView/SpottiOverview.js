@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import SpottiMiniDetails from "../../Spotti/SpottiMiniDetails";
+import SpottiQuickFacts from "../SpottiQuickFacts";
 import { colors, fontSize, spacing, fonts } from "../../../theme/theme";
 import TagList from "../../Tag/TagList";
 
@@ -15,16 +15,16 @@ const TitleSection = ({
   return (
     <View>
       <Text style={styles.titleText}>{name}</Text>
-      <SpottiMiniDetails
+      <SpottiQuickFacts
         stats={{
           rating,
           category,
           bestTimeToVisit,
           hoursofOperation,
         }}
-        iconColor={colors.spottiDark}
-        textColorTheme="light"
+        textColorTheme="dark"
         isFullSpottiView
+        directionAlignment={"horizontal"}
       />
       <View style={styles.tagsContainer}>
         <TagList tags={tags} />
