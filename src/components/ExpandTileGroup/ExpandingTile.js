@@ -2,6 +2,10 @@ import React from "react";
 import { StyleSheet, View, TouchableOpacity, Animated } from "react-native";
 import { colors, spacing, borderRadius, shadowRadius } from "../../theme/theme";
 import CancelButton from "../../ui/CancelButton";
+import { Dimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+const screenHeight = Dimensions.get("window").height;
 
 const ExpandingTile = ({
   ExpandedContent,
@@ -9,6 +13,17 @@ const ExpandingTile = ({
   isExpanded, // Receive the expanded state from parent
   onExpand, // Handle expansion from parent
 }) => {
+  const insets = useSafeAreaInsets();
+
+  const calculateExpandedTileHeight =
+    screenHeight -
+    insets.top -
+    40 - // height of SavedListActionButtons
+    spacing.xlarge - // marginBottom of SavedListActionButtons
+    90 - // height of notExpandedContainer * 2
+    spacing.medium * 2 - // marginBottom on each ExpandingTile
+    insets.bottom;
+
   return (
     <View style={styles.container}>
       {!isExpanded ? (
@@ -20,7 +35,14 @@ const ExpandingTile = ({
           <NotExpandedContent />
         </TouchableOpacity>
       ) : (
-        <Animated.View style={[styles.expandedContainer]}>
+        <Animated.View
+          style={[
+            styles.expandedContainer,
+            {
+              height: calculateExpandedTileHeight,
+            },
+          ]}
+        >
           <View style={styles.closeButtonWrapper}>
             <CancelButton onPress={onExpand} />
           </View>
@@ -37,7 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.xlarge,
     borderColor: colors.mediumGray,
     borderWidth: 0.17,
-    marginVertical: spacing.small,
+    marginBottom: spacing.medium,
     shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.25,
@@ -46,9 +68,10 @@ const styles = StyleSheet.create({
   expandedContainer: {
     paddingHorizontal: spacing.large,
     overflow: "hidden",
-    height: "77%",
   },
-  notExpandedContainer: {},
+  notExpandedContainer: {
+    height: 45,
+  },
   closeButtonWrapper: {
     position: "absolute",
     top: spacing.medium,

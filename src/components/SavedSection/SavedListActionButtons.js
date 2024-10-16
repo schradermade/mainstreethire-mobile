@@ -16,8 +16,8 @@ const SavedListActionButtons = ({ listName }) => {
       <View style={styles.leftSideButtons}>
         <RoundActionButton
           iconName={ICONS.arrowLeft}
-          iconSize={iconSize.small}
-          iconColor={colors.buttonActionIconColor}
+          iconSize={iconSize.medium}
+          iconColor={colors.offWhiteFont}
           styling={styles.actionButton}
           onIconPress={() => navigation.goBack()}
         />
@@ -30,17 +30,17 @@ const SavedListActionButtons = ({ listName }) => {
       <View style={styles.rightSideButtons}>
         <RoundActionButton
           iconName={ICONS.sort}
-          iconSize={iconSize.small}
-          iconColor={colors.buttonActionIconColor}
+          iconSize={iconSize.medium}
+          iconColor={colors.offWhiteFont}
           onIconPress={() => console.log("sort pressed")}
           styling={styles.actionButton}
         />
         <RoundActionButton
           iconName={ICONS.dots}
           onIconPress={() => setModalVisible(true)}
-          iconColor={colors.buttonActionIconColor}
-          iconSize={iconSize.small}
-          styling={[styles.actionButton, { marginLeft: spacing.large }]}
+          iconColor={colors.offWhiteFont}
+          iconSize={iconSize.medium}
+          styling={{ marginLeft: spacing.large }}
         />
       </View>
       <SavedListEditModal
@@ -54,11 +54,10 @@ const SavedListActionButtons = ({ listName }) => {
 
 const styles = StyleSheet.create({
   container: {
+    height: 40,
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: spacing.small,
-    marginTop: spacing.small,
-    marginBottom: spacing.medium,
+    marginBottom: spacing.xlarge,
     alignItems: "center",
   },
   leftSideButtons: {
@@ -78,9 +77,6 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.xlarge,
     fontFamily: fonts.semiBold,
-  },
-  actionButton: {
-    backgroundColor: colors.buttonActionBackgroundColor,
   },
 });
 

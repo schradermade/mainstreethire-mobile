@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import fetchSpottis from "../../api/spotti";
-import SpottiList from "../Spotti/SpottiList";
 import ScreenWrapper from "../ScreenWrapper";
+import { colors, fonts, spacing } from "../../theme/theme";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import WhenCard from "./WhenCard";
+import ExpandTileGroup from "../ExpandTileGroup";
+import SpottiList from "../Spotti/SpottiList";
+import Divider from "../../ui/Divider";
 import SavedListActionButtons from "./SavedListActionButtons";
+import WhereCard from "./WhereCard";
+import WhoCard from "./WhoCard";
+import SpottiMiniTile from "../Spotti/SpottiMiniTile";
 
 const SavedList = ({ route }) => {
   const { list } = route.params;
   const [loading, setLoading] = useState(true);
   const [spottis, setSpottis] = useState();
+  const [expandedCard, setExpandedCard] = useState(false);
+  const insets = useSafeAreaInsets();
 
   const spottiApi = async () => {
     try {
@@ -25,29 +35,52 @@ const SavedList = ({ route }) => {
     spottiApi();
   }, []);
 
+  const handleExpand = (isExpand) => {
+    setExpandedCard(isExpand);
+  };
+
   return (
-    <ScreenWrapper>
-      {loading ? (
-        <Text>Loading...</Text>
-      ) : (
-        <>
-          <View style={styles.actionButtonsContainer}>
-            <SavedListActionButtons listName={list.title} />
-          </View>
-          <SpottiList spottis={spottis} />
-        </>
-      )}
+    <ScreenWrapper
+      screenStyles={{
+        paddingTop: insets.top + spacing.small,
+        backgroundColor: colors.primaryColor,
+      }}
+    >
+      <View style={styles.container}>
+        <SavedListActionButtons listName={list.title} />
+        <View style={styles.expandTileGroupContainer}>
+          <ExpandTileGroup isExpanded={handleExpand}>
+            <WhenCard />
+            <WhereCard />
+            <WhoCard />
+          </ExpandTileGroup>
+        </View>
+      </View>
+      <View style={{ paddingBottom: expandedCard ? spacing.xxxlarge : 0 }}>
+        {!expandedCard ? (
+          <>
+            <Text style={styles.numSpottisText}>{spottis?.length} Spottis</Text>
+            <Divider />
+          </>
+        ) : null}
+      </View>
+      <SpottiList spottis={spottis} TileComponent={SpottiMiniTile} />
     </ScreenWrapper>
   );
 };
 
 const styles = StyleSheet.create({
-  actionButtonsContainer: {
-    position: "absolute",
-    top: 50,
-    left: 10,
-    right: 10,
-    zIndex: 1,
+  container: {
+    paddingHorizontal: spacing.medium,
+  },
+  expandTileGroupContainer: {
+    height: "fit-content",
+  },
+  numSpottisText: {
+    marginBottom: spacing.xsmall,
+    fontFamily: fonts.semiBold,
+    color: colors.darkFont,
+    alignSelf: "center",
   },
 });
 export default SavedList;

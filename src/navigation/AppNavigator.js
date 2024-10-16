@@ -43,7 +43,7 @@ const linking = {
 };
 
 function AppNavigator() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <NavigationContainer linking={linking}>
@@ -66,6 +66,11 @@ function AppNavigator() {
         <Stack.Screen
           name="SpottiFullStack"
           component={SpottiFullStack}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SavedListStack"
+          component={SavedListStack}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
@@ -202,6 +207,26 @@ function SpottiFullStack() {
   );
 }
 
+function SavedListStack() {
+  return (
+    <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="SavedList"
+          component={SavedList}
+          // initialParams={route.params}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SpottiFullView"
+          component={SpottiFullView}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </Suspense>
+  );
+}
+
 function SavedStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
@@ -214,7 +239,7 @@ function SavedStack() {
         <Stack.Screen
           name="SavedList"
           component={SavedList}
-          options={{ headerShown: false }}
+          options={{ headerShown: false, tabBarStyle: { display: "none" } }}
         />
         <Stack.Screen
           name="SpottiFullView"

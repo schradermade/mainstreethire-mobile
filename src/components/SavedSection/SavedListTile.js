@@ -26,7 +26,10 @@ const SavedListTile = ({ list }) => {
         key={list.title}
         onPress={() => {
           console.log("LIST:", list);
-          navigation.navigate("SavedList", { list });
+          navigation.navigate("SavedListStack", {
+            screen: "SavedList",
+            params: { list },
+          });
         }}
       >
         <View style={styles.imageWrapper}>

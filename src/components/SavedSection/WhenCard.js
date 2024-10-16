@@ -43,11 +43,12 @@ const WhenCard = ({ isExpanded, onExpand }) => {
 
 const styles = StyleSheet.create({
   expandedWrapper: {
-    flex: 1,
+    height: "100%",
     justifyContent: "flex-end",
     paddingHorizontal: spacing.xlarge,
   },
   notExpandedWrapper: {
+    height: "100%",
     flexDirection: "row",
     paddingHorizontal: spacing.medium,
     paddingVertical: spacing.medium,
