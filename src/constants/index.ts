@@ -8,9 +8,9 @@ export enum ICONS {
   filter = "filter-variant",
   close = "close",
   share = "share-outline",
-  spottiLogo = "map-marker-radius",
+  spottiLogo = "map-marker-radius-outline",
   community = "account-group-outline",
-  navigate = "map-search",
+  navigate = "map-search-outline",
   save = "bookmark-outline",
   profile = "account-outline",
   arrowLeft = "chevron-left",
@@ -39,6 +39,10 @@ export enum ICONS {
   theater = "curtains",
   coffee = "coffee",
   basketball = "basketball",
+  star = "star",
+  circleSmall = "circle-small",
+  clock = "clock",
+  food = "food",
 }
 // Material Icons
 // hive
