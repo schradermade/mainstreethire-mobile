@@ -1,10 +1,9 @@
 import React from "react";
-import SpottiTile from "./SpottiTile";
 import { FlatList, Text, StyleSheet, View } from "react-native";
 import { colors, spacing } from "../../theme/theme";
 import { useNavigation } from "@react-navigation/native";
 
-const SpottiList = ({ spottis = [] }) => {
+const SpottiList = ({ spottis = [], TileComponent }) => {
   const navigation = useNavigation();
 
   const handleTilePress = (spotti) => {
@@ -22,7 +21,7 @@ const SpottiList = ({ spottis = [] }) => {
       renderItem={({ item }) => {
         return (
           <View style={styles.spottiTile}>
-            <SpottiTile
+            <TileComponent
               onPress={() => handleTilePress(item)}
               name={item.name}
               pictures={item.pictures}
@@ -48,8 +47,8 @@ const SpottiList = ({ spottis = [] }) => {
 
 const styles = StyleSheet.create({
   flatListContent: {
-    paddingTop: spacing.xsmall,
-    paddingBottom: spacing.xxxxlarge,
+    paddingTop: spacing.large,
+    paddingBottom: 150,
     alignItems: "center",
   },
   spottiTile: {

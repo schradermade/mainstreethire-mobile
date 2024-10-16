@@ -5,6 +5,7 @@ import CategoryList from "../components/SpottiSection/Category/CategoryList";
 import SpottiList from "../components/Spotti/SpottiList";
 import ScreenWrapper from "../components/ScreenWrapper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import SpottiTile from "../components/Spotti/SpottiTile";
 
 const SpottiScreen = () => {
   const [term, setTerm] = useState("");
@@ -28,7 +29,7 @@ const SpottiScreen = () => {
         onTermSubmit={spottiApi}
       />
       <CategoryList />
-      <SpottiList spottis={spottis} />
+      <SpottiList spottis={spottis} TileComponent={SpottiTile} />
     </ScreenWrapper>
   );
 };
