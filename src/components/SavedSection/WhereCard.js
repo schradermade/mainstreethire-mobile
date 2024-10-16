@@ -3,7 +3,6 @@ import { StyleSheet, Text, View } from "react-native";
 import { colors, spacing, iconSize, fonts, fontSize } from "../../theme/theme";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { ICONS } from "../../constants";
-import DatePicker from "../DatePicker";
 import ExpandingTile from "../ExpandTileGroup/ExpandingTile";
 
 const ExpandedContent = () => {
@@ -11,11 +10,11 @@ const ExpandedContent = () => {
     <View style={styles.expandedWrapper}>
       <View style={styles.lineItem}>
         <MaterialCommunityIcons
-          name={ICONS.travelDates}
+          name={ICONS.travelLocations}
           color={colors.darkFont}
           size={iconSize.small}
         />
-        <DatePicker />
+        <Text style={styles.subText}>Germany, Croatia, Italy...</Text>
       </View>
     </View>
   );
@@ -24,19 +23,19 @@ const ExpandedContent = () => {
 const NotExpandedContent = () => {
   return (
     <View style={styles.notExpandedWrapper}>
-      <Text style={styles.subTextLabel}>When</Text>
-      <Text style={styles.subText}>Jan 4 - Feb 2, '25</Text>
+      <Text style={styles.subTextLabel}>Where</Text>
+      <Text style={styles.subText}>Germany, Croatia, Italy...</Text>
     </View>
   );
 };
 
-const WhenCard = ({ isExpanded, onExpand }) => {
+const WhereCard = ({ isExpanded, onExpand }) => {
   return (
     <ExpandingTile
       ExpandedContent={ExpandedContent}
       NotExpandedContent={NotExpandedContent}
-      isExpanded={isExpanded} // Pass the expanded state
-      onExpand={onExpand} // Handle card expansion
+      isExpanded={isExpanded}
+      onExpand={onExpand}
     />
   );
 };
@@ -59,18 +58,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingBottom: spacing.medium,
   },
-  subText: {
-    color: "#E0E0E0",
-    fontFamily: fonts.regular,
-    fontSize: fontSize.medium,
-    paddingLeft: spacing.small,
-  },
   subTextLabel: {
     color: "#E0E0E0",
     fontFamily: fonts.semiBold,
     fontSize: fontSize.large,
     paddingLeft: spacing.small,
   },
+  subText: {
+    color: "#E0E0E0",
+    fontFamily: fonts.regular,
+    fontSize: fontSize.medium,
+    paddingLeft: spacing.small,
+  },
 });
 
-export default WhenCard;
+export default WhereCard;
