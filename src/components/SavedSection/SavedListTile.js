@@ -25,7 +25,6 @@ const SavedListTile = ({ list }) => {
         activeOpacity={1}
         key={list.title}
         onPress={() => {
-          console.log("LIST:", list);
           navigation.navigate("SavedListStack", {
             screen: "SavedList",
             params: { list },
