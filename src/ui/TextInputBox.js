@@ -9,6 +9,7 @@ import {
   fonts,
 } from "../theme/theme";
 import CancelButton from "./CancelButton";
+import { textInputThemes } from "../theme/themeManager";
 
 const TextInputBox = ({
   value,
@@ -19,10 +20,13 @@ const TextInputBox = ({
   labelText,
   styling,
   isPassword = false,
+  colorTheme = "light",
 }) => {
   const inputRef = useRef(null);
 
   const [isFocused, setIsFocused] = useState(alwaysFocused);
+
+  const theme = textInputThemes[colorTheme];
 
   useEffect(() => {
     if (alwaysFocused && inputRef.current) {
@@ -32,11 +36,20 @@ const TextInputBox = ({
 
   return (
     <View style={styling}>
-      <Text style={styles.label}>{labelText}</Text>
+      <Text style={[styles.label, { color: theme.labelColor }]}>
+        {labelText}
+      </Text>
       <TextInput
         ref={inputRef}
         secureTextEntry={isPassword}
-        style={[styles.inputText, isFocused && styles.focusedInput]}
+        style={[
+          styles.inputText,
+          {
+            color: theme.inputTextColor,
+            backgroundColor: theme.inputBackgroundColor,
+          },
+          isFocused && styles.focusedInput,
+        ]}
         value={value}
         onChangeText={onChangeText}
         placeholder={placeholder}
@@ -47,7 +60,7 @@ const TextInputBox = ({
       />
       {value.length >= 1 && (
         <View style={styles.closeButtonWrapper}>
-          <CancelButton onPress={() => onChangeText("")} />
+          <CancelButton onPress={() => onChangeText("")} hasBorder />
         </View>
       )}
     </View>
@@ -63,10 +76,8 @@ const styles = StyleSheet.create({
   inputText: {
     paddingHorizontal: spacing.xlarge,
     paddingRight: 45,
-    borderRadius: borderRadius.large,
-    color: colors.offWhiteFont,
+    borderRadius: borderRadius.xxlarge,
     fontSize: fontSize.large,
-    backgroundColor: colors.secondaryColor,
     height: 50,
   },
   focusedInput: {
@@ -74,7 +85,6 @@ const styles = StyleSheet.create({
     borderWidth: borderWidth.medium,
   },
   label: {
-    color: colors.offWhiteFont,
     marginLeft: 1,
     marginBottom: 5,
     fontSize: fontSize.medium,
