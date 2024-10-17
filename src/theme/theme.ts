@@ -50,6 +50,7 @@ export const borderRadius = {
   medium: 8,
   large: 12,
   xlarge: 18,
+  xxlarge: 25,
 } as const;
 
 export const shadowRadius = {
