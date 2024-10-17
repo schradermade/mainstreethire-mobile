@@ -1,12 +1,11 @@
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import AppNavigator from "./src/navigation/AppNavigator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { enableScreens } from "react-native-screens";
 import { colors } from "./src/theme/theme";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"; // Updated import
-import AppLoading from "expo-app-loading";
 import {
   useFonts,
   Manrope_400Regular,
@@ -15,10 +14,14 @@ import {
   Manrope_700Bold,
   Manrope_800ExtraBold,
 } from "@expo-google-fonts/manrope";
+import * as SplashScreen from "expo-splash-screen";
 
+SplashScreen.preventAutoHideAsync();
 enableScreens();
 
 const App = () => {
+  const [appIsReady, setAppIsReady] = useState(false);
+
   const [fontsLoaded] = useFonts({
     Manrope_400Regular,
     Manrope_500Medium,
@@ -26,9 +29,21 @@ const App = () => {
     Manrope_700Bold,
     Manrope_800ExtraBold,
   });
-  if (!fontsLoaded) {
-    return <AppLoading />;
+
+  useEffect(() => {
+    async function prepare() {
+      if (fontsLoaded) {
+        await SplashScreen.hideAsync();
+        setAppIsReady(true);
+      }
+    }
+    prepare();
+  }, [fontsLoaded]);
+
+  if (!appIsReady) {
+    return null;
   }
+
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
