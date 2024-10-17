@@ -9,16 +9,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CommunityScreen from "../screens/CommunityScreen";
 import NavigateScreen from "../screens/NavigateScreen";
 import ProfileScreen from "../screens/ProfileScreen";
-import SavedScreen from "../screens/SavedScreen";
 import SpottisScreen from "../screens/SpottisScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 
 // Components
 import SpottiFullView from "../components/Spotti/SpottiFullView";
-import SavedList from "../components/SavedSection/SavedList";
+import SavedTrip from "../components/TripSection/SavedTrip";
 import EmailView from "../components/WelcomeSection/EmailView";
 import PasswordView from "../components/WelcomeSection/PasswordView";
 import UsersNameView from "../components/WelcomeSection/UsersNameView";
+import TripScreen from "../screens/TripScreen";
 
 // Constants
 import { BOTTOM_TAB_ICONS } from "../constants";
@@ -69,8 +69,8 @@ function AppNavigator() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SavedListStack"
-          component={SavedListStack}
+          name="SavedTripStack"
+          component={SavedTripStack}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
@@ -130,8 +130,8 @@ function TabsNavigator() {
         options={{ headerShown: false }}
       />
       <Tab.Screen
-        name="Saved"
-        component={SavedStack}
+        name="Trips"
+        component={TripStack}
         options={{ headerShown: false }}
       />
       <Tab.Screen
@@ -207,13 +207,13 @@ function SpottiFullStack() {
   );
 }
 
-function SavedListStack() {
+function SavedTripStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
       <Stack.Navigator>
         <Stack.Screen
-          name="SavedList"
-          component={SavedList}
+          name="SavedTrip"
+          component={SavedTrip}
           // initialParams={route.params}
           options={{ headerShown: false }}
         />
@@ -227,18 +227,18 @@ function SavedListStack() {
   );
 }
 
-function SavedStack() {
+function TripStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
       <Stack.Navigator>
         <Stack.Screen
-          name="SavedScreen"
-          component={SavedScreen}
+          name="TripScreen"
+          component={TripScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SavedList"
-          component={SavedList}
+          name="SavedTrip"
+          component={SavedTrip}
           options={{ headerShown: false, tabBarStyle: { display: "none" } }}
         />
         <Stack.Screen

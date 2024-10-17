@@ -1,10 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { colors, spacing, iconSize, fonts, fontSize } from "../../theme/theme";
+import {
+  colors,
+  spacing,
+  iconSize,
+  fonts,
+  fontSize,
+} from "../../../theme/theme";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../constants";
-import DatePicker from "../DatePicker";
-import ExpandingTile from "../ExpandTileGroup/ExpandingTile";
+import { ICONS } from "../../../constants";
+import DatePicker from "../../DatePicker";
+import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
 
 const ExpandedContent = () => {
   return (

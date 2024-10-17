@@ -3,10 +3,10 @@ import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet, Text } from "react-native";
 import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import { useNavigation } from "@react-navigation/native";
-import SavedListEditModal from "./SavedListEditModal";
+import SavedTripEditModal from "./SavedTripEditModal";
 import { ICONS } from "../../constants";
 
-const SavedListActionButtons = ({ listName }) => {
+const SavedTripActionButtons = ({ tripName }) => {
   const navigation = useNavigation();
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -24,7 +24,7 @@ const SavedListActionButtons = ({ listName }) => {
       </View>
       {/* Centered title */}
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{listName}</Text>
+        <Text style={styles.titleText}>{tripName}</Text>
       </View>
       {/* Right-side buttons */}
       <View style={styles.rightSideButtons}>
@@ -43,10 +43,10 @@ const SavedListActionButtons = ({ listName }) => {
           styling={{ marginLeft: spacing.large }}
         />
       </View>
-      <SavedListEditModal
+      <SavedTripEditModal
         isVisible={isModalVisible}
         setVisible={setModalVisible}
-        title={listName}
+        title={tripName}
       />
     </View>
   );
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SavedListActionButtons;
+export default SavedTripActionButtons;

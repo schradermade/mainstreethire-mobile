@@ -1,20 +1,26 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { colors, spacing, iconSize, fonts, fontSize } from "../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../constants";
-import ExpandingTile from "../ExpandTileGroup/ExpandingTile";
+import {
+  colors,
+  spacing,
+  iconSize,
+  fonts,
+  fontSize,
+} from "../../../theme/theme";
+import { MaterialIcons } from "@expo/vector-icons";
+import { ICONS } from "../../../constants";
+import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
 
 const ExpandedContent = () => {
   return (
     <View style={styles.expandedWrapper}>
       <View style={styles.lineItem}>
-        <MaterialCommunityIcons
-          name={ICONS.travelLocations}
+        <MaterialIcons
+          name={ICONS.userGroup}
           color={colors.darkFont}
           size={iconSize.small}
         />
-        <Text style={styles.subText}>Germany, Croatia, Italy...</Text>
+        <Text style={styles.subText}>alexaaaxo, christianJay12</Text>
       </View>
     </View>
   );
@@ -23,13 +29,13 @@ const ExpandedContent = () => {
 const NotExpandedContent = () => {
   return (
     <View style={styles.notExpandedWrapper}>
-      <Text style={styles.subTextLabel}>Where</Text>
-      <Text style={styles.subText}>Germany, Croatia, Italy...</Text>
+      <Text style={styles.subTextLabel}>Who</Text>
+      <Text style={styles.subText}>alexaaaxo, christianJay12</Text>
     </View>
   );
 };
 
-const WhereCard = ({ isExpanded, onExpand }) => {
+const WhoCard = ({ isExpanded, onExpand }) => {
   return (
     <ExpandingTile
       ExpandedContent={ExpandedContent}
@@ -73,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WhereCard;
+export default WhoCard;

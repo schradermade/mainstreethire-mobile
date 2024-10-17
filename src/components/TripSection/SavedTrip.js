@@ -4,17 +4,18 @@ import fetchSpottis from "../../api/spotti";
 import ScreenWrapper from "../ScreenWrapper";
 import { colors, fonts, spacing } from "../../theme/theme";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import WhenCard from "./WhenCard";
 import ExpandTileGroup from "../ExpandTileGroup";
 import SpottiList from "../Spotti/SpottiList";
 import Divider from "../../ui/Divider";
-import SavedListActionButtons from "./SavedListActionButtons";
-import WhereCard from "./WhereCard";
-import WhoCard from "./WhoCard";
+import SavedTripActionButtons from "./SavedTripActionButtons";
+import WhereCard from "./InfoCards/WhereCard";
+import WhoCard from "./InfoCards/WhoCard";
 import SpottiMiniTile from "../Spotti/SpottiMiniTile";
+import WhenCard from "./InfoCards/WhenCard";
 
-const SavedList = ({ route }) => {
-  const { list } = route.params;
+const SavedTrip = ({ route }) => {
+  const { trip } = route.params;
+
   const [loading, setLoading] = useState(true);
   const [spottis, setSpottis] = useState();
   const [expandedCard, setExpandedCard] = useState(false);
@@ -47,7 +48,7 @@ const SavedList = ({ route }) => {
       }}
     >
       <View style={styles.container}>
-        <SavedListActionButtons listName={list.title} />
+        <SavedTripActionButtons tripName={trip.title} />
         <View style={styles.expandTileGroupContainer}>
           <ExpandTileGroup isExpanded={handleExpand}>
             <WhenCard />
@@ -59,7 +60,9 @@ const SavedList = ({ route }) => {
       <View style={{ paddingBottom: expandedCard ? spacing.xxxlarge : 0 }}>
         {!expandedCard ? (
           <>
-            <Text style={styles.numSpottisText}>{spottis?.length} Spottis</Text>
+            <Text style={styles.numSpottisText}>
+              {spottis?.length} Spottis in this trip
+            </Text>
             <Divider />
           </>
         ) : null}
@@ -83,4 +86,4 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 });
-export default SavedList;
+export default SavedTrip;

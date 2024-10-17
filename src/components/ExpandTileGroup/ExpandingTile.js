@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, View, TouchableOpacity, Animated } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Animated,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { colors, spacing, borderRadius, shadowRadius } from "../../theme/theme";
 import CancelButton from "../../ui/CancelButton";
 import { Dimensions } from "react-native";
@@ -18,38 +25,40 @@ const ExpandingTile = ({
   const calculateExpandedTileHeight =
     screenHeight -
     insets.top -
-    40 - // height of SavedListActionButtons
-    spacing.xlarge - // marginBottom of SavedListActionButtons
+    40 - // height of SavedTripActionButtons
+    spacing.xlarge - // marginBottom of SavedTripActionButtons
     90 - // height of notExpandedContainer * 2
     spacing.medium * 2 - // marginBottom on each ExpandingTile
     insets.bottom;
 
   return (
-    <View style={styles.container}>
-      {!isExpanded ? (
-        <TouchableOpacity
-          style={styles.notExpandedContainer}
-          onPress={onExpand}
-          activeOpacity={1}
-        >
-          <NotExpandedContent />
-        </TouchableOpacity>
-      ) : (
-        <Animated.View
-          style={[
-            styles.expandedContainer,
-            {
-              height: calculateExpandedTileHeight,
-            },
-          ]}
-        >
-          <View style={styles.closeButtonWrapper}>
-            <CancelButton onPress={onExpand} />
-          </View>
-          <ExpandedContent />
-        </Animated.View>
-      )}
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        {!isExpanded ? (
+          <TouchableOpacity
+            style={styles.notExpandedContainer}
+            onPress={onExpand}
+            activeOpacity={1}
+          >
+            <NotExpandedContent />
+          </TouchableOpacity>
+        ) : (
+          <Animated.View
+            style={[
+              styles.expandedContainer,
+              {
+                height: calculateExpandedTileHeight,
+              },
+            ]}
+          >
+            <View style={styles.closeButtonWrapper}>
+              <CancelButton onPress={onExpand} />
+            </View>
+            <ExpandedContent />
+          </Animated.View>
+        )}
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -10,7 +10,7 @@ import { ICONS } from "../../constants";
 const { height } = Dimensions.get("window");
 const MIN_TRANSLATE_Y = 100; // Modal should not go above this (100px below the top)
 
-const SavedListEditModal = ({ isVisible, setVisible, title }) => {
+const SavedTripEditModal = ({ isVisible, setVisible, title }) => {
   const translateY = useState(new Animated.Value(height))[0]; // Initialize translateY
   const lastGestureY = useState(new Animated.Value(0))[0]; // To track the last gesture Y position
 
@@ -107,7 +107,7 @@ const SavedListEditModal = ({ isVisible, setVisible, title }) => {
                 onIconPress={closeModal}
               />
             </View>
-            <EditModalContents listName={title} />
+            <EditModalContents tripName={title} />
           </Animated.View>
         </PanGestureHandler>
       </View>
@@ -139,4 +139,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SavedListEditModal;
+export default SavedTripEditModal;

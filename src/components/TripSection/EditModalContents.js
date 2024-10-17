@@ -3,30 +3,29 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
 import { borderWidth, colors, fontSize, spacing } from "../../theme/theme";
+import TextInputBox from "../../ui/TextInputBox";
 
-const EditModalContents = ({ listName }) => {
-  const [newListName, setNewListName] = useState("");
+const EditModalContents = ({ tripName }) => {
+  const [newTripName, setNewTripName] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={[styles.container]}>
-        <Text style={styles.editListText}>Edit list</Text>
-        <Text style={styles.listNameText}>List name</Text>
-        <TextInput
-          style={[styles.inputText, isFocused && styles.focusedInput]}
-          value={newListName}
-          onChangeText={setNewListName}
-          placeholder={listName}
+        <Text style={styles.editTripText}>Edit trip</Text>
+        <TextInputBox
+          value={newTripName}
+          onChangeText={setNewTripName}
+          placeholder={tripName}
           placeholderTextColor={colors.placeholderText}
           returnKeyType="done"
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          labelText={"Trip name"}
         />
       </View>
     </TouchableWithoutFeedback>
@@ -37,24 +36,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  editListText: {
+  editTripText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.xxlarge,
     marginTop: spacing.xxxxxlarge,
-  },
-  listNameText: {
-    color: colors.offWhiteFont,
-    fontSize: fontSize.medium,
-    marginTop: spacing.xxxlarge,
-  },
-  inputText: {
-    marginTop: spacing.medium,
-    padding: spacing.small,
-    borderRadius: 5,
-    color: colors.offWhiteFont,
-    fontSize: fontSize.large,
-    backgroundColor: colors.secondaryColor,
-    height: 50,
   },
   focusedInput: {
     borderColor: colors.borderColorLight,

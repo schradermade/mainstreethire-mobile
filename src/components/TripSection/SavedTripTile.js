@@ -15,7 +15,7 @@ import {
 } from "../../theme/theme";
 import { ICONS } from "../../constants";
 
-const SavedListTile = ({ list }) => {
+const SavedTripTile = ({ trip }) => {
   const navigation = useNavigation();
 
   return (
@@ -23,11 +23,11 @@ const SavedListTile = ({ list }) => {
       <TouchableOpacity
         style={styles.container}
         activeOpacity={1}
-        key={list.title}
+        key={trip.title}
         onPress={() => {
-          navigation.navigate("SavedListStack", {
-            screen: "SavedList",
-            params: { list },
+          navigation.navigate("SavedTripStack", {
+            screen: "SavedTrip",
+            params: { trip },
           });
         }}
       >
@@ -39,7 +39,7 @@ const SavedListTile = ({ list }) => {
         </View>
         <View style={styles.cardInfoContainer}>
           <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>{list.title}</Text>
+            <Text style={styles.titleText}>{trip.title}</Text>
 
             <Text style={styles.titleSubText}>0 Spottis</Text>
           </View>
@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "flex-start",
-    padding: spacing.small,
-    margin: spacing.medium,
+    paddingHorizontal: spacing.medium,
+    paddingVertical: spacing.medium,
     shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.25,
-    shadowRadius: shadowRadius.xsmall,
+    shadowOpacity: 0.5,
+    shadowRadius: shadowRadius.large,
   },
   titleContainer: {
     flexDirection: "column",
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   titleText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.large,
-    fontFamily: fonts.semiBold,
+    fontFamily: fonts.regular,
   },
   titleSubText: {
     color: colors.darkFont,
@@ -138,4 +138,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SavedListTile;
+export default SavedTripTile;

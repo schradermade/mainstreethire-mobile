@@ -12,8 +12,9 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import CustomBorder from "../../ui/CustomBorder";
 import * as Haptics from "expo-haptics";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { ICONS } from "../../constants";
 
-const SavedCreateNewList = () => {
+const BuildSpottiTripButton = () => {
   const triggerHapticFeedback = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   };
@@ -25,16 +26,16 @@ const SavedCreateNewList = () => {
         onPress={triggerHapticFeedback}
       >
         <View style={styles.iconContainer}>
-          <MaterialCommunityIcons name="map-marker-plus" style={styles.icon} />
+          <MaterialCommunityIcons name={ICONS.buildTrip} style={styles.icon} />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.titleText}>Create new list</Text>
+          <Text style={styles.titleText}>Build Spotti Trip</Text>
         </View>
       </TouchableOpacity>
       <CustomBorder
         borderSize={0.25}
         borderColor={colors.borderColorDark}
-        marginHoriz={spacing.large - 4}
+        marginHoriz={spacing.medium}
       />
     </>
   );
@@ -43,12 +44,13 @@ const SavedCreateNewList = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: spacing.large,
+    paddingHorizontal: spacing.large,
+    paddingVertical: spacing.small,
   },
   titleText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.large,
-    fontFamily: fonts.regular,
+    fontFamily: fonts.semiBold,
   },
   textContainer: {
     justifyContent: "center",
@@ -57,18 +59,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: spacing.medium,
-    padding: spacing.large,
+    padding: spacing.small,
     backgroundColor: colors.offWhiteFont,
-    borderRadius: 50,
-    shadowColor: colors.shadowEffectBlack,
-    shadowOffset: { width: -1, height: 1 },
-    shadowOpacity: 0.35,
-    shadowRadius: shadowRadius.small,
+    borderRadius: 25,
+    shadowColor: colors.white,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.25,
+    shadowRadius: shadowRadius.xsmall,
   },
   icon: {
     color: colors.darkGray,
-    fontSize: iconSize.medium,
+    fontSize: iconSize.small,
   },
 });
 
-export default SavedCreateNewList;
+export default BuildSpottiTripButton;
