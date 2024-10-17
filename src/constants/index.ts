@@ -4,6 +4,8 @@ export enum ICONS {
   userGroup = "supervised-user-circle",
   categoryList = "clipboard-multiple-outline",
   travelLocations = "map-marker-distance",
+  spottisMultiple = "map-marker-multiple-outline",
+  buildTrip = "map-marker-plus",
   travelDates = "calendar-range-outline",
   filter = "filter-variant",
   close = "close",
@@ -43,6 +45,7 @@ export enum ICONS {
   circleSmall = "circle-small",
   clock = "clock",
   food = "food",
+  trips = "bag-suitcase-outline",
 }
 // Material Icons
 // hive
@@ -61,25 +64,25 @@ export const BOTTOM_TAB_ICONS = {
   Community: {
     name: ICONS.community,
     size: 24,
-    focusedColor: colors.offWhiteFont,
+    focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
   Navigate: {
     name: ICONS.navigate,
     size: 24,
-    focusedColor: colors.offWhiteFont,
+    focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
-  Saved: {
-    name: ICONS.save,
+  Trips: {
+    name: ICONS.trips,
     size: 24,
-    focusedColor: colors.offWhiteFont,
+    focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
   Profile: {
     name: ICONS.profile,
     size: 24,
-    focusedColor: colors.offWhiteFont,
+    focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
 };
@@ -201,7 +204,7 @@ export const CATEGORY_LIST = [
   },
 ];
 
-export const SAVED_LISTS = [
+export const SAVED_TRIPS = [
   {
     title: "Europe 2025",
     iconName: ICONS.spottiLogo,
@@ -221,6 +224,81 @@ export const SAVED_LISTS = [
   {
     title: "Tampa",
     iconName: ICONS.spottiLogo,
+  },
+];
+
+export const DEV_LOCATIONS = [
+  {
+    id: 1,
+    name: "Germany",
+  },
+  {
+    id: 2,
+    name: "Spain",
+  },
+  {
+    id: 3,
+    name: "France",
+  },
+  {
+    id: 4,
+    name: "Greece",
+  },
+  {
+    id: 5,
+    name: "Italy",
+  },
+  {
+    id: 6,
+    name: "Sweden",
+  },
+  {
+    id: 7,
+    name: "Finland",
+  },
+  {
+    id: 8,
+    name: "Austria",
+  },
+  {
+    id: 9,
+    name: "Croatia",
+  },
+  {
+    id: 10,
+    name: "Denmark",
+  },
+  {
+    id: 11,
+    name: "Ireland",
+  },
+  {
+    id: 12,
+    name: "Australia",
+  },
+  {
+    id: 13,
+    name: "Japan",
+  },
+  {
+    id: 14,
+    name: "Iceland",
+  },
+  {
+    id: 15,
+    name: "Canada",
+  },
+  {
+    id: 16,
+    name: "Mexico",
+  },
+  {
+    id: 17,
+    name: "South Korea",
+  },
+  {
+    id: 18,
+    name: "United Kingdom",
   },
 ];
 
