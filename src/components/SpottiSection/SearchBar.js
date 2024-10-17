@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     flexDirection: "row",
     alignItems: "center",
-    flex: 1, // Take up available space
+    flex: 1,
   },
   inputStyle: {
     flex: 1,
