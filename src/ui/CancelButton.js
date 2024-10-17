@@ -3,7 +3,7 @@ import RoundActionButton from "./RoundActionButton";
 import { ICONS } from "../constants";
 import { colors, iconSize } from "../theme/theme";
 
-const CancelButton = ({ onPress }) => {
+const CancelButton = ({ onPress, hasBorder = false }) => {
   return (
     <RoundActionButton
       onIconPress={onPress}
@@ -11,8 +11,8 @@ const CancelButton = ({ onPress }) => {
       iconColor={colors.darkFont}
       iconSize={iconSize.xsmall}
       styling={{
-        borderWidth: 1.25,
-        borderColor: colors.darkFont,
+        borderWidth: hasBorder ? 1.25 : null,
+        borderColor: hasBorder ? colors.darkFont : null,
       }}
     />
   );
