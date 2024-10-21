@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { StyleSheet, Dimensions, Text, View } from "react-native";
+import { StyleSheet, Dimensions, Text } from "react-native";
 import { SceneMap, TabView, TabBar } from "react-native-tab-view";
-import { colors, fontSize, spacing, fonts, shadowRadius } from "../theme/theme";
+import { colors, fontSize, spacing, fonts } from "../theme/theme";
 import SavedTrips from "../components/TripSection/SavedTrips";
 import ScreenWrapper from "../components/ScreenWrapper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../constants";
 
 const InProgress = () => <SavedTrips />;
 const Planned = () => <SavedTrips />;
@@ -51,15 +49,6 @@ const TripScreen = () => {
 
   return (
     <ScreenWrapper screenStyles={{ paddingTop: insets.top }}>
-      <View style={styles.container}>
-        <Text style={styles.headerText}>Spotti Trips</Text>
-        <MaterialCommunityIcons
-          name={ICONS.spottisMultiple}
-          size={30}
-          color={colors.spottiDark}
-          style={styles.headerIcon}
-        />
-      </View>
       <TabView
         navigationState={{ index, routes }}
         renderScene={renderScene}
@@ -72,30 +61,12 @@ const TripScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginLeft: spacing.large,
-    marginVertical: spacing.large,
-  },
-  headerText: {
-    color: colors.offWhiteFont,
-    fontSize: fontSize.xxlarge,
-    fontFamily: fonts.regular,
-  },
   tabBar: {
     backgroundColor: colors.primaryColor,
     marginLeft: spacing.small,
   },
   indicator: {
     backgroundColor: colors.spottiDark,
-  },
-  headerIcon: {
-    marginLeft: spacing.xsmall,
-    shadowColor: colors.spottiDark,
-    shadowOffset: { width: 2, height: 8 },
-    shadowOpacity: 0.35,
-    shadowRadius: shadowRadius.small,
   },
 });
 
