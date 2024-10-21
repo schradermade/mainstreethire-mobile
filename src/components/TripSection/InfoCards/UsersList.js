@@ -3,21 +3,29 @@ import { View, Text, ScrollView } from "react-native";
 import { StyleSheet } from "react-native";
 import { colors, fonts, fontSize, spacing } from "../../../theme/theme";
 import SwipeableListItem from "../../SwipableListItem";
+import { Avatar } from "react-native-elements";
 
-const LocationsList = ({ listOfLocations }) => {
+const UsersList = ({ list }) => {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    setLocations(listOfLocations);
-  }, [listOfLocations]);
+    setLocations(list);
+  }, [list]);
 
   const handleDelete = (id) => {
     console.log("deleted");
   };
 
-  const LocationItem = (item) => {
+  const UserItem = (item) => {
     return (
       <View key={item.id} style={styles.swipeableContents}>
+        <Avatar
+          rounded
+          size="medium"
+          source={require("../../../../assets/christian-headshot.png")}
+          title={"test-title"} // If the image doesn't load, initials will be displayed
+          containerStyle={{ backgroundColor: "#ccc" }} // Placeholder color
+        />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
     );
@@ -25,11 +33,11 @@ const LocationsList = ({ listOfLocations }) => {
 
   return (
     <ScrollView>
-      {locations.map((location) => (
+      {locations.map((user) => (
         <SwipeableListItem
-          key={location.id}
-          renderItem={() => LocationItem(location)}
-          location={location}
+          key={user.id}
+          renderItem={UserItem}
+          item={user}
           isDelete
           onDelete={handleDelete}
         />
@@ -42,7 +50,7 @@ const styles = StyleSheet.create({
   swipeableContents: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: spacing.large,
+    marginVertical: spacing.medium,
   },
   itemText: {
     fontSize: fontSize.large,
@@ -66,4 +74,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LocationsList;
+export default UsersList;

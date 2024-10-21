@@ -1,19 +1,10 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import {
-  colors,
-  spacing,
-  iconSize,
-  fonts,
-  fontSize,
-} from "../../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../../constants";
+import { StyleSheet, Text, View } from "react-native";
+import { colors, spacing, fonts, fontSize } from "../../../theme/theme";
 import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
 import TextInputBox from "../../../ui/TextInputBox";
 import LocationsList from "./LocationsList";
 import { DEV_LOCATIONS } from "../../../constants";
-import Divider from "../../../ui/Divider";
 
 const ExpandedContent = () => {
   const [location, setLocation] = useState("");
@@ -36,11 +27,10 @@ const ExpandedContent = () => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           colorTheme="dark"
-          // labelText={"Saved locations populate relevant Spottis"}
         />
         <Text style={styles.savedLocationsText}>Saved to this trip</Text>
       </View>
-      <LocationsList list={DEV_LOCATIONS} />
+      <LocationsList listOfLocations={DEV_LOCATIONS} />
     </View>
   );
 };

@@ -1,15 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import {
-  colors,
-  spacing,
-  iconSize,
-  fonts,
-  fontSize,
-} from "../../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../../constants";
-import DatePicker from "../../DatePicker";
+import { fonts, fontSize } from "../../../theme/theme";
 import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
 
 const ExpandedContent = () => {
@@ -60,11 +51,6 @@ const styles = StyleSheet.create({
   expandedContainer: {
     flex: 1,
     justifyContent: "flex-start",
-  },
-  expandedLabel: {
-    color: "#E0E0E0",
-    fontSize: fontSize.xlarge,
-    fontFamily: fonts.regular,
   },
 });
 

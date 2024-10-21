@@ -1,19 +1,10 @@
 import React, { useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import {
-  colors,
-  spacing,
-  iconSize,
-  fonts,
-  fontSize,
-} from "../../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../../constants";
+import { StyleSheet, Text, View } from "react-native";
+import { colors, spacing, fonts, fontSize } from "../../../theme/theme";
 import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
 import TextInputBox from "../../../ui/TextInputBox";
-import LocationsList from "./LocationsList";
 import { DEV_FRIENDS } from "../../../constants";
-import Divider from "../../../ui/Divider";
+import UsersList from "./UsersList";
 
 const ExpandedContent = () => {
   const [location, setLocation] = useState("");
@@ -41,7 +32,7 @@ const ExpandedContent = () => {
         </Text>
       </View>
       <View style={styles.locationListContainer}>
-        <LocationsList list={DEV_FRIENDS} />
+        <UsersList list={DEV_FRIENDS} />
       </View>
     </View>
   );
