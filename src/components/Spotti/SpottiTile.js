@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
     color: colors.offWhiteFont,
     fontSize: fontSize.xlarge,
     fontFamily: fonts.semiBold,
+    paddingTop: spacing.xsmall,
   },
   subText: {
     color: colors.darkFont,
