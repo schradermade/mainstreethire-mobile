@@ -21,7 +21,7 @@ const SpottiList = ({ spottis = [], TileComponent }) => {
       renderItem={({ item }) => {
         return (
           <View style={styles.spottiTile}>
-            <TileComponent
+            <TileComponent // SpottiTile or SpottiMiniTile
               onPress={() => handleTilePress(item)}
               name={item.name}
               pictures={item.pictures}
@@ -47,11 +47,10 @@ const SpottiList = ({ spottis = [], TileComponent }) => {
 
 const styles = StyleSheet.create({
   flatListContent: {
-    paddingTop: spacing.large,
-    paddingBottom: 150,
     alignItems: "center",
   },
   spottiTile: {
+    width: "100%",
     marginBottom: spacing.xxxxlarge,
   },
   emptyText: {
