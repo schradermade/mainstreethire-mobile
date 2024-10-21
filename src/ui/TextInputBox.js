@@ -72,8 +72,10 @@ const TextInputBox = ({
 const styles = StyleSheet.create({
   closeButtonWrapper: {
     position: "absolute",
-    bottom: 12,
-    right: 18,
+    top: 0,
+    bottom: 0,
+    right: 10,
+    justifyContent: "center",
   },
   inputText: {
     paddingHorizontal: spacing.xlarge,
