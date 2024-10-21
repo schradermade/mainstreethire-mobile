@@ -9,7 +9,7 @@ const CancelButton = ({ onPress, hasBorder = false }) => {
       onIconPress={onPress}
       iconName={ICONS.close}
       iconColor={colors.darkFont}
-      iconSize={iconSize.xsmall}
+      iconSize={iconSize.small}
       styling={{
         borderWidth: hasBorder ? 1.25 : null,
         borderColor: hasBorder ? colors.darkFont : null,
