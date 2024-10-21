@@ -36,9 +36,11 @@ const TextInputBox = ({
 
   return (
     <View style={styling}>
-      <Text style={[styles.label, { color: theme.labelColor }]}>
-        {labelText}
-      </Text>
+      {labelText && (
+        <Text style={[styles.label, { color: theme.labelColor }]}>
+          {labelText}
+        </Text>
+      )}
       <TextInput
         ref={inputRef}
         secureTextEntry={isPassword}
@@ -85,8 +87,8 @@ const styles = StyleSheet.create({
     borderWidth: borderWidth.medium,
   },
   label: {
-    marginLeft: 1,
-    marginBottom: 5,
+    // marginLeft: spacing.large,
+    marginBottom: spacing.xsmall,
     fontSize: fontSize.medium,
     fontFamily: fonts.regular,
   },
