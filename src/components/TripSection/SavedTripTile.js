@@ -38,12 +38,11 @@ const SavedTripTile = ({ trip }) => {
           />
         </View>
         <View style={styles.cardInfoContainer}>
-          <View style={styles.titleContainer}>
+          <View>
             <Text style={styles.titleText}>{trip.title}</Text>
-
             <Text style={styles.titleSubText}>0 Spottis</Text>
           </View>
-          <View style={styles.lineItemsContainer}>
+          <View>
             <View style={styles.lineItem}>
               <MaterialCommunityIcons
                 name={ICONS.travelDates}
@@ -85,15 +84,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: shadowRadius.large,
   },
-  titleContainer: {
-    flexDirection: "column",
-  },
   cardInfoContainer: {
     paddingLeft: spacing.medium,
-  },
-  lineItemsContainer: {
-    justifyContent: "flex-end",
-    marginTop: spacing.xlarge,
+    justifyContent: "space-between",
   },
   lineItem: {
     flexDirection: "row",
