@@ -75,11 +75,14 @@ const styles = StyleSheet.create({
     shadowRadius: shadowRadius.xsmall,
   },
   expandedContainer: {
-    paddingHorizontal: spacing.large,
+    paddingVertical: spacing.small,
+    paddingHorizontal: spacing.medium,
     overflow: "hidden",
   },
   notExpandedContainer: {
+    paddingHorizontal: spacing.medium,
     height: 45,
+    justifyContent: "center",
   },
   closeButtonWrapper: {
     position: "absolute",

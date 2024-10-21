@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import {
   colors,
   spacing,
@@ -7,20 +7,41 @@ import {
   fonts,
   fontSize,
 } from "../../../theme/theme";
-import { MaterialIcons } from "@expo/vector-icons";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { ICONS } from "../../../constants";
 import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
+import TextInputBox from "../../../ui/TextInputBox";
+import LocationsList from "./LocationsList";
+import { DEV_FRIENDS } from "../../../constants";
+import Divider from "../../../ui/Divider";
 
 const ExpandedContent = () => {
+  const [location, setLocation] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
-    <View style={styles.expandedWrapper}>
-      <View style={styles.lineItem}>
-        <MaterialIcons
-          name={ICONS.userGroup}
-          color={colors.darkFont}
-          size={iconSize.small}
+    <View style={styles.expandedContainer}>
+      <Text style={styles.sectionLabel}>Who's coming?</Text>
+      <Text style={styles.subHeaderText}>Invite friends to your trip!</Text>
+
+      <View style={styles.inputBoxWrapper}>
+        <TextInputBox
+          value={location}
+          onChangeText={setLocation}
+          placeholder={"Search friends"}
+          placeholderTextColor={colors.placeholderText}
+          returnKeyType="done"
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          colorTheme="dark"
+          // labelText={"Saved locations populate relevant Spottis"}
         />
-        <Text style={styles.subText}>alexaaaxo, christianJay12</Text>
+        <Text style={styles.savedLocationsText}>
+          Friends collaborating on this trip.
+        </Text>
+      </View>
+      <View style={styles.locationListContainer}>
+        <LocationsList list={DEV_FRIENDS} />
       </View>
     </View>
   );
@@ -29,8 +50,8 @@ const ExpandedContent = () => {
 const NotExpandedContent = () => {
   return (
     <View style={styles.notExpandedWrapper}>
-      <Text style={styles.subTextLabel}>Who</Text>
-      <Text style={styles.subText}>alexaaaxo, christianJay12</Text>
+      <Text style={styles.sectionLabel}>Who</Text>
+      <Text style={styles.notExpandedText}>Germany, Croatia, Italy...</Text>
     </View>
   );
 };
@@ -47,35 +68,47 @@ const WhoCard = ({ isExpanded, onExpand }) => {
 };
 
 const styles = StyleSheet.create({
-  expandedWrapper: {
-    height: "100%",
-    justifyContent: "flex-end",
-    paddingHorizontal: spacing.xlarge,
-  },
   notExpandedWrapper: {
-    height: "100%",
     flexDirection: "row",
-    paddingHorizontal: spacing.medium,
-    paddingVertical: spacing.medium,
     justifyContent: "space-between",
     alignItems: "center",
   },
-  lineItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingBottom: spacing.medium,
-  },
-  subTextLabel: {
-    color: "#E0E0E0",
-    fontFamily: fonts.semiBold,
-    fontSize: fontSize.large,
-    paddingLeft: spacing.small,
-  },
-  subText: {
+  notExpandedText: {
     color: "#E0E0E0",
     fontFamily: fonts.regular,
+    fontSize: fontSize.large,
+  },
+  locationListContainer: {
+    paddingHorizontal: spacing.small,
+  },
+  expandedContainer: {
+    flex: 1,
+    justifyContent: "flex-start",
+  },
+  inputBoxWrapper: {
+    marginTop: spacing.medium,
+    borderBottomColor: colors.borderColorDark,
+    borderBottomWidth: 0.17,
+  },
+  sectionLabel: {
+    color: "#E0E0E0",
+    fontSize: fontSize.xlarge,
+    fontFamily: fonts.regular,
+  },
+  subHeaderText: {
+    alignSelf: "center",
+    marginTop: spacing.medium,
     fontSize: fontSize.medium,
-    paddingLeft: spacing.small,
+    fontFamily: fonts.regular,
+    color: colors.offWhiteFont,
+  },
+  savedLocationsText: {
+    fontSize: fontSize.medium,
+    color: colors.darkFont,
+    fontFamily: fonts.regular,
+    alignSelf: "center",
+    paddingTop: spacing.medium,
+    paddingBottom: spacing.xsmall,
   },
 });
 

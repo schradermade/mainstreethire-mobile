@@ -14,15 +14,9 @@ import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
 
 const ExpandedContent = () => {
   return (
-    <View style={styles.expandedWrapper}>
-      <View style={styles.lineItem}>
-        <MaterialCommunityIcons
-          name={ICONS.travelDates}
-          color={colors.darkFont}
-          size={iconSize.small}
-        />
-        <DatePicker />
-      </View>
+    <View style={styles.expandedContainer}>
+      <Text style={styles.sectionLabel}>When you going?</Text>
+      {/* <DatePicker /> */}
     </View>
   );
 };
@@ -30,8 +24,8 @@ const ExpandedContent = () => {
 const NotExpandedContent = () => {
   return (
     <View style={styles.notExpandedWrapper}>
-      <Text style={styles.subTextLabel}>When</Text>
-      <Text style={styles.subText}>Jan 4 - Feb 2, '25</Text>
+      <Text style={styles.sectionLabel}>When</Text>
+      <Text style={styles.notExpandedText}>Jan 4 - Feb 2, '25</Text>
     </View>
   );
 };
@@ -48,35 +42,29 @@ const WhenCard = ({ isExpanded, onExpand }) => {
 };
 
 const styles = StyleSheet.create({
-  expandedWrapper: {
-    height: "100%",
-    justifyContent: "flex-end",
-    paddingHorizontal: spacing.xlarge,
-  },
   notExpandedWrapper: {
-    height: "100%",
     flexDirection: "row",
-    paddingHorizontal: spacing.medium,
-    paddingVertical: spacing.medium,
     justifyContent: "space-between",
     alignItems: "center",
   },
-  lineItem: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingBottom: spacing.medium,
+  sectionLabel: {
+    color: "#E0E0E0",
+    fontSize: fontSize.xlarge,
+    fontFamily: fonts.regular,
   },
-  subText: {
+  notExpandedText: {
     color: "#E0E0E0",
     fontFamily: fonts.regular,
-    fontSize: fontSize.medium,
-    paddingLeft: spacing.small,
-  },
-  subTextLabel: {
-    color: "#E0E0E0",
-    fontFamily: fonts.semiBold,
     fontSize: fontSize.large,
-    paddingLeft: spacing.small,
+  },
+  expandedContainer: {
+    flex: 1,
+    justifyContent: "flex-start",
+  },
+  expandedLabel: {
+    color: "#E0E0E0",
+    fontSize: fontSize.xlarge,
+    fontFamily: fonts.regular,
   },
 });
 
