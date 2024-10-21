@@ -68,14 +68,6 @@ const SavedTripTile = ({ trip }) => {
               />
               <Text style={styles.subText}>Germany, Croatia, Italy...</Text>
             </View>
-            <View style={styles.lineItem}>
-              <MaterialCommunityIcons
-                name={ICONS.categoryList}
-                color={colors.darkFont}
-                size={iconSize.xsmall}
-              />
-              <Text style={styles.subText}>Historical, Famous Streets...</Text>
-            </View>
           </View>
         </View>
       </TouchableOpacity>
@@ -86,7 +78,6 @@ const SavedTripTile = ({ trip }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    alignItems: "flex-start",
     paddingHorizontal: spacing.medium,
     paddingVertical: spacing.medium,
     shadowColor: colors.shadowEffectBlack,
@@ -98,12 +89,11 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   cardInfoContainer: {
-    flex: 1,
     paddingLeft: spacing.medium,
   },
   lineItemsContainer: {
-    flex: 1,
     justifyContent: "flex-end",
+    marginTop: spacing.xlarge,
   },
   lineItem: {
     flexDirection: "row",
