@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   sectionContainer: {
-    paddingTop: spacing.xlarge,
-    paddingHorizontal: spacing.xlarge,
+    paddingTop: spacing.medium,
+    paddingHorizontal: spacing.medium,
   },
 });
 
