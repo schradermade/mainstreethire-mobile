@@ -14,6 +14,12 @@ import {
   Manrope_700Bold,
   Manrope_800ExtraBold,
 } from "@expo-google-fonts/manrope";
+import {
+  Roboto_300Light,
+  Roboto_400Regular,
+  Roboto_500Medium,
+} from "@expo-google-fonts/roboto";
+
 import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
@@ -28,6 +34,9 @@ const App = () => {
     Manrope_600SemiBold,
     Manrope_700Bold,
     Manrope_800ExtraBold,
+    Roboto_300Light,
+    Roboto_400Regular,
+    Roboto_500Medium,
   });
 
   useEffect(() => {
