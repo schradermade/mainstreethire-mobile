@@ -80,6 +80,9 @@ export const fonts = {
   semiBold: "Manrope_600SemiBold",
   bold: "Manrope_700Bold",
   extraBold: "Manrope_800ExtraBold",
+  insightsLight: "Roboto_300Light",
+  insightsRegular: "Roboto_400Regular",
+  insightsMedium: "Roboto_500Medium",
 } as const;
 
 export const fontWeights = {
