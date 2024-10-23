@@ -41,30 +41,32 @@ const TextInputBox = ({
           {labelText}
         </Text>
       )}
-      <TextInput
-        ref={inputRef}
-        secureTextEntry={isPassword}
-        style={[
-          styles.inputText,
-          {
-            color: theme.inputTextColor,
-            backgroundColor: theme.inputBackgroundColor,
-          },
-          isFocused && styles.focusedInput,
-        ]}
-        value={value}
-        onChangeText={onChangeText}
-        placeholder={placeholder}
-        placeholderTextColor={colors.placeholderText}
-        returnKeyType={returnKey}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(alwaysFocused)}
-      />
-      {value.length >= 1 && (
-        <View style={styles.closeButtonWrapper}>
-          <CancelButton onPress={() => onChangeText("")} hasBorder />
-        </View>
-      )}
+      <View>
+        <TextInput
+          ref={inputRef}
+          secureTextEntry={isPassword}
+          style={[
+            styles.inputText,
+            {
+              color: theme.inputTextColor,
+              backgroundColor: theme.inputBackgroundColor,
+            },
+            isFocused && styles.focusedInput,
+          ]}
+          value={value}
+          onChangeText={onChangeText}
+          placeholder={placeholder}
+          placeholderTextColor={colors.placeholderText}
+          returnKeyType={returnKey}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(alwaysFocused)}
+        />
+        {value.length >= 1 && (
+          <View style={styles.closeButtonWrapper}>
+            <CancelButton onPress={() => onChangeText("")} hasBorder />
+          </View>
+        )}
+      </View>
     </View>
   );
 };
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
     borderWidth: borderWidth.medium,
   },
   label: {
-    // marginLeft: spacing.large,
+    marginLeft: spacing.large,
     marginBottom: spacing.xsmall,
     fontSize: fontSize.medium,
     fontFamily: fonts.regular,
