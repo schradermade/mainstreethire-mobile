@@ -1,15 +1,21 @@
-import React from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
-import { spacing } from "../../../theme/theme";
-import ScreenWrapper from "../../ScreenWrapper";
-import SpottiActionButtons from "./SpottiActionButtons";
-import SpottiOverview from "./SpottiOverview";
-import SpottiDescription from "./SpottiDescription";
-import Divider from "../../../ui/Divider";
-import SpottiRating from "./SpottiRating";
-import ImageCarousel from "../../ImageCarousel";
+import React, { useState } from 'react';
+import { StyleSheet, View, ScrollView } from 'react-native';
+import { spacing } from '../../../theme/theme';
+import ScreenWrapper from '../../ScreenWrapper';
+import SpottiActionButtons from './SpottiActionButtons';
+import SpottiOverview from './SpottiOverview';
+import SpottiDescription from './SpottiDescription';
+import Divider from '../../../ui/Divider';
+import ImageCarousel from '../../ImageCarousel';
+import InsightsButton from '../../InsightsButton';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import SlideUpModal from '../../SlideUpModal';
+import SpottiInsights from '../../SpottiInsights';
 
 const SpottiFullView = ({ route }) => {
+  const insets = useSafeAreaInsets();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   const spotti = route.params.item || {};
   const {
     id,
@@ -49,17 +55,24 @@ const SpottiFullView = ({ route }) => {
         <View style={styles.sectionContainer}>
           <SpottiDescription description={description} />
         </View>
-        <View style={styles.sectionContainer}>
-          <SpottiRating rating={rating} />
-        </View>
+        <View style={styles.sectionContainer}></View>
       </ScrollView>
+      <View style={{ marginBottom: insets.bottom }}>
+        <InsightsButton
+          buttonText={'Insights'}
+          onPress={() => setIsModalVisible(true)}
+        />
+      </View>
+      <SlideUpModal isVisible={isModalVisible} setVisible={setIsModalVisible}>
+        <SpottiInsights spottiName={name} />
+      </SlideUpModal>
     </ScreenWrapper>
   );
 };
 
 const styles = StyleSheet.create({
   actionButtonsContainer: {
-    position: "absolute",
+    position: 'absolute',
     top: 50,
     left: 10,
     right: 10,
