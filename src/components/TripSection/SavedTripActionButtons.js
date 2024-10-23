@@ -3,8 +3,9 @@ import RoundActionButton from "../../ui/RoundActionButton";
 import { View, StyleSheet, Text } from "react-native";
 import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
 import { useNavigation } from "@react-navigation/native";
-import SavedTripEditModal from "./SavedTripEditModal";
 import { ICONS } from "../../constants";
+import EditModalContents from "./EditModalContents";
+import SlideUpModal from "../SlideUpModal";
 
 const SavedTripActionButtons = ({ tripName }) => {
   const navigation = useNavigation();
@@ -43,11 +44,9 @@ const SavedTripActionButtons = ({ tripName }) => {
           styling={{ marginLeft: spacing.large }}
         />
       </View>
-      <SavedTripEditModal
-        isVisible={isModalVisible}
-        setVisible={setModalVisible}
-        title={tripName}
-      />
+      <SlideUpModal isVisible={isModalVisible} setVisible={setModalVisible}>
+        <EditModalContents tripName={tripName} />
+      </SlideUpModal>
     </View>
   );
 };
