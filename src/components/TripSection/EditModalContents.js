@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
-} from "react-native";
-import { borderWidth, colors, fontSize, spacing } from "../../theme/theme";
-import TextInputBox from "../../ui/TextInputBox";
+} from 'react-native';
+import { borderWidth, colors, fontSize, spacing } from '../../theme/theme';
+import TextInputBox from '../../ui/TextInputBox';
 
 const EditModalContents = ({ tripName }) => {
-  const [newTripName, setNewTripName] = useState("");
+  const [newTripName, setNewTripName] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={[styles.container]}>
+      <View style={styles.container}>
         <Text style={styles.editTripText}>Edit trip</Text>
         <TextInputBox
           value={newTripName}
@@ -25,7 +25,9 @@ const EditModalContents = ({ tripName }) => {
           returnKeyType="done"
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          labelText={"Trip name"}
+          labelText={'Trip name'}
+          styling={{ marginTop: spacing.medium }}
+          colorTheme="dark"
         />
       </View>
     </TouchableWithoutFeedback>
