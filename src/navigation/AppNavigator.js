@@ -1,41 +1,43 @@
-import React, { Suspense, useState } from "react";
-import { Text, ActivityIndicator } from "react-native";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React, { Suspense, useState } from 'react';
+import { Text, ActivityIndicator } from 'react-native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Screens
-import CommunityScreen from "../screens/CommunityScreen";
-import NavigateScreen from "../screens/NavigateScreen";
-import ProfileScreen from "../screens/ProfileScreen";
-import SpottisScreen from "../screens/SpottisScreen";
-import WelcomeScreen from "../screens/WelcomeScreen";
+import CommunityScreen from '../screens/CommunityScreen';
+import NavigateScreen from '../screens/NavigateScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import SpottisScreen from '../screens/SpottisScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 
 // Components
-import SpottiFullView from "../components/Spotti/SpottiFullView";
-import SavedTrip from "../components/TripSection/SavedTrip";
-import EmailView from "../components/WelcomeSection/EmailView";
-import PasswordView from "../components/WelcomeSection/PasswordView";
-import UsersNameView from "../components/WelcomeSection/UsersNameView";
-import TripScreen from "../screens/TripScreen";
+import SpottiFullView from '../components/Spotti/SpottiFullView';
+import SavedTrip from '../components/TripSection/SavedTrip';
+import EmailView from '../components/WelcomeSection/EmailView';
+import PasswordView from '../components/WelcomeSection/PasswordView';
+import UsersNameView from '../components/WelcomeSection/UsersNameView';
+import TripScreen from '../screens/TripScreen';
 
 // Constants
-import { BOTTOM_TAB_ICONS } from "../constants";
-import { colors, fonts } from "../theme/theme";
+import { BOTTOM_TAB_ICONS } from '../constants';
+import { colors, fonts } from '../theme/theme';
+
+import { useSelector } from 'react-redux';
 
 // Tab and Stack Navigators
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const linking = {
-  prefixes: ["hotspotti-mobile://"],
+  prefixes: ['hotspotti-mobile://'],
   config: {
     screens: {
       Spottis: {
         screens: {
-          SpottiScreen: "",
-          SpottiFullView: "spotti/:id",
+          SpottiScreen: '',
+          SpottiFullView: 'spotti/:id',
         },
       },
     },
@@ -43,13 +45,13 @@ const linking = {
 };
 
 function AppNavigator() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   return (
     <NavigationContainer linking={linking}>
       <Stack.Navigator>
         {/* Main navigation flow */}
-        {isLoggedIn ? (
+        {isAuthenticated ? (
           <Stack.Screen
             name="Tabs"
             component={TabsNavigator}
@@ -239,7 +241,7 @@ function TripStack() {
         <Stack.Screen
           name="SavedTrip"
           component={SavedTrip}
-          options={{ headerShown: false, tabBarStyle: { display: "none" } }}
+          options={{ headerShown: false, tabBarStyle: { display: 'none' } }}
         />
         <Stack.Screen
           name="SpottiFullView"

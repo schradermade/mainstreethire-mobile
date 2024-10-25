@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import { TextInput, StyleSheet, Text, View } from "react-native";
+import React, { useState, useEffect, useRef } from 'react';
+import { TextInput, StyleSheet, Text, View } from 'react-native';
 import {
   colors,
   spacing,
@@ -7,9 +7,9 @@ import {
   borderWidth,
   borderRadius,
   fonts,
-} from "../theme/theme";
-import CancelButton from "./CancelButton";
-import { textInputThemes } from "../theme/themeManager";
+} from '../theme/theme';
+import CancelButton from './CancelButton';
+import { textInputThemes } from '../theme/themeManager';
 
 const TextInputBox = ({
   value,
@@ -20,7 +20,7 @@ const TextInputBox = ({
   labelText,
   styling,
   isPassword = false,
-  colorTheme = "light",
+  colorTheme = 'light',
 }) => {
   const inputRef = useRef(null);
 
@@ -32,7 +32,7 @@ const TextInputBox = ({
     if (alwaysFocused && inputRef.current) {
       inputRef.current.focus();
     }
-  }, []);
+  }, [alwaysFocused]);
 
   return (
     <View style={styling}>
@@ -63,7 +63,7 @@ const TextInputBox = ({
         />
         {value.length >= 1 && (
           <View style={styles.closeButtonWrapper}>
-            <CancelButton onPress={() => onChangeText("")} hasBorder />
+            <CancelButton onPress={() => onChangeText('')} hasBorder />
           </View>
         )}
       </View>
@@ -73,11 +73,11 @@ const TextInputBox = ({
 
 const styles = StyleSheet.create({
   closeButtonWrapper: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     bottom: 0,
     right: 10,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   inputText: {
     paddingHorizontal: spacing.xlarge,
