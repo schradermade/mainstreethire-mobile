@@ -1,11 +1,13 @@
-import "react-native-gesture-handler";
-import React, { useState, useEffect } from "react";
-import { StyleSheet } from "react-native";
-import AppNavigator from "./src/navigation/AppNavigator";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { enableScreens } from "react-native-screens";
-import { colors } from "./src/theme/theme";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"; // Updated import
+import 'react-native-gesture-handler';
+import React, { useState, useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
+import { StyleSheet } from 'react-native';
+import AppNavigator from './src/navigation/AppNavigator';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { enableScreens } from 'react-native-screens';
+import { colors } from './src/theme/theme';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'; // Updated import
 import {
   useFonts,
   Manrope_400Regular,
@@ -13,14 +15,14 @@ import {
   Manrope_600SemiBold,
   Manrope_700Bold,
   Manrope_800ExtraBold,
-} from "@expo-google-fonts/manrope";
+} from '@expo-google-fonts/manrope';
 import {
   Roboto_300Light,
   Roboto_400Regular,
   Roboto_500Medium,
-} from "@expo-google-fonts/roboto";
+} from '@expo-google-fonts/roboto';
 
-import * as SplashScreen from "expo-splash-screen";
+import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
 enableScreens();
@@ -54,13 +56,15 @@ const App = () => {
   }
 
   return (
-    <SafeAreaProvider>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <SafeAreaView style={styles.container} edges={[]}>
-          <AppNavigator />
-        </SafeAreaView>
-      </GestureHandlerRootView>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <SafeAreaView style={styles.container} edges={[]}>
+            <AppNavigator />
+          </SafeAreaView>
+        </GestureHandlerRootView>
+      </SafeAreaProvider>
+    </Provider>
   );
 };
 
