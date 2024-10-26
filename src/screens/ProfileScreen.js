@@ -1,37 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import fetchUser from "../api/user";
-import ScreenWrapper from "../components/ScreenWrapper";
-import { spacing } from "../theme/theme";
-import ProfileActionButtons from "../components/ProfileSection/ProfileActionButtons";
-import UserProfileSummary from "../components/ProfileSection/UserProfileSummary";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import ScreenWrapper from '../components/ScreenWrapper';
+import { spacing } from '../theme/theme';
+import ProfileActionButtons from '../components/ProfileSection/ProfileActionButtons';
+import UserProfileSummary from '../components/ProfileSection/UserProfileSummary';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useSelector } from 'react-redux';
 
 const ProfileScreen = () => {
   const insets = useSafeAreaInsets();
-  const [user, setUser] = useState();
-  const [loading, setLoading] = useState(true); // To handle loading state
-
-  const userApi = async () => {
-    try {
-      const response = await fetchUser.get();
-      setUser(response.data);
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    userApi();
-  }, []);
+  const { firstName, lastName } = useSelector((state) => state.user);
 
   return (
     <ScreenWrapper screenStyles={{ paddingTop: insets.top }}>
       <View style={styles.container}>
         <ProfileActionButtons />
-        {loading ? <Text>Loading...</Text> : <UserProfileSummary />}
+        <UserProfileSummary firstName={firstName} lastName={lastName} />
       </View>
     </ScreenWrapper>
   );
