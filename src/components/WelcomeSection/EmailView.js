@@ -1,27 +1,46 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
-import { useKeyboardHeight } from "../../hooks/useKeyboardHeight";
-import { HotSpottiIcon } from "../../ui/HotSpottiIcon";
-import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
-import ScreenWrapper from "../ScreenWrapper";
-import TextInputBox from "../../ui/TextInputBox";
-import RoundActionButton from "../../ui/RoundActionButton";
-import Button from "../../ui/Button";
-import { ICONS } from "../../constants";
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { useKeyboardHeight } from '../../hooks/useKeyboardHeight';
+import { HotSpottiIcon } from '../../ui/HotSpottiIcon';
+import { colors, fontSize, iconSize, spacing, fonts } from '../../theme/theme';
+import ScreenWrapper from '../ScreenWrapper';
+import TextInputBox from '../../ui/TextInputBox';
+import RoundActionButton from '../../ui/RoundActionButton';
+import Button from '../../ui/Button';
+import { ICONS } from '../../constants';
+import { useDispatch } from 'react-redux';
+import { setSignupInfo } from '../../redux/slices/authSlice';
+import { checkEmailInUse } from '../../api/auth';
 
 const EmailSignup = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const navigation = useNavigation();
-
+  const dispatch = useDispatch();
   const insets = useSafeAreaInsets();
-  const screenHeight = Dimensions.get("window").height;
   const keyboardHeight = useKeyboardHeight();
+
+  const screenHeight = Dimensions.get('window').height;
   const calculatedHeight = Math.min(
     screenHeight - keyboardHeight - insets.top - spacing.xxxlarge,
     461 - spacing.xxxlarge
   );
+
+  const handleContinueButton = async () => {
+    const emailIsInUse = await checkEmailInUse(email);
+    if (emailIsInUse) {
+      navigation.navigate('PasswordView', {
+        emailIsInUse: true,
+        email,
+      });
+    } else {
+      dispatch(setSignupInfo({ email }));
+      navigation.navigate('PasswordView', {
+        isInUse: false,
+      });
+    }
+  };
 
   return (
     <ScreenWrapper
@@ -34,7 +53,7 @@ const EmailSignup = () => {
         style={[
           {
             height: calculatedHeight,
-            justifyContent: "space-between",
+            justifyContent: 'space-between',
           },
         ]}
       >
@@ -42,7 +61,7 @@ const EmailSignup = () => {
           onIconPress={() => navigation.goBack()}
           iconName={ICONS.arrowLeft}
           iconSize={iconSize.medium}
-          styling={{ alignItems: "flex-start" }}
+          styling={{ alignItems: 'flex-start' }}
         />
         <View style={styles.iconAndTextContainer}>
           <HotSpottiIcon size={iconSize.xxlarge} />
@@ -53,13 +72,13 @@ const EmailSignup = () => {
             value={email}
             onChangeText={setEmail}
             alwaysFocused={true}
-            returnKey={"return"}
-            labelText={"Email"}
+            returnKey={'return'}
+            labelText={'Email'}
             styling={{ paddingHorizontal: spacing.small }}
           />
           <Button
-            onPress={() => navigation.navigate("PasswordView")}
-            buttonText={"Continue"}
+            onPress={handleContinueButton}
+            buttonText={'Continue'}
             btnStyles={{ marginTop: spacing.xxxxxlarge }}
           />
         </View>
@@ -70,7 +89,7 @@ const EmailSignup = () => {
 
 const styles = StyleSheet.create({
   iconAndTextContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   text: {
     color: colors.offWhiteFont,
