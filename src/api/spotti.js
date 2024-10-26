@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
+import { REACT_APP_SPOTTI_API_URL } from '@env';
 
 export default axios.create({
-  baseURL:
-    "http://a46bff1a1915845a3a36282d1412a327-1482339599.us-west-2.elb.amazonaws.com/spottis",
+  baseURL: REACT_APP_SPOTTI_API_URL,
 });
