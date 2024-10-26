@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   StyleSheet,
   View,
@@ -6,13 +6,13 @@ import {
   Animated,
   Keyboard,
   TouchableWithoutFeedback,
-} from "react-native";
-import { colors, spacing, borderRadius, shadowRadius } from "../../theme/theme";
-import CancelButton from "../../ui/CancelButton";
-import { Dimensions } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+} from 'react-native';
+import { colors, spacing, borderRadius, shadowRadius } from '../../theme/theme';
+import CancelButton from '../../ui/CancelButton';
+import { Dimensions } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const screenHeight = Dimensions.get("window").height;
+const screenHeight = Dimensions.get('window').height;
 
 const ExpandingTile = ({
   ExpandedContent,
@@ -65,7 +65,7 @@ const ExpandingTile = ({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primaryLightColor,
-    borderRadius: borderRadius.xlarge,
+    borderRadius: borderRadius.large,
     borderColor: colors.mediumGray,
     borderWidth: 0.17,
     marginBottom: spacing.medium,
@@ -77,15 +77,15 @@ const styles = StyleSheet.create({
   expandedContainer: {
     paddingVertical: spacing.small,
     paddingHorizontal: spacing.medium,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   notExpandedContainer: {
     paddingHorizontal: spacing.medium,
     height: 45,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   closeButtonWrapper: {
-    position: "absolute",
+    position: 'absolute',
     top: spacing.medium,
     right: spacing.medium,
     zIndex: 1,
