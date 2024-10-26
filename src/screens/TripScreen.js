@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-import { StyleSheet, Dimensions, Text } from "react-native";
-import { SceneMap, TabView, TabBar } from "react-native-tab-view";
-import { colors, fontSize, spacing, fonts } from "../theme/theme";
-import SavedTrips from "../components/TripSection/SavedTrips";
-import ScreenWrapper from "../components/ScreenWrapper";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import React, { useState } from 'react';
+import { StyleSheet, Dimensions, Text } from 'react-native';
+import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
+import { colors, fontSize, spacing, fonts } from '../theme/theme';
+import SavedTrips from '../components/TripSection/SavedTrips';
+import ScreenWrapper from '../components/ScreenWrapper';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const InProgress = () => <SavedTrips />;
-const Planned = () => <SavedTrips />;
 const Planning = () => <SavedTrips />;
 const Past = () => <SavedTrips />;
 
 const renderScene = SceneMap({
   inProgress: InProgress,
-  planned: Planned,
   planning: Planning,
   past: Past,
 });
@@ -22,10 +20,9 @@ const TripScreen = () => {
   const insets = useSafeAreaInsets();
   const [index, setIndex] = useState(0);
   const [routes] = useState([
-    { key: "inProgress", title: "In Progress" },
-    { key: "planned", title: "Planned" },
-    { key: "planning", title: "Planning" },
-    { key: "past", title: "Past" },
+    { key: 'inProgress', title: 'In Progress' },
+    { key: 'planning', title: 'Planning' },
+    { key: 'past', title: 'Past' },
   ]);
 
   const renderTabBar = (props) => (
@@ -53,7 +50,7 @@ const TripScreen = () => {
         navigationState={{ index, routes }}
         renderScene={renderScene}
         onIndexChange={setIndex}
-        initialLayout={{ width: Dimensions.get("window").width }}
+        initialLayout={{ width: Dimensions.get('window').width }}
         renderTabBar={renderTabBar}
       />
     </ScreenWrapper>
