@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
+import { REACT_APP_USER_API_URL } from '@env';
 
 export default axios.create({
-  baseURL:
-    "http://a5b54a77a5940403d8dbe95baf7b8a1e-1304358601.us-west-2.elb.amazonaws.com/users/13",
+  baseURL: REACT_APP_USER_API_URL,
 });
