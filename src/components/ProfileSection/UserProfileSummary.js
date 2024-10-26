@@ -1,21 +1,21 @@
-import React from "react";
-import { Avatar } from "react-native-elements";
-import { View, Text, StyleSheet } from "react-native";
-import { spacing, colors, fontSize, fonts } from "../../theme/theme";
+import React from 'react';
+import { Avatar } from 'react-native-elements';
+import { View, Text, StyleSheet } from 'react-native';
+import { spacing, colors, fontSize, fonts } from '../../theme/theme';
 
-const UserProfileSummary = () => {
+const UserProfileSummary = ({ firstName, lastName }) => {
   return (
     <>
       <Avatar
         rounded
         size="xlarge"
-        source={require("../../../assets/christian-headshot.png")} // Replace with your image URL
-        title={"test-title"} // If the image doesn't load, initials will be displayed
-        containerStyle={{ backgroundColor: "#ccc" }} // Placeholder color
+        source={require('../../../assets/christian-headshot.png')} // Replace with your image URL
+        title={'test-title'} // If the image doesn't load, initials will be displayed
+        containerStyle={{ backgroundColor: '#ccc' }} // Placeholder color
       />
       <View style={styles.userInfoWrapper}>
         <Text style={styles.userNameFont}>
-          {"Christian"} {"Schrader"}
+          {firstName} {lastName}
         </Text>
         <Text style={styles.cityStateFont}>Portland, Oregon</Text>
       </View>
