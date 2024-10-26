@@ -1,26 +1,45 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useNavigation } from "@react-navigation/native";
-import { useKeyboardHeight } from "../../hooks/useKeyboardHeight";
-import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
-import ScreenWrapper from "../ScreenWrapper";
-import TextInputBox from "../../ui/TextInputBox";
-import RoundActionButton from "../../ui/RoundActionButton";
-import Button from "../../ui/Button";
-import { ICONS } from "../../constants";
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { useKeyboardHeight } from '../../hooks/useKeyboardHeight';
+import { colors, fontSize, iconSize, spacing, fonts } from '../../theme/theme';
+import ScreenWrapper from '../ScreenWrapper';
+import TextInputBox from '../../ui/TextInputBox';
+import RoundActionButton from '../../ui/RoundActionButton';
+import Button from '../../ui/Button';
+import { ICONS } from '../../constants';
+import { useDispatch } from 'react-redux';
+import { setSignupInfo } from '../../redux/slices/authSlice';
+import { handleSignin } from '../../services/authService';
 
-const PasswordView = () => {
-  const [password, setPassword] = useState("");
+const PasswordView = ({ route }) => {
+  const { emailIsInUse, email } = route.params;
+
+  const [password, setPassword] = useState('');
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
+  const dispatch = useDispatch();
 
-  const screenHeight = Dimensions.get("window").height;
+  const screenHeight = Dimensions.get('window').height;
   const keyboardHeight = useKeyboardHeight();
   const calculatedHeight = Math.min(
     screenHeight - keyboardHeight - insets.top - spacing.xxxlarge,
     461 - spacing.xxxlarge
   );
+
+  const handleContinueButton = async () => {
+    if (emailIsInUse) {
+      try {
+        await handleSignin({ email, password }, dispatch, navigation);
+      } catch (error) {
+        console.error('Signin failed:', error);
+      }
+    } else {
+      dispatch(setSignupInfo({ password }));
+      navigation.navigate('UsersNameView');
+    }
+  };
 
   return (
     <ScreenWrapper
@@ -33,7 +52,7 @@ const PasswordView = () => {
         style={[
           {
             height: calculatedHeight,
-            justifyContent: "space-between",
+            justifyContent: 'space-between',
           },
         ]}
       >
@@ -41,10 +60,12 @@ const PasswordView = () => {
           onIconPress={() => navigation.goBack()}
           iconName={ICONS.arrowLeft}
           iconSize={iconSize.medium}
-          styling={{ alignItems: "flex-start" }}
+          styling={{ alignItems: 'flex-start' }}
         />
         <View style={styles.iconAndTextContainer}>
-          <Text style={styles.text}>Create a password</Text>
+          <Text style={styles.text}>
+            {emailIsInUse ? 'Welcome back' : 'Create a password'}
+          </Text>
         </View>
         <View>
           <TextInputBox
@@ -52,13 +73,13 @@ const PasswordView = () => {
             value={password}
             onChangeText={setPassword}
             alwaysFocused={true}
-            returnKey={"return"}
-            labelText={"Password"}
+            returnKey={'return'}
+            labelText={'Password'}
             styling={{ paddingHorizontal: spacing.small }}
           />
           <Button
-            onPress={() => navigation.navigate("UsersNameView")}
-            buttonText={"Continue"}
+            onPress={handleContinueButton}
+            buttonText={'Continue'}
             btnStyles={{ marginTop: spacing.xxxxxlarge }}
           />
         </View>
@@ -69,7 +90,7 @@ const PasswordView = () => {
 
 const styles = StyleSheet.create({
   iconAndTextContainer: {
-    alignItems: "center",
+    alignItems: 'center',
   },
   text: {
     color: colors.offWhiteFont,
