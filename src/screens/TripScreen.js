@@ -35,7 +35,7 @@ const TripScreen = () => {
           style={{
             color: focused ? colors.offWhiteFont : colors.darkFont,
             fontSize: fontSize.medium,
-            fontFamily: fonts.regular,
+            fontFamily: fonts.bold,
           }}
         >
           {route.title}
