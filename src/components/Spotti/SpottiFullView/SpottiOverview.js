@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import SpottiQuickFacts from "../SpottiQuickFacts";
-import { colors, fontSize, spacing, fonts } from "../../../theme/theme";
-import TagList from "../../Tag/TagList";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import SpottiQuickFacts from '../SpottiQuickFacts';
+import { colors, fontSize, spacing, fonts } from '../../../theme/theme';
+import TagList from '../../Tag/TagList';
 
 const TitleSection = ({
   name,
@@ -24,7 +24,7 @@ const TitleSection = ({
         }}
         textColorTheme="dark"
         isFullSpottiView
-        directionAlignment={"horizontal"}
+        directionAlignment={'horizontal'}
       />
       <View style={styles.tagsContainer}>
         <TagList tags={tags} />

@@ -1,9 +1,9 @@
-import React from "react";
-import SavedTripTile from "./SavedTripTile";
-import { SAVED_TRIPS } from "../../constants";
-import BuildSpottiTripButton from "./BuildSpottiTripButton";
-import { ScrollView, StyleSheet } from "react-native";
-import { spacing } from "../../theme/theme";
+import React from 'react';
+import SavedTripTile from './SavedTripTile';
+import { SAVED_TRIPS } from '../../constants';
+import BuildSpottiTripButton from './BuildSpottiTripButton';
+import { ScrollView, StyleSheet } from 'react-native';
+import { spacing } from '../../theme/theme';
 
 const SavedTrips = () => {
   return (

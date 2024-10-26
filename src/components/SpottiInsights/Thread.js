@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Avatar } from "react-native-elements";
-import { View, Text, StyleSheet, FlatList } from "react-native";
-import { colors, fonts, fontSize, spacing } from "../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../constants";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import AiGenInsight from "./AiGenInsight";
+import React, { useState } from 'react';
+import { Avatar } from 'react-native-elements';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { colors, fonts, fontSize, spacing } from '../../theme/theme';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { ICONS } from '../../constants';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import AiGenInsight from './AiGenInsight';
 
 const Thread = ({ contributors }) => {
   const [voteCount, setVoteCount] = useState(0);
   const [isVotingDisabled, setIsVotingDisabled] = useState(false); // State to disable voting
   const imageMap = {
-    "christian-headshot.png": require("../../../assets/christian-headshot.png"),
-    "alexa-headshot.png": require("../../../assets/alexa-headshot.png"),
+    'christian-headshot.png': require('../../../assets/christian-headshot.png'),
+    'alexa-headshot.png': require('../../../assets/alexa-headshot.png'),
   };
   const handleVote = (voteChange) => {
     if (isVotingDisabled) return;
@@ -36,15 +36,15 @@ const Thread = ({ contributors }) => {
             rounded
             size="small"
             source={imageMap[item.authorProfilePic]}
-            title={"test-title"}
-            containerStyle={{ backgroundColor: "#ccc" }}
+            title={'test-title'}
+            containerStyle={{ backgroundColor: '#ccc' }}
           />
           <Text style={styles.profileName}>{item.author}</Text>
         </View>
         <Text style={styles.threadBody}>{item.body}</Text>
         <View style={styles.footerButtonsContainer}>
           <View style={styles.iconContainer}>
-            <TouchableOpacity onPress={() => console.log("added badge")}>
+            <TouchableOpacity onPress={() => console.log('added badge')}>
               <MaterialCommunityIcons
                 name={ICONS.trophy}
                 size={20}
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.xxxxxlarge,
   },
   profileContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   profileName: {
     marginLeft: spacing.small,
@@ -123,13 +123,13 @@ const styles = StyleSheet.create({
     marginTop: spacing.small,
   },
   footerButtonsContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   iconContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: spacing.xxlarge,
   },
   voteCount: {

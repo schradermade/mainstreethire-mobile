@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import { View, TextInput, StyleSheet, Animated, Text } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import React, { useState, useRef, useEffect } from 'react';
+import { View, TextInput, StyleSheet, Animated, Text } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import {
   colors,
   fontSize,
@@ -9,17 +9,17 @@ import {
   spacing,
   fonts,
   iconColor,
-} from "../../theme/theme";
-import RoundActionButton from "../../ui/RoundActionButton";
-import { ICONS } from "../../constants";
-import FilterButton from "../FilterButton";
+} from '../../theme/theme';
+import RoundActionButton from '../../ui/RoundActionButton';
+import { ICONS } from '../../constants';
+import FilterButton from '../FilterButton';
 
 const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const [isFocused, setIsFocused] = useState(false);
   const textInputRef = useRef(null);
 
-  const [dynamicPlaceholder, setDynamicPlaceholder] = useState("Spottis"); // Dynamic portion
-  const placeholders = ["Spottis", "Cities"]; // List of dynamic placeholders
+  const [dynamicPlaceholder, setDynamicPlaceholder] = useState('Spottis'); // Dynamic portion
+  const placeholders = ['Spottis', 'Cities']; // List of dynamic placeholders
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const animatedValue = useRef(new Animated.Value(50)).current; // Initial position of the text
   const opacityValue = useRef(new Animated.Value(0)).current; // Initial opacity
@@ -78,7 +78,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
               onPress={handleArrowLeftClick}
             >
               <MaterialCommunityIcons
-                name={"arrow-left"}
+                name={'arrow-left'}
                 size={24}
                 style={styles.iconStyle}
               />
@@ -86,7 +86,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
           ) : (
             <TouchableOpacity activeOpacity={0.7} onPress={handleMapIconClick}>
               <MaterialCommunityIcons
-                name={"map-search"}
+                name={'map-search'}
                 size={24}
                 style={styles.iconStyle}
               />
@@ -109,7 +109,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
             onBlur={() => setIsFocused(false)}
           />
           <View style={styles.placeholderWrapper}>
-            {term === "" && (
+            {term === '' && (
               <>
                 <Text style={styles.staticText}>Find </Text>
                 <Animated.View
@@ -130,7 +130,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
         </View>
         {term.length >= 1 && (
           <RoundActionButton
-            onIconPress={() => onTermChange("")}
+            onIconPress={() => onTermChange('')}
             iconName={ICONS.close}
             iconColor={colors.darkFont}
             iconSize={iconSize.xsmall}
@@ -149,8 +149,8 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flexDirection: "row", // Ensure the SearchBar and filter icon are side by side
-    alignItems: "center", // Vertically align items
+    flexDirection: 'row', // Ensure the SearchBar and filter icon are side by side
+    alignItems: 'center', // Vertically align items
     marginHorizontal: spacing.xxlarge,
     marginTop: spacing.small,
     marginBottom: spacing.medium,
@@ -159,8 +159,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primaryLightColor,
     height: 50,
     borderRadius: 25,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     flex: 1,
   },
   inputStyle: {
@@ -170,14 +170,14 @@ const styles = StyleSheet.create({
   },
   inputWrapper: {
     flex: 1,
-    position: "relative",
-    justifyContent: "center",
-    overflow: "hidden",
+    position: 'relative',
+    justifyContent: 'center',
+    overflow: 'hidden',
   },
   placeholderWrapper: {
-    position: "absolute",
-    flexDirection: "row",
-    alignItems: "center",
+    position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   staticText: {
     color: colors.darkFont,
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     fontSize: 30,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginHorizontal: 15,
     color: colors.offWhiteFont,
   },

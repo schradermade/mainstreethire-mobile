@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { colors, iconSize, shadowRadius } from "../theme/theme";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { colors, iconSize, shadowRadius } from '../theme/theme';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const RoundActionButton = ({
   onIconPress,
@@ -17,7 +17,7 @@ const RoundActionButton = ({
         <MaterialCommunityIcons
           name={iconName}
           size={iconSize}
-          color={iconColor || "white"}
+          color={iconColor || 'white'}
         />
       </View>
     </TouchableOpacity>
@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     borderRadius: iconSize.large / 2,
     borderWidth: 0.25,
     borderColor: colors.buttonActionIconColor,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.25,

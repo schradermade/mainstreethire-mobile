@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useMemo } from "react";
-import { StyleSheet, View, Animated } from "react-native";
+import React, { useEffect, useRef, useMemo } from 'react';
+import { StyleSheet, View, Animated } from 'react-native';
 
 const dotInactiveSize = 5; // Inactive dot size
 const dotActiveSize = 10; // Active dot size
@@ -102,28 +102,28 @@ export default React.memo(PaginationDots);
 
 const styles = StyleSheet.create({
   paginationContainer: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 10,
     left: 0,
     right: 0,
-    flexDirection: "row",
-    justifyContent: "center", // Center the dots
-    alignItems: "center",
-    overflow: "hidden", // Hide dots that slide outside the visible range
-    width: "100%", // Set the container to be the width of the screen
-    pointerEvents: "none",
+    flexDirection: 'row',
+    justifyContent: 'center', // Center the dots
+    alignItems: 'center',
+    overflow: 'hidden', // Hide dots that slide outside the visible range
+    width: '100%', // Set the container to be the width of the screen
+    pointerEvents: 'none',
   },
   dotWrapperContainer: {
     width: dotWidth * 3, // Limit to 4 dots visible at a time
-    overflow: "hidden", // Ensure that extra dots don't show
+    overflow: 'hidden', // Ensure that extra dots don't show
     height: dotActiveSize,
     paddingVertical: 10,
   },
   dotWrapper: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   dot: {
     borderRadius: 5,
-    backgroundColor: "white", // Ensure background color is white
+    backgroundColor: 'white', // Ensure background color is white
   },
 });

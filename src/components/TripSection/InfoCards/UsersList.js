@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, ScrollView } from "react-native";
-import { StyleSheet } from "react-native";
-import { colors, fonts, fontSize, spacing } from "../../../theme/theme";
-import SwipeableListItem from "../../SwipableListItem";
-import { Avatar } from "react-native-elements";
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { colors, fonts, fontSize, spacing } from '../../../theme/theme';
+import SwipeableListItem from '../../SwipableListItem';
+import { Avatar } from 'react-native-elements';
 
 const UsersList = ({ list }) => {
   const [locations, setLocations] = useState([]);
@@ -13,7 +13,7 @@ const UsersList = ({ list }) => {
   }, [list]);
 
   const handleDelete = (id) => {
-    console.log("deleted");
+    console.log('deleted');
   };
 
   const UserItem = (item) => {
@@ -22,9 +22,9 @@ const UsersList = ({ list }) => {
         <Avatar
           rounded
           size="medium"
-          source={require("../../../../assets/christian-headshot.png")}
-          title={"test-title"} // If the image doesn't load, initials will be displayed
-          containerStyle={{ backgroundColor: "#ccc" }} // Placeholder color
+          source={require('../../../../assets/christian-headshot.png')}
+          title={'test-title'} // If the image doesn't load, initials will be displayed
+          containerStyle={{ backgroundColor: '#ccc' }} // Placeholder color
         />
         <Text style={styles.itemText}>{item.name}</Text>
       </View>
@@ -48,8 +48,8 @@ const UsersList = ({ list }) => {
 
 const styles = StyleSheet.create({
   swipeableContents: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginVertical: spacing.medium,
   },
   itemText: {
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     marginLeft: spacing.small,
   },
   userComponentContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: spacing.medium,
   },
   locationItem: {

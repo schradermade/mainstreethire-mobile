@@ -1,13 +1,13 @@
-import { Text, StyleSheet } from "react-native";
-import { colors, fontSize, spacing, iconSize, fonts } from "../theme/theme";
-import { HOTSPOTTI_NAME, HOTSPOTTI_SLOGAN } from "../constants";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { BOTTOM_TAB_ICONS } from "../constants";
+import { Text, StyleSheet } from 'react-native';
+import { colors, fontSize, spacing, iconSize, fonts } from '../theme/theme';
+import { HOTSPOTTI_NAME, HOTSPOTTI_SLOGAN } from '../constants';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { BOTTOM_TAB_ICONS } from '../constants';
 
 export const HotSpottiIconAndSlogan = ({ showSlogan }) => {
   const innerIcon = () => (
     <MaterialCommunityIcons
-      name={BOTTOM_TAB_ICONS["Spottis"].name}
+      name={BOTTOM_TAB_ICONS['Spottis'].name}
       style={styles.innerIcon}
       size={iconSize.large}
     />
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   iconText: {
     color: colors.offWhiteFont,
     fontSize: fontSize.xxxlarge,
-    textAlign: "center",
+    textAlign: 'center',
     fontFamily: fonts.semiBold,
   },
   iconSubText: {

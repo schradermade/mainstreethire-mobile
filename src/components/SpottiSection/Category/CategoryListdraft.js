@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
-import CategoryTile from "./CategoryTile";
-import { StyleSheet, View, Animated } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
-import { CATEGORY_LIST } from "../../../constants";
-import { spacing, colors, borderRadius } from "../../../theme/theme";
-import { PanGestureHandler, State } from "react-native-gesture-handler";
+import React, { useState, useRef } from 'react';
+import CategoryTile from './CategoryTile';
+import { StyleSheet, View, Animated } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
+import { CATEGORY_LIST } from '../../../constants';
+import { spacing, colors, borderRadius } from '../../../theme/theme';
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
 
 const CategoryList = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -91,7 +91,7 @@ const CategoryList = () => {
                   translateY: translateY.interpolate({
                     inputRange: [0, MAX_EXPAND_HEIGHT],
                     outputRange: [0, MAX_EXPAND_HEIGHT],
-                    extrapolate: "clamp",
+                    extrapolate: 'clamp',
                   }),
                 },
               ],
@@ -107,9 +107,9 @@ const CategoryList = () => {
                 height: translateY.interpolate({
                   inputRange: [0, MAX_EXPAND_HEIGHT],
                   outputRange: [0, MAX_EXPAND_HEIGHT],
-                  extrapolate: "clamp",
+                  extrapolate: 'clamp',
                 }),
-                overflow: "hidden", // Ensures smooth reveal
+                overflow: 'hidden', // Ensures smooth reveal
               },
             ]}
           >
@@ -141,8 +141,8 @@ const styles = StyleSheet.create({
     paddingLeft: spacing.xxlarge,
   },
   modalHandleContainer: {
-    alignItems: "center",
-    width: "100%",
+    alignItems: 'center',
+    width: '100%',
     zIndex: 1,
   },
   modalHandle: {
@@ -150,11 +150,11 @@ const styles = StyleSheet.create({
     width: 40,
     borderRadius: 25,
     backgroundColor: colors.borderColorDark,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginVertical: spacing.small,
   },
   expandingContent: {
-    width: "100%",
+    width: '100%',
     borderTopLeftRadius: borderRadius.large,
     borderTopRightRadius: borderRadius.large,
   },

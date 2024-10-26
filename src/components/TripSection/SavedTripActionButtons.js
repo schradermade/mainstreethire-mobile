@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import RoundActionButton from "../../ui/RoundActionButton";
-import { View, StyleSheet, Text } from "react-native";
-import { colors, fontSize, iconSize, spacing, fonts } from "../../theme/theme";
-import { useNavigation } from "@react-navigation/native";
-import { ICONS } from "../../constants";
-import EditModalContents from "./EditModalContents";
-import SlideUpModal from "../SlideUpModal";
+import React, { useState } from 'react';
+import RoundActionButton from '../../ui/RoundActionButton';
+import { View, StyleSheet, Text } from 'react-native';
+import { colors, fontSize, iconSize, spacing, fonts } from '../../theme/theme';
+import { useNavigation } from '@react-navigation/native';
+import { ICONS } from '../../constants';
+import EditModalContents from './EditModalContents';
+import SlideUpModal from '../SlideUpModal';
 
 const SavedTripActionButtons = ({ tripName }) => {
   const navigation = useNavigation();
@@ -33,7 +33,7 @@ const SavedTripActionButtons = ({ tripName }) => {
           iconName={ICONS.sort}
           iconSize={iconSize.medium}
           iconColor={colors.offWhiteFont}
-          onIconPress={() => console.log("sort pressed")}
+          onIconPress={() => console.log('sort pressed')}
           styling={styles.actionButton}
         />
         <RoundActionButton
@@ -54,23 +54,23 @@ const SavedTripActionButtons = ({ tripName }) => {
 const styles = StyleSheet.create({
   container: {
     height: 40,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: spacing.xlarge,
-    alignItems: "center",
+    alignItems: 'center',
   },
   leftSideButtons: {
     zIndex: 2,
   },
   rightSideButtons: {
-    flexDirection: "row",
+    flexDirection: 'row',
     zIndex: 2,
   },
   titleContainer: {
-    position: "absolute",
+    position: 'absolute',
     left: 0,
     right: 0,
-    alignItems: "center",
+    alignItems: 'center',
   },
   titleText: {
     color: colors.offWhiteFont,

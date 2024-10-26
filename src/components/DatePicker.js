@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { View, Button, Platform, Text } from "react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import React, { useState } from 'react';
+import { View, Button, Platform, Text } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 const DatePicker = () => {
   const [date, setDate] = useState(new Date());
@@ -9,7 +9,7 @@ const DatePicker = () => {
   // Function to handle the date change
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(Platform.OS === "ios"); // For Android, close picker after selecting
+    setShow(Platform.OS === 'ios'); // For Android, close picker after selecting
     setDate(currentDate); // Update the date state
   };
 

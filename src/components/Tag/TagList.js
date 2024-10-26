@@ -1,6 +1,6 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
-import TagTile from "./TagTile";
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import TagTile from './TagTile';
 
 const TagList = ({ tags }) => {
   return (
@@ -14,8 +14,8 @@ const TagList = ({ tags }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    flexWrap: "wrap",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
 });
 

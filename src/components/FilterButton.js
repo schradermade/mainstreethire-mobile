@@ -1,10 +1,10 @@
-import React from "react";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../constants";
-import { iconSize, spacing, colors, shadowRadius } from "../theme/theme";
-import { StyleSheet, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import * as Haptics from "expo-haptics";
+import React from 'react';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { ICONS } from '../constants';
+import { iconSize, spacing, colors, shadowRadius } from '../theme/theme';
+import { StyleSheet, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import * as Haptics from 'expo-haptics';
 
 const FilterButton = () => {
   const handleFilterPress = () => {
@@ -40,10 +40,10 @@ const styles = StyleSheet.create({
     // shadowOffset: { width: 0, height: 0 },
     // shadowOpacity: 0.1,
     // shadowRadius: shadowRadius.xsmall,
-    position: "relative", // Added to allow inner shadow overlay to position correctly
+    position: 'relative', // Added to allow inner shadow overlay to position correctly
   },
   innerShadowOverlay: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     right: 0,

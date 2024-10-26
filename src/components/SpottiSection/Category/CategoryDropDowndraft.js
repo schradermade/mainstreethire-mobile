@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -6,15 +6,15 @@ import {
   Modal,
   Dimensions,
   FlatList,
-} from "react-native";
-import { borderRadius, colors, iconSize, spacing } from "../../../theme/theme";
-import { PanGestureHandler, State } from "react-native-gesture-handler";
-import RoundActionButton from "../../../ui/RoundActionButton";
-import CategoryTile from "./CategoryTile";
-import { CATEGORY_LIST } from "../../../constants";
-import { TouchableOpacity } from "react-native-gesture-handler";
+} from 'react-native';
+import { borderRadius, colors, iconSize, spacing } from '../../../theme/theme';
+import { PanGestureHandler, State } from 'react-native-gesture-handler';
+import RoundActionButton from '../../../ui/RoundActionButton';
+import CategoryTile from './CategoryTile';
+import { CATEGORY_LIST } from '../../../constants';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const { height } = Dimensions.get("window");
+const { height } = Dimensions.get('window');
 const MIN_TRANSLATE_Y = 100; // Modal should not go above this (100px below the top)
 
 const CategoryDropDown = ({ isVisible, setVisible }) => {
@@ -98,7 +98,7 @@ const CategoryDropDown = ({ isVisible, setVisible }) => {
                     translateY: translateY.interpolate({
                       inputRange: [MIN_TRANSLATE_Y, height],
                       outputRange: [MIN_TRANSLATE_Y, height],
-                      extrapolate: "clamp", // Prevent modal from going above 100px
+                      extrapolate: 'clamp', // Prevent modal from going above 100px
                     }),
                   },
                 ],
@@ -128,7 +128,7 @@ const CategoryDropDown = ({ isVisible, setVisible }) => {
 const styles = StyleSheet.create({
   modalBackground: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
   },
   modalContainer: {
     height: height - 30,
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     width: 30,
     borderRadius: 25,
     backgroundColor: colors.borderColorDark,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   flatListContent: {
     paddingBottom: spacing.large,

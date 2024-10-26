@@ -1,4 +1,4 @@
-import { Share } from "react-native";
+import { Share } from 'react-native';
 
 export const shareSpottiLink = async (id, name) => {
   try {
@@ -7,6 +7,6 @@ export const shareSpottiLink = async (id, name) => {
       message: `Check out this Spotti on HotSpotti: ${name}\n${link}`,
     });
   } catch (error) {
-    console.error("Error sharing:", error.message);
+    console.error('Error sharing:', error.message);
   }
 };

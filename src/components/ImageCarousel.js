@@ -1,11 +1,11 @@
-import React, { forwardRef, useState, useCallback } from "react";
-import { View, Image, Dimensions, StyleSheet } from "react-native";
-import Carousel from "react-native-reanimated-carousel";
-import { borderRadius, spacing, colors, shadowRadius } from "../theme/theme";
-import { imagePathFormat } from "../utils/imagePathFormat";
-import PaginationDots from "../ui/PaginationDots";
+import React, { forwardRef, useState, useCallback } from 'react';
+import { View, Image, Dimensions, StyleSheet } from 'react-native';
+import Carousel from 'react-native-reanimated-carousel';
+import { borderRadius, spacing, colors, shadowRadius } from '../theme/theme';
+import { imagePathFormat } from '../utils/imagePathFormat';
+import PaginationDots from '../ui/PaginationDots';
 
-const SLIDER_WIDTH = Dimensions.get("window").width;
+const SLIDER_WIDTH = Dimensions.get('window').width;
 
 const ImageCarousel = forwardRef(
   ({ images, width, isFullView = false, onSwipeStart, onSwipeEnd }, ref) => {
@@ -49,8 +49,8 @@ const ImageCarousel = forwardRef(
       setCurrentIndex(index); // Ensure final snap update after swipe completes
     }, []);
 
-    const name = "";
-    const id = "";
+    const name = '';
+    const id = '';
 
     return (
       <View ref={ref} style={styles.container}>
@@ -70,7 +70,7 @@ const ImageCarousel = forwardRef(
           }}
           style={{
             borderRadius: isFullView ? 0 : borderRadius.large,
-            overflow: "hidden",
+            overflow: 'hidden',
           }}
         />
         <PaginationDots images={images} currentIndex={currentIndex} />

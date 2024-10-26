@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { fonts, fontSize } from "../../../theme/theme";
-import ExpandingTile from "../../ExpandTileGroup/ExpandingTile";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { fonts, fontSize } from '../../../theme/theme';
+import ExpandingTile from '../../ExpandTileGroup/ExpandingTile';
 
 const ExpandedContent = () => {
   return (
@@ -34,23 +34,23 @@ const WhenCard = ({ isExpanded, onExpand }) => {
 
 const styles = StyleSheet.create({
   notExpandedWrapper: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   sectionLabel: {
-    color: "#E0E0E0",
+    color: '#E0E0E0',
     fontSize: fontSize.xlarge,
     fontFamily: fonts.regular,
   },
   notExpandedText: {
-    color: "#E0E0E0",
+    color: '#E0E0E0',
     fontFamily: fonts.regular,
     fontSize: fontSize.large,
   },
   expandedContainer: {
     flex: 1,
-    justifyContent: "flex-start",
+    justifyContent: 'flex-start',
   },
 });
 

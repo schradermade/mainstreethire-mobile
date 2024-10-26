@@ -1,12 +1,12 @@
-import React, { useState, useRef } from "react";
-import { StyleSheet, View, Dimensions } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
-import { CATEGORY_LIST } from "../../../constants";
-import CategoryTile from "./CategoryTile";
-import { spacing, colors } from "../../../theme/theme";
-import * as Haptics from "expo-haptics";
+import React, { useState, useRef } from 'react';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
+import { CATEGORY_LIST } from '../../../constants';
+import CategoryTile from './CategoryTile';
+import { spacing, colors } from '../../../theme/theme';
+import * as Haptics from 'expo-haptics';
 
-const { width: windowWidth } = Dimensions.get("window");
+const { width: windowWidth } = Dimensions.get('window');
 
 const CategoryList = () => {
   const [selectedCategory, setSelectedCategory] = useState(

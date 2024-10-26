@@ -1,12 +1,12 @@
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
 import {
   colors,
   spacing,
   fontSize,
   borderRadius,
   fonts,
-} from "../../theme/theme";
+} from '../../theme/theme';
 
 const TagTile = ({ tag }) => {
   return (
@@ -21,16 +21,16 @@ const styles = StyleSheet.create({
     borderColor: colors.borderColorDark,
     borderWidth: 1,
     borderRadius: borderRadius.small,
-    justifyContent: "center",
-    alignItems: "center",
-    width: "auto",
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 'auto',
     paddingVertical: spacing.xsmall,
     paddingHorizontal: spacing.small,
     marginRight: spacing.small,
     marginBottom: spacing.small,
-    alignSelf: "flex-start",
-    justifyContent: "center",
-    alignItems: "center",
+    alignSelf: 'flex-start',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   tagText: {
     color: colors.darkFont,

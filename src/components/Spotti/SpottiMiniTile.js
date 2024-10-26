@@ -1,9 +1,9 @@
-import React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { View, Text, StyleSheet } from "react-native";
-import { spacing, colors, fonts } from "../../theme/theme";
-import SpottiQuickFacts from "./SpottiQuickFacts";
-import ImageCarousel from "../ImageCarousel";
+import React from 'react';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, Text, StyleSheet } from 'react-native';
+import { spacing, colors, fonts } from '../../theme/theme';
+import SpottiQuickFacts from './SpottiQuickFacts';
+import ImageCarousel from '../ImageCarousel';
 
 const SpottiMiniTile = ({ name, pictures, stats, onPress }) => {
   return (
@@ -23,7 +23,7 @@ const SpottiMiniTile = ({ name, pictures, stats, onPress }) => {
         <SpottiQuickFacts
           stats={stats}
           textColorTheme="dark"
-          directionAlignment={"vertical"}
+          directionAlignment={'vertical'}
         />
       </View>
     </TouchableOpacity>
@@ -34,9 +34,9 @@ export default React.memo(SpottiMiniTile);
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
     paddingHorizontal: spacing.large,
   },
   infoContainer: {

@@ -1,9 +1,9 @@
-import React from "react";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
-import { colors, fontSize, spacing, fonts } from "../../../theme/theme";
+import React from 'react';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { colors, fontSize, spacing, fonts } from '../../../theme/theme';
 
-const windowWidth = Dimensions.get("window").width - 48;
+const windowWidth = Dimensions.get('window').width - 48;
 
 const SpottiRatingSection = ({ rating }) => {
   return (
@@ -68,23 +68,23 @@ const styles = StyleSheet.create({
     // width: windowWidth,
   },
   ratingContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   ratingTextContainer: {
-    width: "26%",
+    width: '26%',
   },
   ratingText: {
     color: colors.offWhiteFont,
     fontSize: windowWidth * 0.17,
-    width: "100%",
+    width: '100%',
     fontFamily: fonts.regular,
   },
   starsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "74%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '74%',
   },
   starIcon: {
     fontSize: (windowWidth * 0.74) / 5,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.regular,
   },
   subTextWrapper: {
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
     marginRight: spacing.medium,
   },
 });

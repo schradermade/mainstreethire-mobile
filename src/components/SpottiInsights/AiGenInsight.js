@@ -1,14 +1,14 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import {
   borderRadius,
   colors,
   fonts,
   fontSize,
   spacing,
-} from "../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../constants";
+} from '../../theme/theme';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { ICONS } from '../../constants';
 
 const AiGenInsight = () => {
   return (
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     marginBottom: spacing.large,
   },
   headerContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   headerText: {
     fontSize: fontSize.large,

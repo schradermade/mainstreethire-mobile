@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, ScrollView } from "react-native";
-import { StyleSheet } from "react-native";
-import { colors, fonts, fontSize, spacing } from "../../../theme/theme";
-import SwipeableListItem from "../../SwipableListItem";
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { colors, fonts, fontSize, spacing } from '../../../theme/theme';
+import SwipeableListItem from '../../SwipableListItem';
 
 const LocationsList = ({ listOfLocations }) => {
   const [locations, setLocations] = useState([]);
@@ -12,7 +12,7 @@ const LocationsList = ({ listOfLocations }) => {
   }, [listOfLocations]);
 
   const handleDelete = (id) => {
-    console.log("deleted");
+    console.log('deleted');
   };
 
   const LocationItem = (item) => {
@@ -40,8 +40,8 @@ const LocationsList = ({ listOfLocations }) => {
 
 const styles = StyleSheet.create({
   swipeableContents: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginVertical: spacing.large,
   },
   itemText: {
@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     marginLeft: spacing.small,
   },
   userComponentContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingVertical: spacing.medium,
   },
   locationItem: {

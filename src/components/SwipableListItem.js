@@ -1,7 +1,7 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Swipeable } from "react-native-gesture-handler";
-import { colors, fonts } from "../theme/theme"; // Replace with your theme or custom styling
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Swipeable } from 'react-native-gesture-handler';
+import { colors, fonts } from '../theme/theme'; // Replace with your theme or custom styling
 
 const SwipeableListItem = ({
   renderItem,
@@ -54,28 +54,28 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.17,
   },
   buttonsContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   deleteButton: {
-    backgroundColor: "#8B0000",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: '#8B0000',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: 100,
-    height: "100%",
+    height: '100%',
   },
   deleteText: {
-    color: "white",
+    color: 'white',
     fontFamily: fonts.bold,
   },
   messageButton: {
-    backgroundColor: "#000080",
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: '#000080',
+    justifyContent: 'center',
+    alignItems: 'center',
     width: 100,
-    height: "100%",
+    height: '100%',
   },
   messageText: {
-    color: "white",
+    color: 'white',
     fontFamily: fonts.bold,
   },
 });

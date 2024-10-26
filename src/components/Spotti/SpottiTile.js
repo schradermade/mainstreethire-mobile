@@ -1,9 +1,9 @@
-import React from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { View, Text, StyleSheet } from "react-native";
-import { colors, fonts, fontSize, spacing } from "../../theme/theme";
-import SpottiQuickFacts from "./SpottiQuickFacts";
-import ImageCarousel from "../ImageCarousel";
+import React from 'react';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, Text, StyleSheet } from 'react-native';
+import { colors, fonts, fontSize, spacing } from '../../theme/theme';
+import SpottiQuickFacts from './SpottiQuickFacts';
+import ImageCarousel from '../ImageCarousel';
 
 const SpottiTile = ({ name, pictures, stats, onPress }) => {
   return (
@@ -21,7 +21,7 @@ const SpottiTile = ({ name, pictures, stats, onPress }) => {
         <SpottiQuickFacts
           stats={stats}
           textColorTheme="dark"
-          directionAlignment={"horizontal"}
+          directionAlignment={'horizontal'}
         />
       </View>
     </TouchableOpacity>

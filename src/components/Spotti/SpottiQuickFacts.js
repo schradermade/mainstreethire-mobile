@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { colors, iconSize, spacing, fonts } from "../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { ICONS } from "../../constants";
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import { colors, iconSize, spacing, fonts } from '../../theme/theme';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { ICONS } from '../../constants';
 
 const SpottiQuickFacts = ({
   stats,
@@ -13,13 +13,13 @@ const SpottiQuickFacts = ({
   const { rating, category, bestTimeToVisit } = stats;
 
   const containerStyle =
-    directionAlignment === "horizontal" ? styles.containerHorizontal : {};
+    directionAlignment === 'horizontal' ? styles.containerHorizontal : {};
 
   const statStyle =
-    directionAlignment === "vertical" ? styles.statVertical : {};
+    directionAlignment === 'vertical' ? styles.statVertical : {};
 
   const colorTheme =
-    textColorTheme === "dark" ? colors.darkFont : colors.offWhiteFont;
+    textColorTheme === 'dark' ? colors.darkFont : colors.offWhiteFont;
 
   return (
     <View style={containerStyle}>
@@ -42,7 +42,7 @@ const SpottiQuickFacts = ({
               {rating}
             </Text>
           </View>
-          {directionAlignment === "horizontal" && (
+          {directionAlignment === 'horizontal' && (
             <MaterialCommunityIcons
               name={ICONS.circleSmall}
               color={colorTheme}
@@ -68,7 +68,7 @@ const SpottiQuickFacts = ({
           {category}
         </Text>
       </View>
-      {directionAlignment === "horizontal" && (
+      {directionAlignment === 'horizontal' && (
         <MaterialCommunityIcons
           name={ICONS.circleSmall}
           color={colorTheme}
@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
   containerHorizontal: {
     flex: 1,
     marginTop: spacing.small,
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   stat: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   statVertical: {
     marginTop: spacing.small,

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   borderRadius,
   colors,
@@ -6,10 +6,10 @@ import {
   iconSize,
   spacing,
   fonts,
-} from "../../../theme/theme";
-import { StyleSheet, Text, View } from "react-native";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { TouchableOpacity } from "react-native-gesture-handler";
+} from '../../../theme/theme';
+import { StyleSheet, Text, View } from 'react-native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const CategoryTile = ({ title, iconName, isSelected, onPress, styling }) => {
   return (
@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
     borderColor: colors.borderColorDark,
     borderRadius: borderRadius.medium,
     height: 35,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   contentContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: spacing.xsmall,
   },
   titleText: {

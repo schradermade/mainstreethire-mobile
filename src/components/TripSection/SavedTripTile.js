@@ -1,9 +1,9 @@
-import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { useNavigation } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { MaterialIcons } from "@expo/vector-icons";
+import React from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { MaterialIcons } from '@expo/vector-icons';
 import {
   borderRadius,
   colors,
@@ -12,8 +12,8 @@ import {
   spacing,
   fonts,
   shadowRadius,
-} from "../../theme/theme";
-import { ICONS } from "../../constants";
+} from '../../theme/theme';
+import { ICONS } from '../../constants';
 
 const SavedTripTile = ({ trip }) => {
   const navigation = useNavigation();
@@ -25,15 +25,15 @@ const SavedTripTile = ({ trip }) => {
         activeOpacity={1}
         key={trip.title}
         onPress={() => {
-          navigation.navigate("SavedTripStack", {
-            screen: "SavedTrip",
+          navigation.navigate('SavedTripStack', {
+            screen: 'SavedTrip',
             params: { trip },
           });
         }}
       >
         <View style={styles.imageWrapper}>
           <Image
-            source={require("../../../assets/sunriver.jpg")}
+            source={require('../../../assets/sunriver.jpg')}
             style={styles.image}
           />
         </View>
@@ -76,7 +76,7 @@ const SavedTripTile = ({ trip }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: spacing.medium,
     paddingVertical: spacing.medium,
     shadowColor: colors.shadowEffectBlack,
@@ -86,11 +86,11 @@ const styles = StyleSheet.create({
   },
   cardInfoContainer: {
     paddingLeft: spacing.medium,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
   },
   lineItem: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingBottom: spacing.small,
   },
   imageWrapper: {

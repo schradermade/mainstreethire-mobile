@@ -1,12 +1,12 @@
-import React from "react";
-import { View } from "react-native";
+import React from 'react';
+import { View } from 'react-native';
 
 const CustomBorder = ({ borderSize, borderColor, marginHoriz, marginVert }) => {
   return (
     <View
       style={{
         height: borderSize,
-        backgroundColor: borderColor || "black",
+        backgroundColor: borderColor || 'black',
         marginHorizontal: marginHoriz,
         marginVertical: marginVert,
       }}

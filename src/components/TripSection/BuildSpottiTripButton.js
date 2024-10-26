@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import {
   colors,
   fontSize,
@@ -7,12 +7,12 @@ import {
   spacing,
   fonts,
   shadowRadius,
-} from "../../theme/theme";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import CustomBorder from "../../ui/CustomBorder";
-import * as Haptics from "expo-haptics";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { ICONS } from "../../constants";
+} from '../../theme/theme';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import CustomBorder from '../../ui/CustomBorder';
+import * as Haptics from 'expo-haptics';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { ICONS } from '../../constants';
 
 const BuildSpottiTripButton = () => {
   const triggerHapticFeedback = () => {
@@ -43,7 +43,7 @@ const BuildSpottiTripButton = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: spacing.large,
     paddingVertical: spacing.small,
   },
@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
     fontFamily: fonts.semiBold,
   },
   textContainer: {
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   iconContainer: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginRight: spacing.medium,
     padding: spacing.small,
     backgroundColor: colors.offWhiteFont,
