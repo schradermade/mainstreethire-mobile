@@ -3,6 +3,9 @@ import axiosRetry from 'axios-retry';
 import * as SecureStorage from 'expo-secure-store';
 import { REACT_APP_AUTH_API_URL } from '@env';
 
+let cachedAccessToken = null;
+
+// api client setup with axios
 const apiClient = axios.create({
   baseURL: REACT_APP_AUTH_API_URL,
   timeout: 5000,
@@ -21,9 +24,10 @@ axiosRetry(apiClient, {
   },
 });
 
+// interceptor to attach the token to every request
 apiClient.interceptors.request.use(async (config) => {
   try {
-    const accessToken = await getAccessToken('authToken');
+    const accessToken = await getAccessToken();
     if (accessToken) {
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
@@ -33,6 +37,7 @@ apiClient.interceptors.request.use(async (config) => {
   return config;
 });
 
+// Sign-up user
 export const signupUser = async (userData) => {
   try {
     const response = await apiClient.post('/signup', userData);
@@ -43,12 +48,14 @@ export const signupUser = async (userData) => {
   }
 };
 
+// Sign-in user
 export const signinUser = async (email, password) => {
   try {
     const response = await apiClient.post('/signin', { email, password });
     const { accessToken } = response.data;
 
-    await saveAccessToken('authToken', accessToken);
+    await storeAccessToken(accessToken);
+
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -61,6 +68,7 @@ export const signinUser = async (email, password) => {
   }
 };
 
+// check if email is in use
 export const checkEmailInUse = async (email) => {
   try {
     const { data } = await apiClient.get(`/check-email`, {
@@ -73,24 +81,36 @@ export const checkEmailInUse = async (email) => {
   }
 };
 
-let cachedAccessToken = null;
-
-const getAccessToken = async (key) => {
-  if (!cachedAccessToken) {
-    try {
-      cachedAccessToken = await SecureStorage.getItemAsync(key);
-    } catch (error) {
-      console.error('Error retrieving accessToken:', error);
-    }
+export const storeAccessToken = async (accessToken) => {
+  cachedAccessToken = accessToken;
+  try {
+    await SecureStorage.setItemAsync('accessToken', accessToken);
+  } catch (error) {
+    console.error('Error storing access token:', error);
   }
-  return cachedAccessToken;
 };
 
-const saveAccessToken = async (key, value) => {
-  cachedAccessToken = value;
+const getAccessToken = async () => {
+  if (cachedAccessToken) {
+    return cachedAccessToken;
+  }
+
   try {
-    await SecureStorage.setItemAsync(key, value);
+    const token = await SecureStorage.getItemAsync('accessToken');
+    cachedAccessToken = token;
+    return token;
   } catch (error) {
-    console.error('Error saving accessToken:', error);
+    console.error('Error retrieving accessToken:', error);
+    return null;
+  }
+};
+
+const deleteAccessToken = async () => {
+  cachedAccessToken = null;
+  try {
+    await SecureStorage.deleteItemAsync('accessToken');
+    console.log('Access token deleted');
+  } catch (error) {
+    console.error('Error deleting access token:', error);
   }
 };
