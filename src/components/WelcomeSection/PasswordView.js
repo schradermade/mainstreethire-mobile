@@ -15,6 +15,7 @@ import { handleSignin } from '../../services/authService';
 
 const PasswordView = ({ route }) => {
   const { emailIsInUse, email } = route.params;
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
@@ -31,9 +32,12 @@ const PasswordView = ({ route }) => {
   const handleContinueButton = async () => {
     if (emailIsInUse) {
       try {
+        setIsSubmitting(true);
         await handleSignin({ email, password }, dispatch, navigation);
       } catch (error) {
         console.error('Signin failed:', error);
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
       dispatch(setSignupInfo({ password }));
@@ -79,7 +83,13 @@ const PasswordView = ({ route }) => {
           />
           <Button
             onPress={handleContinueButton}
-            buttonText={'Continue'}
+            buttonText={
+              isSubmitting
+                ? 'Signing in...'
+                : emailIsInUse
+                  ? 'Sign in'
+                  : 'Continue'
+            }
             btnStyles={{ marginTop: spacing.xxxxxlarge }}
           />
         </View>
