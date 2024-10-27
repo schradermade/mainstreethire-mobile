@@ -1,9 +1,7 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import * as SecureStorage from 'expo-secure-store';
 import { REACT_APP_AUTH_API_URL } from '@env';
-
-let cachedAccessToken = null;
+import { storeAccessToken, getAccessToken } from '../utils/authHelpers';
 
 // api client setup with axios
 const apiClient = axios.create({
@@ -78,39 +76,5 @@ export const checkEmailInUse = async (email) => {
   } catch (error) {
     console.error(error);
     return false;
-  }
-};
-
-export const storeAccessToken = async (accessToken) => {
-  cachedAccessToken = accessToken;
-  try {
-    await SecureStorage.setItemAsync('accessToken', accessToken);
-  } catch (error) {
-    console.error('Error storing access token:', error);
-  }
-};
-
-const getAccessToken = async () => {
-  if (cachedAccessToken) {
-    return cachedAccessToken;
-  }
-
-  try {
-    const token = await SecureStorage.getItemAsync('accessToken');
-    cachedAccessToken = token;
-    return token;
-  } catch (error) {
-    console.error('Error retrieving accessToken:', error);
-    return null;
-  }
-};
-
-const deleteAccessToken = async () => {
-  cachedAccessToken = null;
-  try {
-    await SecureStorage.deleteItemAsync('accessToken');
-    console.log('Access token deleted');
-  } catch (error) {
-    console.error('Error deleting access token:', error);
   }
 };
