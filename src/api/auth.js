@@ -5,7 +5,7 @@ import { storeAccessToken, getAccessToken } from '../utils/authHelpers';
 
 // api client setup with axios
 const apiClient = axios.create({
-  baseURL: REACT_APP_AUTH_API_URL,
+  baseURL: `${REACT_APP_AUTH_API_URL}/auth`,
   timeout: 5000,
 });
 
