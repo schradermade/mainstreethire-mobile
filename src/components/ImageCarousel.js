@@ -49,9 +49,6 @@ const ImageCarousel = forwardRef(
       setCurrentIndex(index); // Ensure final snap update after swipe completes
     }, []);
 
-    const name = '';
-    const id = '';
-
     return (
       <View ref={ref} style={styles.container}>
         <Carousel
@@ -73,7 +70,7 @@ const ImageCarousel = forwardRef(
             overflow: 'hidden',
           }}
         />
-        <PaginationDots images={images} currentIndex={currentIndex} />
+        <PaginationDots images={images || []} currentIndex={currentIndex} />
       </View>
     );
   }
