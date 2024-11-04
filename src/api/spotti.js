@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { EXPO_SPOTTI_API_URL } from '@env';
+import { REACT_SPOTTI_API_URL } from '@env';
 import axiosRetry from 'axios-retry';
 import { getAccessToken } from '../utils/authHelpers';
 // import { getTravelCompletion } from './openAi';
 
 const apiClient = axios.create({
-  baseURL: `${EXPO_SPOTTI_API_URL}/spottis`,
+  baseURL: `${REACT_SPOTTI_API_URL}/spottis`,
 });
 
 axiosRetry(apiClient, {
@@ -39,6 +39,11 @@ export const getPaginatedSpottis = async (limit = 10, offset = 0) => {
       params: {
         limit,
         offset,
+      },
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate', // HTTP 1.1
+        Pragma: 'no-cache', // HTTP 1.0
+        Expires: '0', // Proxies
       },
     });
     return response.data;

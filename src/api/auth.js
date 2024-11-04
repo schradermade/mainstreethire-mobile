@@ -1,11 +1,11 @@
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import { EXPO_AUTH_API_URL } from '@env';
+import { REACT_AUTH_API_URL } from '@env';
 import { storeAccessToken, getAccessToken } from '../utils/authHelpers';
 
 // api client setup with axios
 const apiClient = axios.create({
-  baseURL: `${EXPO_AUTH_API_URL}/auth`,
+  baseURL: `${REACT_AUTH_API_URL}/auth`,
   timeout: 5000,
 });
 
