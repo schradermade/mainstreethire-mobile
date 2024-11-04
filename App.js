@@ -21,6 +21,7 @@ import {
   Roboto_400Regular,
   Roboto_500Medium,
 } from '@expo-google-fonts/roboto';
+import 'react-native-get-random-values';
 
 import * as SplashScreen from 'expo-splash-screen';
 
