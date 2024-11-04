@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, Text, StyleSheet, View } from 'react-native';
 import { colors, spacing } from '../../theme/theme';
 import { useNavigation } from '@react-navigation/native';
+import { v4 as uuidv4 } from 'uuid';
 
 const SpottiList = ({ spottis = [], TileComponent }) => {
   const navigation = useNavigation();
@@ -17,7 +18,7 @@ const SpottiList = ({ spottis = [], TileComponent }) => {
   return (
     <FlatList
       data={spottis}
-      keyExtractor={(spotti) => `${spotti.id}-${spotti.name}`}
+      keyExtractor={() => uuidv4()}
       renderItem={({ item }) => {
         return (
           <View style={styles.spottiTile}>
