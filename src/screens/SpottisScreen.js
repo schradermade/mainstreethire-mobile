@@ -21,7 +21,7 @@ const SpottiScreen = () => {
   } = useSelector((state) => state.spotti);
 
   useEffect(() => {
-    dispatch(fetchSpottis({ limit: 10, offset: 0 }));
+    dispatch(fetchSpottis({ limit: 20, offset: 0 }));
   }, [dispatch]);
 
   const loadMoreSpottis = () => {
