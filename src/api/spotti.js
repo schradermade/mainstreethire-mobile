@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { REACT_APP_SPOTTI_API_URL } from '@env';
+import { EXPO_SPOTTI_API_URL } from '@env';
 import axiosRetry from 'axios-retry';
 import { getAccessToken } from '../utils/authHelpers';
+// import { getTravelCompletion } from './openAi';
 
 const apiClient = axios.create({
-  baseURL: `${REACT_APP_SPOTTI_API_URL}/spottis`,
+  baseURL: `${EXPO_SPOTTI_API_URL}/spottis`,
 });
 
 axiosRetry(apiClient, {
