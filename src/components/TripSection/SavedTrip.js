@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import fetchSpottis from '../../api/spotti';
 import ScreenWrapper from '../ScreenWrapper';
 import { colors, fonts, spacing } from '../../theme/theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -21,20 +20,7 @@ const SavedTrip = ({ route }) => {
   const [expandedCard, setExpandedCard] = useState(false);
   const insets = useSafeAreaInsets();
 
-  const spottiApi = async () => {
-    try {
-      const response = await fetchSpottis.get();
-      setSpottis(response.data);
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    spottiApi();
-  }, []);
+  useEffect(() => {}, []);
 
   const handleExpand = (isExpand) => {
     setExpandedCard(isExpand);
