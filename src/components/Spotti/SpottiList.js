@@ -25,7 +25,7 @@ const SpottiList = ({ spottis = [], TileComponent }) => {
             <TileComponent // SpottiTile or SpottiMiniTile
               onPress={() => handleTilePress(item)}
               name={item.name}
-              pictures={item.pictures}
+              images={item.images}
               stats={{
                 rating: item.rating,
                 category: item.category,
@@ -48,6 +48,7 @@ const SpottiList = ({ spottis = [], TileComponent }) => {
 
 const styles = StyleSheet.create({
   flatListContent: {
+    paddingTop: spacing.xxlarge,
     alignItems: 'center',
   },
   spottiTile: {
