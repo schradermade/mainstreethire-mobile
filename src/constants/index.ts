@@ -51,6 +51,7 @@ export enum ICONS {
   upVote = 'arrow-up-bold-circle-outline',
   downVote = 'arrow-down-bold-circle-outline',
   chatBubble = 'chat-processing-outline',
+  loading = 'loading',
 }
 // Material Icons
 // hive
