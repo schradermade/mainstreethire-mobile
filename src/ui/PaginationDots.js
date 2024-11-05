@@ -5,7 +5,7 @@ const dotInactiveSize = 5; // Inactive dot size
 const dotActiveSize = 10; // Active dot size
 const dotWidth = 20; // Base dot size + margin for calculation purposes
 
-const PaginationDots = ({ images, currentIndex }) => {
+const PaginationDots = ({ images = [], currentIndex }) => {
   const maxVisibleDots = 3; // Maximum number of visible dots
   const translateX = useRef(new Animated.Value(0)).current; // Animation for sliding dots
 
