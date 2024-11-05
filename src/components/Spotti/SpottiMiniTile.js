@@ -5,14 +5,14 @@ import { spacing, colors, fonts } from '../../theme/theme';
 import SpottiQuickFacts from './SpottiQuickFacts';
 import ImageCarousel from '../ImageCarousel';
 
-const SpottiMiniTile = ({ name, pictures, stats, onPress }) => {
+const SpottiMiniTile = ({ name, images, stats, onPress }) => {
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={onPress}
       activeOpacity={1}
     >
-      <ImageCarousel images={pictures} width={150} />
+      <ImageCarousel images={images} width={150} />
       <View style={styles.infoContainer}>
         <View>
           <Text style={styles.nameText} numberOfLines={1} ellipsizeMode="tail">
