@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { REACT_USER_API_URL } from '@env';
+import createApiClient from './createApiClient';
 
-export default axios.create({
-  baseURL: `${REACT_USER_API_URL}/users`,
-});
+const userApiClient = createApiClient(`${REACT_USER_API_URL}/users`);
