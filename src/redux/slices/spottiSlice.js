@@ -1,11 +1,14 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getPaginatedSpottis } from '../../api/spotti';
 
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const fetchSpottis = createAsyncThunk(
   'spotti/fetchSpottis',
   async (pagination, thunkAPI) => {
     const { limit, offset } = pagination;
     try {
+      await delay(3000);
       const response = await getPaginatedSpottis(limit, offset);
       return response;
     } catch (error) {
@@ -30,7 +33,13 @@ const spottiSlice = createSlice({
       .addCase(fetchSpottis.fulfilled, (state, action) => {
         state.loading = false;
         if (action.payload) {
-          state.data = [...state.data, ...action.payload];
+          const newSpottis = action.payload.filter(
+            (spotti) =>
+              !state.data.some(
+                (existingSpotti) => existingSpotti.id === spotti.id
+              )
+          );
+          state.data = [...state.data, ...newSpottis];
         } else {
           state.error = 'No data recieved from API';
         }
