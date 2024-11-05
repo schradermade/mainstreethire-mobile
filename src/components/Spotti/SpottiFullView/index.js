@@ -26,7 +26,7 @@ const SpottiFullView = ({ route }) => {
     tags,
     rating,
     description,
-    pictures = [],
+    images = [],
   } = spotti;
 
   return (
@@ -38,7 +38,7 @@ const SpottiFullView = ({ route }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 150 }}
       >
-        <ImageCarousel images={pictures} isFullView />
+        <ImageCarousel images={images} isFullView />
         <View style={styles.sectionContainer}>
           <SpottiOverview
             name={name}
