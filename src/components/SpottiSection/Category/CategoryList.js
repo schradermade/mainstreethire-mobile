@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions, Text } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { CATEGORY_LIST } from '../../../constants';
 import CategoryTile from './CategoryTile';
@@ -65,34 +65,36 @@ const CategoryList = () => {
   };
 
   return (
-    <FlatList
-      ref={flatListRef}
-      data={CATEGORY_LIST}
-      keyExtractor={(category) => category.title}
-      renderItem={({ item, index }) => {
-        const isSelected = item.title === selectedCategory;
-        return (
-          <View
-            style={{ marginRight: spacing.medium }}
-            onLayout={(event) => handleItemLayout(event, index)} // Capture the width of each item
-          >
-            <CategoryTile
-              title={item.title}
-              iconName={item.iconName}
-              isSelected={isSelected}
-            />
-          </View>
-        );
-      }}
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.flatListContent}
-      horizontal={true}
-      onScroll={handleScroll}
-      snapToAlignment="center"
-      snapToOffsets={calculateSnapOffsets()}
-      decelerationRate="fast"
-      scrollEventThrottle={16}
-    />
+    <View>
+      <FlatList
+        ref={flatListRef}
+        data={CATEGORY_LIST}
+        keyExtractor={(category) => category.title}
+        renderItem={({ item, index }) => {
+          const isSelected = item.title === selectedCategory;
+          return (
+            <View
+              style={{ marginRight: spacing.medium }}
+              onLayout={(event) => handleItemLayout(event, index)} // Capture the width of each item
+            >
+              <CategoryTile
+                title={item.title}
+                iconName={item.iconName}
+                isSelected={isSelected}
+              />
+            </View>
+          );
+        }}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.flatListContent}
+        horizontal={true}
+        onScroll={handleScroll}
+        snapToAlignment="center"
+        snapToOffsets={calculateSnapOffsets()}
+        decelerationRate="fast"
+        scrollEventThrottle={16}
+      />
+    </View>
   );
 };
 
