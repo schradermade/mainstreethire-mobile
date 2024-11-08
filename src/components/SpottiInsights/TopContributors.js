@@ -7,7 +7,6 @@ const TopContributors = ({ topContributors }) => {
   const topThree = topContributors.slice(0, 3);
   const imageMap = {
     'christian-headshot.png': require('../../../assets/christian-headshot.png'),
-    'alexa-headshot.png': require('../../../assets/alexa-headshot.png'),
   };
   return (
     <>
