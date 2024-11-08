@@ -52,6 +52,7 @@ export enum ICONS {
   downVote = 'arrow-down-bold-circle-outline',
   chatBubble = 'chat-processing-outline',
   loading = 'loading',
+  store = 'store',
 }
 // Material Icons
 // hive
@@ -331,8 +332,8 @@ export const DEV_FRIENDS = [
   },
 ];
 
-export const HOTSPOTTI_NAME = ['HotSp', 'tti'];
-export const HOTSPOTTI_SLOGAN = ['Be the local.'];
+export const MAINSTREETHIRE_NAME = 'Main Street Hire';
+export const MAINSTREETHIRE_SLOGAN = 'Local jobs.';
 
 // 1. Be the local
 // 2. Explore local
