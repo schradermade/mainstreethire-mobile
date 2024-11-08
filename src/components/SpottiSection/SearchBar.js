@@ -19,7 +19,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
   const textInputRef = useRef(null);
 
   const [dynamicPlaceholder, setDynamicPlaceholder] = useState('Spottis'); // Dynamic portion
-  const placeholders = ['Spottis', 'Cities']; // List of dynamic placeholders
+  const placeholders = ['Jobs', 'Businesses']; // List of dynamic placeholders
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const animatedValue = useRef(new Animated.Value(50)).current; // Initial position of the text
   const opacityValue = useRef(new Animated.Value(0)).current; // Initial opacity
@@ -86,7 +86,7 @@ const SearchBar = ({ term, onTermChange, onTermSubmit }) => {
           ) : (
             <TouchableOpacity activeOpacity={0.7} onPress={handleMapIconClick}>
               <MaterialCommunityIcons
-                name={'map-search'}
+                name={'store-search'}
                 size={24}
                 style={styles.iconStyle}
               />
