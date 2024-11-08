@@ -12,7 +12,6 @@ const Thread = ({ contributors }) => {
   const [isVotingDisabled, setIsVotingDisabled] = useState(false); // State to disable voting
   const imageMap = {
     'christian-headshot.png': require('../../../assets/christian-headshot.png'),
-    'alexa-headshot.png': require('../../../assets/alexa-headshot.png'),
   };
   const handleVote = (voteChange) => {
     if (isVotingDisabled) return;
