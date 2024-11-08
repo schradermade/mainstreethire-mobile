@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
 import { spacing, iconSize } from '../theme/theme';
-import { HotSpottiIconAndSlogan } from '../ui/HotSpottiIconAndSlogan';
+import { IconAndSlogan } from '../ui/IconAndSlogan';
 import ScreenWrapper from '../components/ScreenWrapper';
 import Button from '../ui/Button';
 import LEGAL_DISCLAIMER from '../utils/legalDisclaimer';
@@ -22,7 +22,7 @@ const WelcomeScreen = () => {
       }}
     >
       <View style={styles.welcomeMessageContainer}>
-        <HotSpottiIconAndSlogan size={iconSize.large} showSlogan />
+        <IconAndSlogan size={iconSize.large} showSlogan />
       </View>
       <Button
         onPress={() => navigation.navigate('EmailView')}
