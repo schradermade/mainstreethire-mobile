@@ -2,10 +2,10 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { View, Text, StyleSheet } from 'react-native';
 import { colors, fonts, fontSize, spacing } from '../../theme/theme';
-import SpottiQuickFacts from './SpottiQuickFacts';
+import SpottiQuickFacts from './JobQuickFacts';
 import ImageCarousel from '../ImageCarousel';
 
-const SpottiTile = ({ name, images, stats, onPress }) => {
+const JobTile = ({ name, images, stats, onPress }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -28,7 +28,7 @@ const SpottiTile = ({ name, images, stats, onPress }) => {
   );
 };
 
-export default React.memo(SpottiTile);
+export default React.memo(JobTile);
 
 const styles = StyleSheet.create({
   nameText: {

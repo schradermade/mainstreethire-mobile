@@ -4,7 +4,7 @@ import { colors, spacing } from '../../theme/theme';
 import { useNavigation } from '@react-navigation/native';
 import { v4 as uuidv4 } from 'uuid';
 
-const SpottiList = ({ spottis = [], TileComponent }) => {
+const JobList = ({ spottis = [], TileComponent }) => {
   const navigation = useNavigation();
 
   const handleTilePress = (spotti) => {
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(SpottiList);
+export default React.memo(JobList);

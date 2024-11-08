@@ -5,7 +5,7 @@ import { colors, fontSize, spacing, fonts } from '../../../theme/theme';
 
 const windowWidth = Dimensions.get('window').width - 48;
 
-const SpottiRatingSection = ({ rating }) => {
+const JobRatingSection = ({ rating }) => {
   return (
     // 100%
     <View style={styles.container}>
@@ -99,4 +99,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SpottiRatingSection;
+export default JobRatingSection;

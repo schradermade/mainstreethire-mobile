@@ -7,14 +7,14 @@ import {
   spacing,
   fonts,
   shadowRadius,
-} from '../../theme/theme';
+} from '../theme/theme';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import CustomBorder from '../../ui/CustomBorder';
+import CustomBorder from './CustomBorder';
 import * as Haptics from 'expo-haptics';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { ICONS } from '../../constants';
+import { ICONS } from '../constants';
 
-const BuildSpottiTripButton = () => {
+const BuildItemButton = () => {
   const triggerHapticFeedback = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
   };
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BuildSpottiTripButton;
+export default BuildItemButton;

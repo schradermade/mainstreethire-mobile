@@ -15,7 +15,7 @@ import {
 } from '../../theme/theme';
 import { ICONS } from '../../constants';
 
-const SavedTripTile = ({ trip }) => {
+const SavedJobTile = ({ trip }) => {
   const navigation = useNavigation();
 
   return (
@@ -25,8 +25,8 @@ const SavedTripTile = ({ trip }) => {
         activeOpacity={1}
         key={trip.title}
         onPress={() => {
-          navigation.navigate('SavedTripStack', {
-            screen: 'SavedTrip',
+          navigation.navigate('SavedApplicationsStack', {
+            screen: 'SavedJob',
             params: { trip },
           });
         }}
@@ -121,4 +121,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SavedTripTile;
+export default SavedJobTile;

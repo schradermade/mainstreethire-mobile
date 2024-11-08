@@ -6,7 +6,7 @@ import { colors, iconSize, spacing } from '../../../theme/theme';
 import { shareSpottiLink } from '../../../utils/shareSpottiLink';
 import { ICONS } from '../../../constants';
 
-const SpottiActionButtons = ({ name, id }) => {
+const JobActionButtons = ({ name, id }) => {
   const navigation = useNavigation();
 
   return (
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SpottiActionButtons;
+export default JobActionButtons;

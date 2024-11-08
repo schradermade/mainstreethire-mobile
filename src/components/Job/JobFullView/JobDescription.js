@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { colors, fontSize, fonts } from '../../../theme/theme';
 
-const SpottiDescriptionSection = ({ description }) => {
+const JobDescriptionSection = ({ description }) => {
   return <Text style={styles.descriptionText}>{description}</Text>;
 };
 
@@ -14,4 +14,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SpottiDescriptionSection;
+export default JobDescriptionSection;

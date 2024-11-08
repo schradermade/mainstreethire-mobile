@@ -7,7 +7,7 @@ import { ICONS } from '../../constants';
 import EditModalContents from './EditModalContents';
 import SlideUpModal from '../SlideUpModal';
 
-const SavedTripActionButtons = ({ tripName }) => {
+const SavedJobActionButtons = ({ tripName }) => {
   const navigation = useNavigation();
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SavedTripActionButtons;
+export default SavedJobActionButtons;

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { useKeyboardHeight } from '../../hooks/useKeyboardHeight';
-import { HotSpottiIcon } from '../../ui/HotSpottiIcon';
+import { MainStreetHireIcon } from '../../ui/MainStreetHireIcon';
 import { colors, fontSize, iconSize, spacing, fonts } from '../../theme/theme';
 import ScreenWrapper from '../ScreenWrapper';
 import TextInputBox from '../../ui/TextInputBox';
@@ -28,11 +28,11 @@ const EmailSignup = () => {
   );
 
   const handleContinueButton = async () => {
-    const emailIsInUse = await checkEmailInUse(email);
-    if (emailIsInUse) {
+    // const emailIsInUse = await checkEmailInUse(email);
+    if (true) {
       navigation.navigate('PasswordView', {
-        emailIsInUse: true,
-        email,
+        // emailIsInUse: true,
+        // email,
       });
     } else {
       dispatch(setSignupInfo({ email }));
@@ -64,7 +64,7 @@ const EmailSignup = () => {
           styling={{ alignItems: 'flex-start' }}
         />
         <View style={styles.iconAndTextContainer}>
-          <HotSpottiIcon size={iconSize.xxlarge} />
+          <MainStreetHireIcon size={iconSize.xxlarge} />
           <Text style={styles.text}>Let's start with email</Text>
         </View>
         <View>

@@ -4,7 +4,7 @@ import { colors, iconSize, spacing, fonts } from '../../theme/theme';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ICONS } from '../../constants';
 
-const SpottiQuickFacts = ({
+const JobQuickFacts = ({
   stats,
   textColorTheme,
   isFullSpottiView,
@@ -120,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(SpottiQuickFacts);
+export default React.memo(JobQuickFacts);

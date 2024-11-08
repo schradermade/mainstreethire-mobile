@@ -4,15 +4,15 @@ import ScreenWrapper from '../ScreenWrapper';
 import { colors, fonts, spacing } from '../../theme/theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ExpandTileGroup from '../ExpandTileGroup';
-import SpottiList from '../Spotti/SpottiList';
+import JobList from '../Job/JobList';
 import Divider from '../../ui/Divider';
-import SavedTripActionButtons from './SavedTripActionButtons';
+import SavedJobActionButtons from './SavedJobActionButtons';
 import WhereCard from './InfoCards/WhereCard';
 import WhoCard from './InfoCards/WhoCard';
-import SpottiMiniTile from '../Spotti/SpottiMiniTile';
+import SpottiMiniTile from '../Job/JobMiniTile';
 import WhenCard from './InfoCards/WhenCard';
 
-const SavedTrip = ({ route }) => {
+const SavedJob = ({ route }) => {
   const { trip } = route.params;
 
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,7 @@ const SavedTrip = ({ route }) => {
       }}
     >
       <View style={styles.container}>
-        <SavedTripActionButtons tripName={trip.title} />
+        <SavedJobActionButtons tripName={trip.title} />
         <View style={styles.expandTileGroupContainer}>
           <ExpandTileGroup isExpanded={handleExpand}>
             <WhenCard />
@@ -47,13 +47,13 @@ const SavedTrip = ({ route }) => {
         {!expandedCard ? (
           <>
             <Text style={styles.numSpottisText}>
-              {spottis?.length} Spottis in this trip
+              {spottis?.length} Jobs in this trip
             </Text>
             <Divider />
           </>
         ) : null}
       </View>
-      <SpottiList spottis={spottis} TileComponent={SpottiMiniTile} />
+      <JobList spottis={spottis} TileComponent={SpottiMiniTile} />
     </ScreenWrapper>
   );
 };
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
-export default SavedTrip;
+export default SavedJob;

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
-import SearchBar from '../components/SpottiSection/SearchBar';
-import CategoryList from '../components/SpottiSection/Category/CategoryList';
-import SpottiList from '../components/Spotti/SpottiList';
+import SearchBar from '../components/JobsSection/SearchBar';
+import CategoryList from '../components/JobsSection/Category/CategoryList';
+import SpottiList from '../components/Job/JobList';
 import ScreenWrapper from '../components/ScreenWrapper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import SpottiTile from '../components/Spotti/SpottiTile';
+import SpottiTile from '../components/Job/JobTile';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSpottis } from '../redux/slices/spottiSlice';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-const SpottiScreen = () => {
+const JobScreen = () => {
   const [term, setTerm] = useState('');
 
   const insets = useSafeAreaInsets();
@@ -44,9 +44,9 @@ const SpottiScreen = () => {
       />
       <CategoryList />
       {error ? (
-        <Text>Error loading Spottis: {error.messages || error}</Text>
+        <Text>Error loading Jobs: {error.messages || error}</Text>
       ) : loading ? (
-        <LoadingSpinner label={'Loading Spottis...'} />
+        <LoadingSpinner label={'Loading Jobs...'} />
       ) : (
         <SpottiList spottis={spottis} TileComponent={SpottiTile} />
       )}
@@ -54,4 +54,4 @@ const SpottiScreen = () => {
   );
 };
 
-export default SpottiScreen;
+export default JobScreen;

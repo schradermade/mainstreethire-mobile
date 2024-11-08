@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import SpottiQuickFacts from '../SpottiQuickFacts';
+import SpottiQuickFacts from '../JobQuickFacts';
 import { colors, fontSize, spacing, fonts } from '../../../theme/theme';
 import TagList from '../../Tag/TagList';
 
-const TitleSection = ({
+const JobOverView = ({
   name,
   tags,
   rating,
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(TitleSection);
+export default React.memo(JobOverView);

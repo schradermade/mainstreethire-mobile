@@ -76,12 +76,14 @@ export enum ICONS {
   nearby = 'map-marker-radius-outline',
   medicalClinic = 'hospital-box-outline',
   insuranceAgency = 'home-flood',
+  applied = 'briefcase-check-outline',
+  applications = 'file-document-multiple-outline',
 }
 
 export const BOTTOM_TAB_ICONS = {
   Jobs: {
     name: ICONS.mainStreetHireLogo,
-    size: 32,
+    size: 24,
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
@@ -97,13 +99,13 @@ export const BOTTOM_TAB_ICONS = {
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
-  Trips: {
-    name: ICONS.trips,
+  Applications: {
+    name: ICONS.applications,
     size: 24,
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
-  Profile: {
+  Resume: {
     name: ICONS.profile,
     size: 24,
     focusedColor: colors.spottiDark,

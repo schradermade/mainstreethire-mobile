@@ -2,8 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ScreenWrapper from '../components/ScreenWrapper';
 import { spacing } from '../theme/theme';
-import ProfileActionButtons from '../components/ProfileSection/ProfileActionButtons';
-import UserProfileSummary from '../components/ProfileSection/UserProfileSummary';
+import ProfileActionButtons from '../components/ResumeSection/ProfileActionButtons';
+import UserProfileSummary from '../components/ResumeSection/UserProfileSummary';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
 

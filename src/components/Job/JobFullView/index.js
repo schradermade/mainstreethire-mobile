@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { spacing } from '../../../theme/theme';
 import ScreenWrapper from '../../ScreenWrapper';
-import SpottiActionButtons from './SpottiActionButtons';
-import SpottiOverview from './SpottiOverview';
-import SpottiDescription from './SpottiDescription';
+import JobActionButtons from './JobActionButtons';
+import JobOverview from './JobOverview';
+import JobDescription from './JobDescription';
 import Divider from '../../../ui/Divider';
 import ImageCarousel from '../../ImageCarousel';
 import InsightsButton from '../../InsightsButton';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import SlideUpModal from '../../SlideUpModal';
-import SpottiInsights from '../../SpottiInsights';
+import SpottiInsights from '../../JobInsights';
 
-const SpottiFullView = ({ route }) => {
+const JobFullView = ({ route }) => {
   const insets = useSafeAreaInsets();
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -32,7 +32,7 @@ const SpottiFullView = ({ route }) => {
   return (
     <ScreenWrapper>
       <View style={styles.actionButtonsContainer}>
-        <SpottiActionButtons />
+        <JobActionButtons />
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -40,7 +40,7 @@ const SpottiFullView = ({ route }) => {
       >
         <ImageCarousel images={images} isFullView />
         <View style={styles.sectionContainer}>
-          <SpottiOverview
+          <JobOverview
             name={name}
             rating={rating}
             category={category}
@@ -53,7 +53,7 @@ const SpottiFullView = ({ route }) => {
           <Divider />
         </View>
         <View style={styles.sectionContainer}>
-          <SpottiDescription description={description} />
+          <JobDescription description={description} />
         </View>
         <View style={styles.sectionContainer}></View>
       </ScrollView>
@@ -84,4 +84,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(SpottiFullView);
+export default React.memo(JobFullView);

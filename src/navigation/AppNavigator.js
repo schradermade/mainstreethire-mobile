@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react';
+import React, { Suspense } from 'react';
 import { Text, ActivityIndicator } from 'react-native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,21 +8,21 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Screens
 import CommunityScreen from '../screens/CommunityScreen';
 import NavigateScreen from '../screens/NavigateScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import SpottisScreen from '../screens/SpottisScreen';
+import ResumeScreen from '../screens/ResumeScreen';
+import JobsScreen from '../screens/JobsScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 
 // Components
-import SpottiFullView from '../components/Spotti/SpottiFullView';
-import SavedTrip from '../components/TripSection/SavedTrip';
+import JobFullView from '../components/Job/JobFullView';
+import SavedJob from '../components/ApplicationsSection/SavedJob';
 import EmailView from '../components/WelcomeSection/EmailView';
 import PasswordView from '../components/WelcomeSection/PasswordView';
 import UsersNameView from '../components/WelcomeSection/UsersNameView';
-import TripScreen from '../screens/TripScreen';
+import ApplicationsScreen from '../screens/ApplicationsScreen';
 
 // Constants
 import { BOTTOM_TAB_ICONS } from '../constants';
-import { colors, fonts } from '../theme/theme';
+import { colors, fonts, fontSize } from '../theme/theme';
 
 import { useSelector } from 'react-redux';
 
@@ -37,7 +37,7 @@ const linking = {
       Spottis: {
         screens: {
           SpottiScreen: '',
-          SpottiFullView: 'spotti/:id',
+          JobFullView: 'spotti/:id',
         },
       },
     },
@@ -51,7 +51,7 @@ function AppNavigator() {
     <NavigationContainer linking={linking}>
       <Stack.Navigator>
         {/* Main navigation flow */}
-        {isAuthenticated ? (
+        {true ? (
           <Stack.Screen
             name="Tabs"
             component={TabsNavigator}
@@ -64,15 +64,15 @@ function AppNavigator() {
             options={{ headerShown: false }}
           />
         )}
-        {/* SpottiFullStack - This stack is outside the TabNavigator */}
+        {/* JobFullStack - This stack is outside the TabNavigator */}
         <Stack.Screen
-          name="SpottiFullStack"
-          component={SpottiFullStack}
+          name="JobFullStack"
+          component={JobFullStack}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SavedTripStack"
-          component={SavedTripStack}
+          name="SavedApplicationsStack"
+          component={SavedApplicationsStack}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
@@ -83,7 +83,7 @@ function AppNavigator() {
 function TabsNavigator() {
   return (
     <Tab.Navigator
-      initialRouteName="Spottis"
+      initialRouteName="Jobs"
       screenOptions={({ route }) => ({
         lazy: true,
         tabBarIcon: ({ focused }) => (
@@ -107,8 +107,8 @@ function TabsNavigator() {
               color: focused
                 ? BOTTOM_TAB_ICONS[route.name].focusedColor
                 : BOTTOM_TAB_ICONS[route.name].unfocusedColor,
-              fontSize: 11,
-              fontFamily: fonts.semiBold,
+              fontSize: fontSize.small,
+              fontFamily: fonts.regular,
             }}
           >
             {route.name}
@@ -117,30 +117,30 @@ function TabsNavigator() {
       })}
     >
       <Tab.Screen
+        name="Jobs"
+        component={JobStack}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Applications"
+        component={ApplicationsStack}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Resume"
+        component={ResumeScreen}
+        options={{ headerShown: false }}
+      />
+      {/* <Tab.Screen
         name="Community"
         component={CommunityScreen}
         options={{ headerShown: false }}
-      />
-      <Tab.Screen
+      /> */}
+      {/* <Tab.Screen
         name="Navigate"
         component={NavigateScreen}
         options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="Spottis"
-        component={SpottiStack}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="Trips"
-        component={TripStack}
-        options={{ headerShown: false }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{ headerShown: false }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 }
@@ -179,14 +179,14 @@ function WelcomeStack() {
   );
 }
 
-// SpottiStack stays within the TabsNavigator
-function SpottiStack() {
+// JobStack stays within the TabsNavigator
+function JobStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
       <Stack.Navigator>
         <Stack.Screen
           name="SpottiScreen"
-          component={SpottisScreen}
+          component={JobsScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
@@ -194,14 +194,14 @@ function SpottiStack() {
   );
 }
 
-// SpottiFullStack - This stack handles deeper navigation without the tab bar
-function SpottiFullStack() {
+// JobFullStack - This stack handles deeper navigation without the tab bar
+function JobFullStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
       <Stack.Navigator>
         <Stack.Screen
-          name="SpottiFullView"
-          component={SpottiFullView}
+          name="JobFullView"
+          component={JobFullView}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
@@ -209,19 +209,19 @@ function SpottiFullStack() {
   );
 }
 
-function SavedTripStack() {
+function SavedApplicationsStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
       <Stack.Navigator>
         <Stack.Screen
-          name="SavedTrip"
-          component={SavedTrip}
+          name="SavedJob"
+          component={SavedJob}
           // initialParams={route.params}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SpottiFullView"
-          component={SpottiFullView}
+          name="JobFullView"
+          component={JobFullView}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
@@ -229,23 +229,23 @@ function SavedTripStack() {
   );
 }
 
-function TripStack() {
+function ApplicationsStack() {
   return (
     <Suspense fallback={<ActivityIndicator size="large" color="#0000ff" />}>
       <Stack.Navigator>
         <Stack.Screen
-          name="TripScreen"
-          component={TripScreen}
+          name="ApplicationsScreen"
+          component={ApplicationsScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SavedTrip"
-          component={SavedTrip}
+          name="SavedJob"
+          component={SavedJob}
           options={{ headerShown: false, tabBarStyle: { display: 'none' } }}
         />
         <Stack.Screen
-          name="SpottiFullView"
-          component={SpottiFullView}
+          name="JobFullView"
+          component={JobFullView}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
