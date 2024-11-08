@@ -52,18 +52,35 @@ export enum ICONS {
   downVote = 'arrow-down-bold-circle-outline',
   chatBubble = 'chat-processing-outline',
   loading = 'loading',
-  store = 'store',
+  mainStreetHireLogo = 'store',
+  carWash = 'car-wash',
+  gasStation = 'gas-station-outline',
+  coffeeShop = 'coffee-outline',
+  groceryStore = 'cart-variant',
+  bakery = 'chef-hat',
+  restaurant = 'food-steak',
+  fastFood = 'food-outline',
+  autoRepair = 'car-wrench',
+  laundryService = 'tumble-dryer',
+  petGrooming = 'dog',
+  fitnessCenter = 'weight-lifter',
+  daycareCenter = 'account-child-circle',
+  bookstore = 'bookshelf',
+  hardwareStore = 'hammer-wrench',
+  florist = 'flower-tulip-outline',
+  realEstateOffice = 'home-outline',
+  convenienceStore = 'storefront-outline',
+  landscaping = 'grass',
+  gardenCenter = 'tree-outline',
+  cleaningServices = 'broom',
+  nearby = 'map-marker-radius-outline',
+  medicalClinic = 'hospital-box-outline',
+  insuranceAgency = 'home-flood',
 }
-// Material Icons
-// hive
-// nightlife
-
-// Material Community Icons
-// filter-variant
 
 export const BOTTOM_TAB_ICONS = {
-  Spottis: {
-    name: ICONS.spottiLogo,
+  Jobs: {
+    name: ICONS.mainStreetHireLogo,
     size: 32,
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
@@ -96,141 +113,150 @@ export const BOTTOM_TAB_ICONS = {
 
 export enum Category {
   Nearby = 'Nearby',
-  Landmarks = 'Landmarks',
-  Historical = 'Historical',
-  Parks = 'Parks',
-  FamousStreets = 'Famous Streets',
-  Museums = 'Museums',
-  NaturalWonders = 'Natural Wonders',
-  Beaches = 'Beaches',
-  Entertainment = 'Entertainment',
-  Shopping = 'Shopping',
-  Dining = 'Dining',
-  Dessert = 'Dessert',
-  ScenicViews = 'Scenic Views',
-  Churches = 'Churches',
-  Monuments = 'Monuments',
-  NightLife = 'Night Life',
-  Aquariums = 'Aquariums',
-  GolfCourses = 'Golf Courses',
-  Zoos = 'Zoos',
-  Theaters = 'Theaters',
-  CoffeeShops = 'Coffee Shops',
-  SportsArenas = 'Sports Arenas',
+  CarWash = 'Car Wash',
+  GasStation = 'Gas Station',
+  CoffeeShop = 'Coffee Shop',
+  GroceryStore = 'Grocery Store',
+  Bakery = 'Bakery',
+  Restaurant = 'Restaurant',
+  FastFood = 'Fast Food',
+  AutoRepair = 'Auto Repair',
+  LaundryService = 'Laundry Service',
+  PetGrooming = 'Pet Grooming',
+  FitnessCenter = 'Fitness Center',
+  DaycareCenter = 'Daycare Center',
+  Bookstore = 'Bookstore',
+  HardwareStore = 'Hardware Store',
+  Florist = 'Florist',
+  RealEstateOffice = 'Real Estate Office',
+  ConvenienceStore = 'Convenience Store',
+  GardenCenter = 'Garden Center',
+  Landscaping = 'Landscaping',
+  CleaningServices = 'Cleaning Services',
+  MedicalClinic = 'Medical Clinic',
+  InsuranceAgency = 'Insurance Agency',
 }
 
 export const CATEGORY_LIST = [
   {
     title: Category.Nearby,
-    iconName: ICONS.spottiLogo,
+    iconName: ICONS.nearby,
   },
   {
-    title: Category.Landmarks,
-    iconName: ICONS.landmarks,
+    title: Category.CarWash,
+    iconName: ICONS.carWash,
   },
   {
-    title: Category.Historical,
-    iconName: ICONS.historical,
+    title: Category.GasStation,
+    iconName: ICONS.gasStation,
   },
   {
-    title: Category.Parks,
-    iconName: ICONS.parks,
+    title: Category.CoffeeShop,
+    iconName: ICONS.coffeeShop,
   },
   {
-    title: Category.FamousStreets,
-    iconName: ICONS.famousStreets,
+    title: Category.GroceryStore,
+    iconName: ICONS.groceryStore,
   },
   {
-    title: Category.Museums,
-    iconName: ICONS.museums,
+    title: Category.Bakery,
+    iconName: ICONS.bakery,
   },
   {
-    title: Category.NaturalWonders,
-    iconName: ICONS.naturalWonders,
+    title: Category.Restaurant,
+    iconName: ICONS.restaurant,
   },
   {
-    title: Category.Beaches,
-    iconName: ICONS.beaches,
+    title: Category.FastFood,
+    iconName: ICONS.fastFood,
   },
   {
-    title: Category.Entertainment,
-    iconName: ICONS.entertainment,
+    title: Category.AutoRepair,
+    iconName: ICONS.autoRepair,
     // drama-masks
   },
   {
-    title: Category.Shopping,
-    iconName: ICONS.shopping,
+    title: Category.LaundryService,
+    iconName: ICONS.laundryService,
   },
   {
-    title: Category.Dining,
-    iconName: ICONS.dining,
+    title: Category.PetGrooming,
+    iconName: ICONS.petGrooming,
   },
   {
-    title: Category.Dessert,
-    iconName: ICONS.dessert,
+    title: Category.FitnessCenter,
+    iconName: ICONS.fitnessCenter,
   },
   {
-    title: Category.ScenicViews,
-    iconName: ICONS.scenicViews,
+    title: Category.DaycareCenter,
+    iconName: ICONS.daycareCenter,
   },
   {
-    title: Category.Churches,
-    iconName: ICONS.church,
+    title: Category.Bookstore,
+    iconName: ICONS.bookstore,
   },
   {
-    title: Category.Monuments,
-    iconName: ICONS.monument,
+    title: Category.HardwareStore,
+    iconName: ICONS.hardwareStore,
   },
   {
-    title: Category.NightLife,
-    iconName: ICONS.nightLife,
+    title: Category.Florist,
+    iconName: ICONS.florist,
   },
   {
-    title: Category.Aquariums,
-    iconName: ICONS.aquarium,
+    title: Category.RealEstateOffice,
+    iconName: ICONS.realEstateOffice,
   },
   {
-    title: Category.GolfCourses,
-    iconName: ICONS.golf,
+    title: Category.ConvenienceStore,
+    iconName: ICONS.convenienceStore,
   },
   {
-    title: Category.Zoos,
-    iconName: ICONS.zoo,
+    title: Category.GardenCenter,
+    iconName: ICONS.gardenCenter,
   },
   {
-    title: Category.Theaters,
-    iconName: ICONS.theater,
+    title: Category.Landscaping,
+    iconName: ICONS.landscaping,
   },
   {
-    title: Category.CoffeeShops,
+    title: Category.CoffeeShop,
     iconName: ICONS.coffee,
   },
   {
-    title: Category.SportsArenas,
-    iconName: ICONS.basketball,
+    title: Category.CleaningServices,
+    iconName: ICONS.cleaningServices,
+  },
+  {
+    title: Category.MedicalClinic,
+    iconName: ICONS.medicalClinic,
+  },
+  {
+    title: Category.InsuranceAgency,
+    iconName: ICONS.insuranceAgency,
   },
 ];
 
 export const SAVED_TRIPS = [
   {
     title: 'Europe 2025',
-    iconName: ICONS.spottiLogo,
+    iconName: ICONS.mainStreetHireLogo,
   },
   {
     title: 'Sunriver Oct18',
-    iconName: ICONS.spottiLogo,
+    iconName: ICONS.mainStreetHireLogo,
   },
   {
     title: 'Stockholm',
-    iconName: ICONS.spottiLogo,
+    iconName: ICONS.mainStreetHireLogo,
   },
   {
     title: 'Santa Monica',
-    iconName: ICONS.spottiLogo,
+    iconName: ICONS.mainStreetHireLogo,
   },
   {
     title: 'Tampa',
-    iconName: ICONS.spottiLogo,
+    iconName: ICONS.mainStreetHireLogo,
   },
 ];
 
