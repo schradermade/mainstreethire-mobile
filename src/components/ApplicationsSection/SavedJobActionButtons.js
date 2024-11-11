@@ -7,7 +7,7 @@ import { ICONS } from '../../constants';
 import EditModalContents from './EditModalContents';
 import SlideUpModal from '../SlideUpModal';
 
-const SavedJobActionButtons = ({ tripName }) => {
+const SavedJobActionButtons = ({ jobName }) => {
   const navigation = useNavigation();
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -25,7 +25,7 @@ const SavedJobActionButtons = ({ tripName }) => {
       </View>
       {/* Centered title */}
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{tripName}</Text>
+        <Text style={styles.titleText}>{jobName}</Text>
       </View>
       {/* Right-side buttons */}
       <View style={styles.rightSideButtons}>
@@ -45,7 +45,7 @@ const SavedJobActionButtons = ({ tripName }) => {
         />
       </View>
       <SlideUpModal isVisible={isModalVisible} setVisible={setModalVisible}>
-        <EditModalContents tripName={tripName} />
+        <EditModalContents jobName={jobName} />
       </SlideUpModal>
     </View>
   );
