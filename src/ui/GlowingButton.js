@@ -13,7 +13,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import * as Haptics from 'expo-haptics';
 
-const InsightsButton = ({ buttonText, onPress }) => {
+const GlowingButton = ({ buttonText, onPress, icon }) => {
   const handleFilterPress = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
     onPress();
@@ -29,7 +29,7 @@ const InsightsButton = ({ buttonText, onPress }) => {
       <View style={styles.discussionBtnContainer}>
         <Text style={styles.discussionBtnText}>{buttonText}</Text>
         <MaterialCommunityIcons
-          name={'lightbulb-on-outline'}
+          name={icon}
           size={20}
           color={colors.offWhiteFont}
           style={{ marginLeft: spacing.xsmall }}
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InsightsButton;
+export default GlowingButton;
