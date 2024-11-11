@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import TagTile from './TagTile';
+import { spacing } from '../../theme/theme';
 
 const TagList = ({ tags }) => {
   return (
@@ -16,6 +17,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    marginBottom: -spacing.small,
   },
 });
 
