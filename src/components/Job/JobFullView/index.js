@@ -8,7 +8,7 @@ import JobOverview from './JobOverview';
 import JobDescription from './JobDescription';
 import Divider from '../../../ui/Divider';
 import ImageCarousel from '../../ImageCarousel';
-import InsightsButton from '../../InsightsButton';
+import GlowingButton from '../../../ui/GlowingButton';
 import SlideUpModal from '../../SlideUpModal';
 import SpottiInsights from '../../JobInsights';
 
@@ -58,7 +58,7 @@ const JobFullView = ({ route }) => {
         <View style={styles.sectionContainer}></View>
       </ScrollView>
       <View style={{ marginBottom: insets.bottom }}>
-        <InsightsButton
+        <GlowingButton
           buttonText={'Insights'}
           onPress={() => setIsModalVisible(true)}
         />
