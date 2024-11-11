@@ -15,7 +15,7 @@ import {
 } from '../../theme/theme';
 import { ICONS } from '../../constants';
 
-const SavedJobTile = ({ trip }) => {
+const SavedJobTile = ({ job }) => {
   const navigation = useNavigation();
 
   return (
@@ -23,11 +23,11 @@ const SavedJobTile = ({ trip }) => {
       <TouchableOpacity
         style={styles.container}
         activeOpacity={1}
-        key={trip.title}
+        key={job.title}
         onPress={() => {
           navigation.navigate('SavedApplicationsStack', {
             screen: 'SavedJob',
-            params: { trip },
+            params: { job },
           });
         }}
       >
@@ -39,7 +39,7 @@ const SavedJobTile = ({ trip }) => {
         </View>
         <View style={styles.cardInfoContainer}>
           <View>
-            <Text style={styles.titleText}>{trip.title}</Text>
+            <Text style={styles.titleText}>{job.title}</Text>
             <Text style={styles.titleSubText}>0 Spottis</Text>
           </View>
           <View>
