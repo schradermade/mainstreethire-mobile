@@ -11,8 +11,8 @@ const SavedJobs = () => {
         showsVerticalScrollIndicator={true}
         contentContainerStyle={styles.scrollViewContent}
       >
-        {SAVED_TRIPS.map((trip, index) => (
-          <SavedJobTile key={index} trip={trip} />
+        {SAVED_TRIPS.map((job, index) => (
+          <SavedJobTile key={index} job={job} />
         ))}
       </ScrollView>
     </>
