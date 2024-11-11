@@ -13,7 +13,7 @@ import SpottiMiniTile from '../Job/JobMiniTile';
 import WhenCard from './InfoCards/WhenCard';
 
 const SavedJob = ({ route }) => {
-  const { trip } = route.params;
+  const { job } = route.params;
 
   const [loading, setLoading] = useState(true);
   const [spottis, setSpottis] = useState();
@@ -34,7 +34,7 @@ const SavedJob = ({ route }) => {
       }}
     >
       <View style={styles.container}>
-        <SavedJobActionButtons tripName={trip.title} />
+        <SavedJobActionButtons jobName={job.title} />
         <View style={styles.expandTileGroupContainer}>
           <ExpandTileGroup isExpanded={handleExpand}>
             <WhenCard />
@@ -72,4 +72,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
 });
+
 export default SavedJob;
