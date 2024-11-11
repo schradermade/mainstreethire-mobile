@@ -9,8 +9,8 @@ import {
 import { borderWidth, colors, fontSize, spacing } from '../../theme/theme';
 import TextInputBox from '../../ui/TextInputBox';
 
-const EditModalContents = ({ tripName }) => {
-  const [newTripName, setNewTripName] = useState('');
+const EditModalContents = ({ jobName }) => {
+  const [newJobName, setNewJobName] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
   return (
@@ -18,9 +18,9 @@ const EditModalContents = ({ tripName }) => {
       <View style={styles.container}>
         <Text style={styles.editTripText}>Edit trip</Text>
         <TextInputBox
-          value={newTripName}
-          onChangeText={setNewTripName}
-          placeholder={tripName}
+          value={newJobName}
+          onChangeText={setNewJobName}
+          placeholder={jobName}
           placeholderTextColor={colors.placeholderText}
           returnKeyType="done"
           onFocus={() => setIsFocused(true)}
