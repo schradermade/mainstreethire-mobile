@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { colors, spacing, fonts, fontSize } from '../../../theme/theme';
 import ExpandingTile from '../../ExpandTileGroup/ExpandingTile';
 import TextInputBox from '../../../ui/TextInputBox';
-import { DEV_FRIENDS } from '../../../constants';
+import { USERS } from '../../../development-entities';
 import UsersList from './UsersList';
 
 const ExpandedContent = () => {
@@ -32,7 +32,7 @@ const ExpandedContent = () => {
         </Text>
       </View>
       <View style={styles.locationListContainer}>
-        <UsersList list={DEV_FRIENDS} />
+        <UsersList list={USERS} />
       </View>
     </View>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import SavedJobTile from './SavedJobTile';
-import { SAVED_TRIPS } from '../../constants';
+import { SAVED_TRIPS } from '../../development-entities';
 import { ScrollView, StyleSheet } from 'react-native';
 import { spacing } from '../../theme/theme';
 

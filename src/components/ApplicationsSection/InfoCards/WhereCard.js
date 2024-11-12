@@ -4,7 +4,7 @@ import { colors, spacing, fonts, fontSize } from '../../../theme/theme';
 import ExpandingTile from '../../ExpandTileGroup/ExpandingTile';
 import TextInputBox from '../../../ui/TextInputBox';
 import LocationsList from './LocationsList';
-import { DEV_LOCATIONS } from '../../../constants';
+import { LOCATIONS } from '../../../development-entities';
 
 const ExpandedContent = () => {
   const [location, setLocation] = useState('');
@@ -30,7 +30,7 @@ const ExpandedContent = () => {
         />
         <Text style={styles.savedLocationsText}>Saved to this trip</Text>
       </View>
-      <LocationsList listOfLocations={DEV_LOCATIONS} />
+      <LocationsList listOfLocations={LOCATIONS} />
     </View>
   );
 };
