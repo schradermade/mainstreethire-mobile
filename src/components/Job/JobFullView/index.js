@@ -8,7 +8,7 @@ import JobOverview from './JobOverview';
 import JobDescription from './JobDescription';
 import Divider from '../../../ui/Divider';
 import ImageCarousel from '../../ImageCarousel';
-import GlowingButton from '../../../ui/GlowingButton';
+import GlowingButton from '../../../ui/ActionButton';
 import SlideUpModal from '../../SlideUpModal';
 import SpottiInsights from '../../JobInsights';
 
