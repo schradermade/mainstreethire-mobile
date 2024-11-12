@@ -6,17 +6,24 @@ import {
   Modal,
   Dimensions,
   Easing,
+  Text,
 } from 'react-native';
 import { borderRadius, colors, spacing, shadowRadius } from '../theme/theme';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Divider from '../ui/Divider';
 
 const { height } = Dimensions.get('window');
 const MIN_TRANSLATE_Y = 0; // Modal should not go above this (100px below the top)
 
-const SlideUpModal = ({ isVisible, setVisible, children }) => {
-  const translateY = useState(new Animated.Value(height))[0]; // Initialize translateY
-  const lastGestureY = useState(new Animated.Value(0))[0]; // To track the last gesture Y position
+const SlideUpModal = ({
+  isVisible,
+  setVisible,
+  children,
+  modalHeader = () => {},
+}) => {
+  const translateY = useState(new Animated.Value(height))[0];
+  const overlayOpacity = useState(new Animated.Value(0))[0];
 
   useEffect(() => {
     if (isVisible) {
@@ -25,12 +32,15 @@ const SlideUpModal = ({ isVisible, setVisible, children }) => {
   }, [isVisible]);
 
   const openModal = () => {
-    // Reset translateY and lastGestureY when the modal opens
-    lastGestureY.setValue(0);
-    translateY.setValue(height);
+    overlayOpacity.setValue(0);
+    Animated.timing(overlayOpacity, {
+      toValue: 0.95, // Set to desired background opacity level (e.g., 0.5 for 50%)
+      duration: 400,
+      useNativeDriver: true,
+    }).start();
 
     Animated.timing(translateY, {
-      toValue: MIN_TRANSLATE_Y, // Bring it up to 100px below the top
+      toValue: MIN_TRANSLATE_Y,
       duration: 400,
       easing: Easing.out(Easing.ease),
       useNativeDriver: true,
@@ -38,18 +48,23 @@ const SlideUpModal = ({ isVisible, setVisible, children }) => {
   };
 
   const closeModal = () => {
+    Animated.timing(overlayOpacity, {
+      toValue: 0, // Fade out the background
+      duration: 200,
+      useNativeDriver: true,
+    }).start();
+
     Animated.timing(translateY, {
-      toValue: height, // Slide back down to the bottom
+      toValue: height,
       duration: 200,
       easing: Easing.in(Easing.ease),
       useNativeDriver: true,
     }).start(() => {
       setVisible(false);
-      translateY.setValue(height); // Reset position after close
+      translateY.setValue(height);
     });
   };
 
-  // Add this update to allow the modal to follow the finger's drag
   const onGestureEvent = Animated.event(
     [{ nativeEvent: { translationY: translateY } }],
     { useNativeDriver: true }
@@ -57,16 +72,15 @@ const SlideUpModal = ({ isVisible, setVisible, children }) => {
 
   const onHandlerStateChange = ({ nativeEvent }) => {
     if (nativeEvent.state === State.END) {
-      const dragThreshold = 100; // Distance needed to trigger closing
+      const dragThreshold = 100;
       const newTranslateY =
-        nativeEvent.translationY + nativeEvent.velocityY * 0.1; // Factor in velocity
+        nativeEvent.translationY + nativeEvent.velocityY * 0.1;
 
       if (newTranslateY > dragThreshold) {
-        closeModal(); // Close modal if pulled down enough
+        closeModal();
       } else {
-        // Ensure the modal stays at least 100px below the top
         Animated.spring(translateY, {
-          toValue: MIN_TRANSLATE_Y, // Snap back to 100px from the top
+          toValue: MIN_TRANSLATE_Y,
           useNativeDriver: true,
         }).start();
       }
@@ -80,6 +94,14 @@ const SlideUpModal = ({ isVisible, setVisible, children }) => {
       animationType="none"
       onRequestClose={closeModal}
     >
+      {/* Separate overlay for background opacity */}
+      <Animated.View
+        style={[
+          StyleSheet.absoluteFillObject,
+          { backgroundColor: colors.lightGray, opacity: overlayOpacity },
+        ]}
+      />
+
       <View style={styles.modalBackground}>
         <TouchableOpacity
           style={StyleSheet.absoluteFillObject}
@@ -99,7 +121,7 @@ const SlideUpModal = ({ isVisible, setVisible, children }) => {
                     translateY: translateY.interpolate({
                       inputRange: [0, height],
                       outputRange: [0, height],
-                      extrapolate: 'clamp', // Prevent modal from going above the top
+                      extrapolate: 'clamp',
                     }),
                   },
                 ],
@@ -107,6 +129,8 @@ const SlideUpModal = ({ isVisible, setVisible, children }) => {
             ]}
           >
             <View style={styles.modalHandle} />
+            <View style={styles.modalHeaderContainer}>{modalHeader()}</View>
+            <Divider />
             {children}
           </Animated.View>
         </PanGestureHandler>
@@ -121,10 +145,12 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContainer: {
+    paddingHorizontal: spacing.medium,
+
     height: height - 100,
     borderTopLeftRadius: borderRadius.xxlarge,
     borderTopRightRadius: borderRadius.xxlarge,
-    backgroundColor: colors.primaryColor,
+    backgroundColor: colors.darkGray,
     shadowColor: colors.shadowEffectBlack,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.35,
@@ -137,6 +163,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.borderColorDark,
     alignSelf: 'center',
     marginTop: spacing.medium,
+  },
+  modalHeaderContainer: {
+    paddingVertical: spacing.xsmall,
   },
 });
 
