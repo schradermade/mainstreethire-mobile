@@ -5,6 +5,7 @@ import { CATEGORY_LIST } from '../../../constants';
 import CategoryTile from './CategoryTile';
 import { spacing, colors } from '../../../theme/theme';
 import * as Haptics from 'expo-haptics';
+import { v4 as uuidv4 } from 'uuid';
 
 const { width: windowWidth } = Dimensions.get('window');
 
@@ -69,7 +70,7 @@ const CategoryList = () => {
       <FlatList
         ref={flatListRef}
         data={CATEGORY_LIST}
-        keyExtractor={(category) => category.title}
+        keyExtractor={() => uuidv4()}
         renderItem={({ item, index }) => {
           const isSelected = item.title === selectedCategory;
           return (
