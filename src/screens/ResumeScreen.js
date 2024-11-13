@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import ScreenWrapper from '../components/ScreenWrapper';
-import { spacing } from '../theme/theme';
-import ProfileActionButtons from '../components/ResumeSection/ProfileActionButtons';
-import UserProfileSummary from '../components/ResumeSection/UserProfileSummary';
+import { borderRadius, colors, spacing } from '../theme/theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import ActionButton from '../ui/ActionButton';
+import { ICONS } from '../constants';
+import { shadowRadius } from '../theme/theme';
+import Resume from '../components/ResumeSection/Resume';
+import ResumeBuilderModal from '../components/ResumeSection/ResumeBuilderFlow';
+import { RESUME_DATA } from '../development-entities';
 
-const ProfileScreen = () => {
+const ResumeScreen = () => {
+  const tabBarHeight = useBottomTabBarHeight();
+  const [isModalVisible, setModalVisible] = useState(false);
+
   const insets = useSafeAreaInsets();
   const { firstName, lastName } = useSelector((state) => state.user);
 
   return (
-    <ScreenWrapper screenStyles={{ paddingTop: insets.top }}>
+    <ScreenWrapper
+      screenStyles={{ paddingTop: insets.top, justifyContent: 'space-between' }}
+    >
       <View style={styles.container}>
-        <ProfileActionButtons />
-        <UserProfileSummary firstName={firstName} lastName={lastName} />
+        <Resume data={RESUME_DATA} />
+        <ResumeBuilderModal
+          isModalVisible={isModalVisible}
+          setModalVisible={setModalVisible}
+        />
+      </View>
+      <View style={styles.builderButtonContainer}>
+        <ActionButton
+          onPress={() => setModalVisible(true)}
+          buttonText={'Resume Builder'}
+          rightIcon={ICONS.wrench}
+        />
       </View>
     </ScreenWrapper>
   );
@@ -23,9 +43,21 @@ const ProfileScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: spacing.large,
-    marginHorizontal: spacing.xxlarge,
+    marginHorizontal: spacing.large,
+    borderWidth: 0.25,
+    borderColor: colors.darkGray,
+    borderRadius: borderRadius.medium,
+    flex: 1,
+    backgroundColor: '#041112',
+    shadowColor: colors.shadowEffectBlack,
+    shadowOffset: { width: -0.75, height: 0.75 },
+    shadowOpacity: 0.3,
+    shadowRadius: shadowRadius.small,
+  },
+  builderButtonContainer: {
+    alignItems: 'center',
+    paddingVertical: spacing.large,
   },
 });
 
-export default ProfileScreen;
+export default ResumeScreen;
