@@ -18,7 +18,8 @@ export const colors = {
   shadowEffectBlack: '#000000',
   lightGray: '#b7b7b7',
   mediumGray: '#575757',
-  darkGray: '#272727',
+  darkGray: '#1a1a1a',
+  linkBlue: '#4793FF',
 } as const;
 
 export const fontSize = {
@@ -28,7 +29,7 @@ export const fontSize = {
   large: 18,
   xlarge: 24,
   xxlarge: 28,
-  xxxlarge: 48,
+  xxxlarge: 32,
 } as const;
 
 export const spacing = {
