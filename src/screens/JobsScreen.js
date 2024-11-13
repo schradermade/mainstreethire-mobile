@@ -21,8 +21,6 @@ const JobScreen = () => {
     error,
   } = useSelector((state) => state.spotti);
 
-  console.log('SPOTTIS_IN_SLICE!!:', JSON.stringify(spottis, null, 2));
-
   useEffect(() => {
     dispatch(fetchSpottis({ limit: 20, offset: 0 }));
   }, [dispatch]);
