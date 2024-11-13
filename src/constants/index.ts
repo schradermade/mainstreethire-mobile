@@ -78,6 +78,17 @@ export enum ICONS {
   insuranceAgency = 'home-flood',
   applied = 'briefcase-check-outline',
   applications = 'file-document-multiple-outline',
+  twinkleStar = 'star-four-points-outline',
+  accountDetails = 'account-details-outline',
+  checkMarkOutlined = 'checkbox-marked-circle-outline',
+  plus = 'plus',
+  timelineAlert = 'timeline-alert-outline',
+  timelineCheck = 'timeline-check-outline',
+  timelineEmpty = 'timeline-outline',
+  list = 'format-list-bulleted',
+  commentAccount = 'comment-account-outline',
+  lightBulbOn = 'lightbulb-on-outline',
+  wrench = 'progress-wrench',
 }
 
 export const BOTTOM_TAB_ICONS = {
@@ -101,7 +112,7 @@ export const BOTTOM_TAB_ICONS = {
   },
   Applications: {
     name: ICONS.applications,
-    size: 24,
+    size: 20,
     focusedColor: colors.spottiDark,
     unfocusedColor: colors.darkFont,
   },
@@ -239,127 +250,6 @@ export const CATEGORY_LIST = [
   },
 ];
 
-export const SAVED_TRIPS = [
-  {
-    title: 'Europe 2025',
-    iconName: ICONS.mainStreetHireLogo,
-  },
-  {
-    title: 'Sunriver Oct18',
-    iconName: ICONS.mainStreetHireLogo,
-  },
-  {
-    title: 'Stockholm',
-    iconName: ICONS.mainStreetHireLogo,
-  },
-  {
-    title: 'Santa Monica',
-    iconName: ICONS.mainStreetHireLogo,
-  },
-  {
-    title: 'Tampa',
-    iconName: ICONS.mainStreetHireLogo,
-  },
-];
-
-export const DEV_LOCATIONS = [
-  {
-    id: 1,
-    name: 'Germany',
-  },
-  {
-    id: 2,
-    name: 'Spain',
-  },
-  {
-    id: 3,
-    name: 'France',
-  },
-  {
-    id: 4,
-    name: 'Greece',
-  },
-  {
-    id: 5,
-    name: 'Italy',
-  },
-  {
-    id: 6,
-    name: 'Sweden',
-  },
-  {
-    id: 7,
-    name: 'Finland',
-  },
-  {
-    id: 8,
-    name: 'Austria',
-  },
-  {
-    id: 9,
-    name: 'Croatia',
-  },
-  {
-    id: 10,
-    name: 'Denmark',
-  },
-  {
-    id: 11,
-    name: 'Ireland',
-  },
-  {
-    id: 12,
-    name: 'Australia',
-  },
-  {
-    id: 13,
-    name: 'Japan',
-  },
-  {
-    id: 14,
-    name: 'Iceland',
-  },
-  {
-    id: 15,
-    name: 'Canada',
-  },
-  {
-    id: 16,
-    name: 'Mexico',
-  },
-  {
-    id: 17,
-    name: 'South Korea',
-  },
-  {
-    id: 18,
-    name: 'United Kingdom',
-  },
-];
-
-export const DEV_FRIENDS = [
-  {
-    id: 1,
-    name: '@alexaaaxo',
-  },
-  {
-    id: 2,
-    name: '@christianJay',
-  },
-  {
-    id: 3,
-    name: '@travelJunkie2024',
-  },
-  {
-    id: 4,
-    name: '@oregonPlayer13',
-  },
-  {
-    id: 5,
-    name: '@user1235',
-  },
-];
-
 export const MAINSTREETHIRE_NAME = 'Main Street Hire';
 export const MAINSTREETHIRE_SLOGAN = 'Local jobs.';
 
@@ -374,66 +264,3 @@ export const MAINSTREETHIRE_SLOGAN = 'Local jobs.';
 // 9. Experience like a local
 // 11. Travel like a local
 // 12. Travel local
-
-export const DEV_THREADS = [
-  {
-    id: 1,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
-  },
-  {
-    id: 2,
-    author: 'alexaaaxo',
-    authorProfilePic: 'alexa-headshot.png',
-    body: 'Go early to avoid crowds. Pre-book tickets online for faster entry. For a magical experience, catch the nightly light show and enjoy views from the Champ de Mars.',
-  },
-  {
-    id: 3,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: 'Take the stairs for a less crowded experience and unique views. Avoid peak hours in the afternoon. Explore nearby Seine River cruises for a scenic way to see the Eiffel Tower.',
-  },
-  {
-    id: 4,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: 'Visit the Eiffel Tower at night for fewer crowds and a beautifully lit view. Bring binoculars for better sightseeing from the top, and explore nearby cafés for a true Parisian vibe.',
-  },
-  {
-    id: 5,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
-  },
-  {
-    id: 6,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
-  },
-  {
-    id: 7,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
-  },
-  {
-    id: 8,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
-  },
-  {
-    id: 9,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
-  },
-  {
-    id: 10,
-    author: 'christianJay12',
-    authorProfilePic: 'christian-headshot.png',
-    body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
-  },
-];
