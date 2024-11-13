@@ -5,7 +5,7 @@ import ActionButton from '../../../ui/ActionButton';
 import { ICONS } from '../../../constants';
 import SlideUpModal from '../../SlideUpModal';
 
-const ResumeBuilder = ({ isModalVisible, setModalVisible }) => {
+const ResumeBuilderModal = ({ isModalVisible, setModalVisible }) => {
   const renderModalHeader = () => (
     <Text style={styles.headerText}>
       Resume Builder
@@ -174,4 +174,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResumeBuilder;
+export default ResumeBuilderModal;
