@@ -216,3 +216,65 @@ export const THREADS = [
     body: "Standing 1,083 feet tall, it's Paris’ iconic landmark. For the best experience, arrive early to avoid crowds, and book tickets online to skip long lines. Don’t miss the breathtaking views from the top – you can see all of Paris! Afterward, enjoy a picnic at Champ de Mars or explore nearby Seine River cruises. Don’t forget to visit the Tower at night when it lights up for a magical experience!",
   },
 ];
+
+export const CANDIDATE_SKILLS = [
+  'Customer Service',
+  'Communication',
+  'Reliable',
+  'Cashier',
+  'Social Media Management',
+  'Forklift',
+  'Cash Handling',
+  'Inventory Management',
+];
+
+export const RESUME_DATA = {
+  firstName: 'Christian',
+  lastName: 'Schrader',
+  phoneNumber: '503-307-0080',
+  location: 'Portland, Or',
+  summary:
+    'Results-driven software engineer with 5+ years of experience in full-stack development, specializing in React and Node.js. Skilled in building scalable applications and enhancing user experiences. Strong problem-solver with a focus on efficient solutions and collaborative teamwork. Passionate about leveraging technology to deliver impactful results.',
+  candidateSkills: [
+    'Customer Service',
+    'Communication',
+    'Reliable',
+    'Cashier',
+    'Social Media Management',
+    'Forklift',
+    'Cash Handling',
+    'Inventory Management',
+  ],
+  experienceItems: [
+    {
+      name: 'ABC Carwash',
+      location: 'Sunriver, Or',
+      dateRange: '9/2020 - 2/2021',
+      position: 'Car Wash Manager',
+    },
+    {
+      name: 'Arco Gas',
+      location: 'Tigard, Or',
+      dateRange: '4/2021 - 10/2021',
+      position: 'Gas Attendant',
+    },
+    {
+      name: 'Safeway',
+      location: 'Tigard, Or',
+      dateRange: '11/2021 - 12/2023',
+      position: 'Cashier',
+    },
+    {
+      name: 'Janes Deli',
+      location: 'Beaverton, Or',
+      dateRange: '12/2023 - 2/2024',
+      position: 'Frontend Manager',
+    },
+    {
+      name: 'Mikes Auto Repair',
+      location: 'Beaverton, Or',
+      dateRange: '2/2024 - Present',
+      position: 'Shop hand',
+    },
+  ],
+};
